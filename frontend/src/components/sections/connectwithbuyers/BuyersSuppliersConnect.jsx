@@ -2,9 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowLeftRight, Globe2 } from "lucide-react";
 
-import BuyersAvForm from "./BuyersAvForm";
-import SuppliersAvForm from "./SuppliersAvForm";
-
+// import BuyersAvForm from "./BuyersAvForm";
+// import SuppliersAvForm from "./SuppliersAvForm";
+import BuyersAvForm from "./buyersAvForm";
+import SuppliersAvForm from "./suppliersAvForm";
 export default function BuyersSuppliersConnect() {
   return (
     <section
