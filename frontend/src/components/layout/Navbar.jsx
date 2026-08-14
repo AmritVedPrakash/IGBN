@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { UserPlus, User, Menu, X } from "lucide-react";
+import { UserPlus, User, Menu, X, ChevronRight } from "lucide-react";
+
+import { Link } from "react-router-dom";
 
 import logo from "../../assets/logo.png";
 
@@ -13,7 +15,7 @@ export default function Navbar() {
     { name: "Services", href: "/services" },
     { name: "Market Analyses", href: "/market-analyses" },
     { name: "Reports", href: "/reports" },
-    { name: "Contact Us", href: "/co" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -47,14 +49,14 @@ export default function Navbar() {
           justify-between
         "
       >
-        {/* Logo */}
+        {/* ================= LOGO ================= */}
         <motion.a href="/" whileHover={{ scale: 1.03 }} className="shrink-0">
           <img
             src={logo}
             alt="IGBN Worldwide"
             className="
-              w-[50px]
-              sm:w-[150px]
+              w-[110px]
+              sm:w-[140px]
               lg:w-[150px]
               h-auto
               object-contain
@@ -62,93 +64,135 @@ export default function Navbar() {
           />
         </motion.a>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+        {/* ================= DESKTOP NAVIGATION ================= */}
+        <nav className="hidden lg:flex items-center gap-9 xl:gap-11">
           {navLinks.map((link) => (
             <NavItem key={link.name} {...link} />
           ))}
         </nav>
 
-        {/* Desktop Buttons */}
-        <div className="hidden lg:flex items-center gap-3">
-          <motion.a
-            href="/register"
-            whileHover={{ y: -2, scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            className="
-              h-[44px]
-              px-6
-              rounded-md
-              bg-[#dfa62f]
-              hover:bg-[#edb43a]
-              text-[#13203d]
-              text-[13px]
-              font-medium
-              flex
-              items-center
-              gap-2
-              shadow-[0_5px_15px_rgba(223,166,47,0.20)]
-              transition-colors
-              duration-300
-            "
+        {/* ================= DESKTOP BUTTONS ================= */}
+        <div className="hidden lg:flex items-center gap-8">
+          {/* Create Account */}
+          <motion.div
+            whileHover={{
+              y: -2,
+              scale: 1.02,
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
           >
-            <UserPlus size={17} />
-            Create Account
-          </motion.a>
+            <Link
+              to="/create-account"
+              className="
+                h-[48px]
+                px-7
+                rounded-lg
+                bg-[#dfa62f]
+                hover:bg-[#d39a20]
+                text-[#13203d]
+                text-[15px]
+                font-semibold
+                flex
+                items-center
+                justify-center
+                gap-2.5
+                shadow-[0_5px_15px_rgba(223,166,47,0.18)]
+                transition-all
+                duration-300
+              "
+            >
+              <UserPlus size={20} strokeWidth={2.2} />
 
-          <motion.a
-            href="/login"
-            whileHover={{ y: -2, scale: 1.02 }}
-            whileTap={{ scale: 0.97 }}
-            className="
-              h-[44px]
-              px-6
-              rounded-md
-              bg-[#071a3a]
-              hover:bg-[#0d2855]
-              text-white
-              text-[13px]
-              font-medium
-              flex
-              items-center
-              gap-2
-              shadow-[0_5px_15px_rgba(7,26,58,0.20)]
-              transition-colors
-              duration-300
-            "
+              <span>Create Account</span>
+            </Link>
+          </motion.div>
+
+          {/* Login */}
+          <motion.div
+            whileHover={{
+              y: -2,
+              scale: 1.02,
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
           >
-            <User size={17} />
-            Login
-          </motion.a>
+            <Link
+              to="/login"
+              className="
+                h-[48px]
+                px-7
+                rounded-lg
+                bg-[#071a3a]
+                hover:bg-[#0d2855]
+                text-white
+                text-[15px]
+                font-semibold
+                flex
+                items-center
+                justify-center
+                gap-2.5
+                shadow-[0_5px_15px_rgba(7,26,58,0.22)]
+                transition-all
+                duration-300
+              "
+            >
+              <User size={20} strokeWidth={2.2} />
+
+              <span>Login</span>
+            </Link>
+          </motion.div>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
+        {/* ================= MOBILE MENU BUTTON ================= */}
+        <motion.button
+          whileTap={{ scale: 0.92 }}
           onClick={() => setMenuOpen(!menuOpen)}
           className="
             lg:hidden
-            w-10
-            h-10
+            w-11
+            h-11
             rounded-lg
             bg-[#071a3a]
+            hover:bg-[#0d2855]
             text-white
             flex
             items-center
             justify-center
+            shadow-[0_5px_15px_rgba(7,26,58,0.20)]
+            transition-colors
           "
+          aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={21} /> : <Menu size={22} />}
-        </button>
+          {menuOpen ? (
+            <X size={24} strokeWidth={2.2} />
+          ) : (
+            <Menu size={25} strokeWidth={2.2} />
+          )}
+        </motion.button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ================= MOBILE MENU ================= */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{
+              opacity: 0,
+              height: 0,
+            }}
+            animate={{
+              opacity: 1,
+              height: "auto",
+            }}
+            exit={{
+              opacity: 0,
+              height: 0,
+            }}
+            transition={{
+              duration: 0.3,
+            }}
             className="
               lg:hidden
               overflow-hidden
@@ -158,6 +202,7 @@ export default function Navbar() {
             "
           >
             <div className="px-5 py-5">
+              {/* Mobile Links */}
               <div className="flex flex-col">
                 {navLinks.map((link) => (
                   <MobileLink
@@ -170,43 +215,55 @@ export default function Navbar() {
 
               {/* Mobile Buttons */}
               <div className="grid grid-cols-2 gap-3 mt-5">
-                <a
-                  href="/register"
+                {/* Create Account */}
+                <Link
+                  to="/create-account"
+                  onClick={() => setMenuOpen(false)}
                   className="
-                    py-3
-                    rounded-md
+                    py-3.5
+                    px-3
+                    rounded-lg
                     bg-[#dfa62f]
+                    hover:bg-[#d39a20]
                     text-[#12203d]
-                    text-[12px]
-                    font-medium
+                    text-[14px]
+                    font-semibold
                     flex
                     items-center
                     justify-center
                     gap-2
+                    transition-colors
                   "
                 >
-                  <UserPlus size={16} />
-                  Create Account
-                </a>
+                  <UserPlus size={18} strokeWidth={2.2} />
 
-                <a
-                  href="/login"
+                  <span>Create Account</span>
+                </Link>
+
+                {/* Login */}
+                <Link
+                  to="/login"
+                  onClick={() => setMenuOpen(false)}
                   className="
-                    py-3
-                    rounded-md
+                    py-3.5
+                    px-3
+                    rounded-lg
                     bg-[#071a3a]
+                    hover:bg-[#0d2855]
                     text-white
-                    text-[12px]
-                    font-medium
+                    text-[14px]
+                    font-semibold
                     flex
                     items-center
                     justify-center
                     gap-2
+                    transition-colors
                   "
                 >
-                  <User size={16} />
-                  Login
-                </a>
+                  <User size={18} strokeWidth={2.2} />
+
+                  <span>Login</span>
+                </Link>
               </div>
             </div>
           </motion.div>
@@ -216,20 +273,21 @@ export default function Navbar() {
   );
 }
 
-/* =========================
-   Helper: is this link the current page?
-   Uses window.location.pathname since links are plain <a> tags here.
-   If you're using react-router's <Link>, swap this for useLocation().
-========================= */
+/* =====================================================
+   Helper: Current Active Link
+===================================================== */
 
 function useIsActive(href) {
-  if (typeof window === "undefined") return false;
+  if (typeof window === "undefined") {
+    return false;
+  }
+
   return window.location.pathname === href;
 }
 
-/* =========================
-   Desktop Nav Link
-========================= */
+/* =====================================================
+   Desktop Navigation Link
+===================================================== */
 
 function NavItem({ name, href }) {
   const isActive = useIsActive(href);
@@ -241,16 +299,21 @@ function NavItem({ name, href }) {
       className={`
         relative
         py-8
-        text-[14px]
-        font-medium
+        text-[16px]
+        xl:text-[17px]
+        font-semibold
+        tracking-[0.1px]
         transition-colors
         duration-300
         group
+        whitespace-nowrap
+
         ${isActive ? "text-[#d19b29]" : "text-[#191919] hover:text-[#d19b29]"}
       `}
     >
       {name}
 
+      {/* Active underline */}
       <span
         className={`
           absolute
@@ -258,10 +321,12 @@ function NavItem({ name, href }) {
           bottom-[17px]
           w-full
           h-[2px]
+          rounded-full
           bg-[#d5a02b]
           origin-center
           transition-transform
           duration-300
+
           ${isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"}
         `}
       />
@@ -269,27 +334,40 @@ function NavItem({ name, href }) {
   );
 }
 
-/* =========================
-   Mobile Nav Link
-========================= */
+/* =====================================================
+   Mobile Navigation Link
+===================================================== */
 
 function MobileLink({ title, href }) {
   const isActive = useIsActive(href);
 
   return (
-    <a
+    <motion.a
       href={href}
+      whileTap={{ x: 4 }}
       className={`
         py-4
         border-b
         border-[#eeeeee]
-        text-[14px]
-        font-medium
+        text-[16px]
+        font-semibold
+        flex
+        items-center
+        justify-between
         transition-colors
+
         ${isActive ? "text-[#d29c2e]" : "text-[#222] hover:text-[#d29c2e]"}
       `}
     >
-      {title}
-    </a>
+      <span>{title}</span>
+
+      <ChevronRight
+        size={18}
+        strokeWidth={2}
+        className="
+          text-[#b6b6b6]
+        "
+      />
+    </motion.a>
   );
 }

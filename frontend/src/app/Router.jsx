@@ -8,25 +8,28 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Services from "../pages/Services";
 import ServiceDetail from "../pages/ServiceDetail";
-import Industries from "../pages/Industries";
-import IndustryDetail from "../pages/IndustryDetail";
-import CaseStudies from "../pages/CaseStudies";
-import CaseStudyDetail from "../pages/CaseStudyDetail";
+import MarketAnalyses from "../pages/MarketAnalyses";
+
 import Portfolio from "../pages/Portfolio";
-import Clients from "../pages/Clients";
+
 import Testimonials from "../pages/Testimonials";
 import Process from "../pages/Process";
-import Engagement from "../pages/Engagement";
-import Blog from "../pages/Blog";
-import BlogDetail from "../pages/BlogDetail";
-import Careers from "../pages/Careers";
+
 import Contact from "../pages/Contact";
+
+import CreateAccount from "../pages/CreateAccount/CreateAccount";
+import BusinessType from "../pages/CreateAccount/BusinessType";
+import BasicDetails from "../pages/CreateAccount/BesicDetails";
+import IndustryBuyer from "../pages/CreateAccount/IndustryBuyer";
+import ProductListing from "../pages/CreateAccount/ProductListing";
+import Plans from "../pages/CreateAccount/Plans";
+import Success from "../pages/CreateAccount/Success";
 
 import Privacy from "../pages/legal/Privacy";
 import Terms from "../pages/legal/Terms";
 import Refund from "../pages/legal/Refund";
 import Cookie from "../pages/legal/Cookie";
-import Founder from "../pages/Founder";
+
 import OurTeam from "../components/sections/OurTeam";
 
 export default function Router() {
@@ -72,37 +75,10 @@ export default function Router() {
         />
 
         <Route
-          path="/industries"
+          path="/market-analyses"
           element={
             <PageTransition>
-              <Industries />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/industries/:slug"
-          element={
-            <PageTransition>
-              <IndustryDetail />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/case-studies"
-          element={
-            <PageTransition>
-              <CaseStudies />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/case-studies/:slug"
-          element={
-            <PageTransition>
-              <CaseStudyDetail />
+              <MarketAnalyses />
             </PageTransition>
           }
         />
@@ -116,14 +92,14 @@ export default function Router() {
           }
         />
 
-        <Route
+        {/* <Route
           path="/clients"
           element={
             <PageTransition>
               <Clients />
             </PageTransition>
           }
-        />
+        /> */}
 
         <Route
           path="/testimonials"
@@ -144,41 +120,6 @@ export default function Router() {
         />
 
         <Route
-          path="/engagement-models"
-          element={
-            <PageTransition>
-              <Engagement />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/blog"
-          element={
-            <PageTransition>
-              <Blog />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/blog/:slug"
-          element={
-            <PageTransition>
-              <BlogDetail />
-            </PageTransition>
-          }
-        />
-
-        <Route
-          path="/careers"
-          element={
-            <PageTransition > <Careers />
-            </PageTransition>
-          }
-        />
-
-        <Route
           path="/contact"
           element={
             <PageTransition>
@@ -186,12 +127,64 @@ export default function Router() {
             </PageTransition>
           }
         />
-
         <Route
-          path="/founder"
+          path="/create-account"
           element={
             <PageTransition>
-              <Founder />
+              <CreateAccount />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/create-account"
+          element={
+            <PageTransition>
+              <BusinessType />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/create-account/basic-details"
+          element={
+            <PageTransition>
+              <BasicDetails />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/create-account/industry-buyer"
+          element={
+            <PageTransition>
+              <IndustryBuyer />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/create-account/products"
+          element={
+            <PageTransition>
+              <ProductListing />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/create-account/plans"
+          element={
+            <PageTransition>
+              <Plans />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/create-account/success"
+          element={
+            <PageTransition>
+              <Success />
             </PageTransition>
           }
         />
@@ -200,7 +193,7 @@ export default function Router() {
           path="/team"
           element={
             <PageTransition>
-              <OurTeam/>
+              <OurTeam />
             </PageTransition>
           }
         />
