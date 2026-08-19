@@ -12,14 +12,18 @@ import CaseStudies from "../components/sections/CaseStudies";
 // import CTA from "../components/sections/CTA";
 // import OurTeam from "../components/sections/OurTeam";
 // import HowItsWork from "../components/sections/HowItsWork";
-import GlobalBuyersEco from "../components/sections/GlobalBuyersEco";
-import OurSectorsWeDeal from "../components/sections/OurSectorsWeDeal";
+
+// import OurSectorsWeDeal from "../components/sections/OurSectorsWeDeal";
 import BuyersAvForm from "../components/sections/connectwithbuyers/buyersAvForm";
 import SuppliersAvForm from "../components/sections/connectwithbuyers/suppliersAvForm";
-import BuyersSuppliersConnect from "../components/sections/connectwithbuyers/BuyersSuppliersConnect";
+// import BuyersSuppliersConnect from "../components/sections/connectwithbuyers/BuyersSuppliersConnect";
 import InternationalRFQ from "../components/sections/InternationalRFQ";
 import AnalyzeCompany from "../components/sections/AnalyzeCompany";
 import OurFourDivision from "../components/sections/OurFourDivision";
+import KeyMetrics from "../components/sections/KeyMetrics";
+import HowItWorks from "../components/sections/HowItWorks";
+import LatestInsights from "../components/sections/LatestInsights";
+import KeyMetrics2 from "../components/sections/KeyMetrics2";
 // import InternationalRFQ from "../components/sections/InternationalRFQ.jsx";
 
 export default function Home() {
@@ -31,16 +35,16 @@ export default function Home() {
      
       <ServicesPreview /> */}
       {/* <HowItsWork/> */}
+      <KeyMetrics/>
       
-      <GlobalBuyersEco/>
-      
-      
-      {/* <InternationalRFQ/> */}
       <InternationalRFQ/>
-      <BuyersSuppliersConnect/>
+      {/* <BuyersSuppliersConnect/> */}
       <AnalyzeCompany/>
-      <OurSectorsWeDeal/>
+      <HowItWorks/>
+      {/* <OurSectorsWeDeal/> */}
       <OurFourDivision/>
+      <LatestInsights/>
+      <KeyMetrics2/>
       {/* <CaseStudies />
       <Stats /> */}
 

@@ -1,332 +1,441 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  Users,
-  UserCheck,
-  PackageCheck,
-  Globe2,
-  ArrowRight,
-} from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
-import {
-  internationalRFQData,
-  internationalRFQStats,
-} from "../../data/internationalRFQData";
-
-// Flags
+// ================= FLAGS =================
 import usaFlag from "../../assets/flag/usa.png";
 import germanyFlag from "../../assets/flag/germany.png";
 import uaeFlag from "../../assets/flag/uae.png";
-import indiaFlag from "../../assets/flag/india.png";
 import saudiFlag from "../../assets/flag/saudi-arabia.png";
-
-const flagImages = {
-  usa: usaFlag,
-  germany: germanyFlag,
-  uae: uaeFlag,
-  india: indiaFlag,
-  saudi: saudiFlag,
-};
-
-const statIcons = {
-  buyers: Users,
-  active: UserCheck,
-  products: PackageCheck,
-  countries: Globe2,
-};
-
-const statColors = {
-  buyers: "#5f83e8",
-  active: "#5d9b67",
-  products: "#df7b58",
-  countries: "#8958e8",
-};
+import indonesiaFlag from "../../assets/flag/indonesia.png";
+import ukFlag from "../../assets/flag/uk.png";
 
 export default function InternationalRFQ() {
+  const sliderRef = useRef(null);
+
+  const rfqData = [
+    {
+      id: 1,
+      country: "USA",
+      flag: usaFlag,
+      title: "Cotton Fabric Supply",
+      category: "Textiles & Fabrics",
+      quantity: "50,000 Meters",
+      date: "21 May 2024",
+      status: "Active",
+    },
+    {
+      id: 2,
+      country: "Germany",
+      flag: germanyFlag,
+      title: "Industrial Valves",
+      category: "Machinery",
+      quantity: "2,000 Units",
+      date: "20 May 2024",
+      status: "Active",
+    },
+    {
+      id: 3,
+      country: "UAE",
+      flag: uaeFlag,
+      title: "Dates (Various Types)",
+      category: "Food & Beverages",
+      quantity: "10 Tons",
+      date: "19 May 2024",
+      status: "Active",
+    },
+    {
+      id: 4,
+      country: "Saudi Arabia",
+      flag: saudiFlag,
+      title: "Basmati Rice",
+      category: "Food & Beverages",
+      quantity: "25 Tons",
+      date: "18 May 2024",
+      status: "Active",
+    },
+    {
+      id: 5,
+      country: "Indonesia",
+      flag: indonesiaFlag,
+      title: "Palm Oil",
+      category: "Agro & Food",
+      quantity: "30 Tons",
+      date: "18 May 2024",
+      status: "Active",
+    },
+    {
+      id: 6,
+      country: "UK",
+      flag: ukFlag,
+      title: "Packaging Materials",
+      category: "Packaging",
+      quantity: "15,000 Units",
+      date: "17 May 2024",
+      status: "Active",
+    },
+  ];
+
+  const scrollLeft = () => {
+    sliderRef.current?.scrollBy({
+      left: -320,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollRight = () => {
+    sliderRef.current?.scrollBy({
+      left: 320,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <section className="bg-[#fbfaf8] py-12 md:py-16">
-      <div className="mx-auto max-w-[1650px] px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 flex flex-wrap items-center justify-between gap-4"
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-[#020D18]
+        px-4
+        py-9
+        sm:px-6
+        lg:px-8
+      "
+    >
+      {/* Background Glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-1/2
+          h-[400px]
+          w-[800px]
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-full
+          bg-[#D69A2B]/[0.025]
+          blur-[130px]
+        "
+      />
+
+      {/* =====================================================
+          MAIN OUTER BOX
+      ====================================================== */}
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 25,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 0.6,
+        }}
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-[1650px]
+          rounded-[12px]
+          border
+          border-[#725021]/80
+          bg-[#03111F]
+          px-4
+          pb-6
+          pt-5
+          shadow-[0_12px_35px_rgba(0,0,0,0.30)]
+
+          sm:px-5
+          lg:px-6
+        "
+      >
+        {/* =====================================================
+            TOP HEADER
+        ====================================================== */}
+        <div
+          className="
+            mb-5
+            flex
+            flex-wrap
+            items-center
+            justify-between
+            gap-4
+          "
         >
-          <div className="flex-1 text-center">
-            <h2
-              className="
-                text-xl
-                font-semibold
-                uppercase
-                text-[#172343]
-                sm:text-2xl
-                lg:text-[28px]
-              "
-            >
-              International RFQ Latest Trade Leads
-            </h2>
-
-            <div className="mx-auto mt-3 h-[3px] w-12 rounded-full bg-[#d4a22f]" />
-          </div>
-
-          <motion.button
-            whileHover={{ x: 4 }}
+          {/* Heading */}
+          <h2
             className="
+              text-[21px]
+              font-semibold
+              leading-tight
+              text-[#F5F5F5]
+
+              sm:text-[23px]
+              md:text-[25px]
+              lg:text-[27px]
+            "
+          >
+            Active RFQs Worldwide
+          </h2>
+
+          {/* View All */}
+          <motion.button
+            whileHover={{
+              x: 4,
+            }}
+            className="
+              group
               flex
               items-center
               gap-2
-              text-[11px]
-              font-medium
-              text-[#174ba5]
-              sm:text-xs
+              text-[13px]
+              font-semibold
+              text-[#D69A2B]
+
+              sm:text-[14px]
+              lg:text-[15px]
             "
           >
-            View All Leads
-            <ArrowRight size={14} />
+            View All RFQs
+            <ArrowRight
+              size={19}
+              strokeWidth={2}
+              className="
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
+              "
+            />
           </motion.button>
-        </motion.div>
+        </div>
 
-        {/* Main Layout */}
-        <div
-          className="
-            grid
-            grid-cols-1
-            gap-6
-            xl:grid-cols-[1fr_2fr]
-          "
-        >
-          {/* LEFT STATS */}
-          <motion.div
-            initial={{ opacity: 0, x: -35 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+        {/* =====================================================
+            RFQ SLIDER AREA
+        ====================================================== */}
+        <div className="relative">
+          {/* ================= LEFT ARROW ================= */}
+          <motion.button
+            onClick={scrollLeft}
+            whileHover={{
+              scale: 1.08,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
             className="
-              grid
-              grid-cols-2
-              overflow-hidden
-              rounded-xl
+              absolute
+              -left-[21px]
+              top-1/2
+              z-30
+              hidden
+              h-[43px]
+              w-[43px]
+              -translate-y-1/2
+              items-center
+              justify-center
+              rounded-full
               border
-              border-[#eeeeee]
-              bg-white
-              shadow-[0_6px_24px_rgba(0,0,0,0.04)]
-              sm:grid-cols-4
-              xl:min-w-[520px]
-              2xl:min-w-[580px]
+              border-[#725021]
+              bg-[#04121F]
+              text-[#D69A2B]
+              shadow-[0_8px_20px_rgba(0,0,0,0.35)]
+
+              md:flex
             "
           >
-            {internationalRFQStats.map((stat, index) => {
-              const Icon = statIcons[stat.type];
+            <ChevronLeft size={24} />
+          </motion.button>
 
-              return (
-                <motion.div
-                  key={stat.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.4,
-                    delay: index * 0.08,
-                  }}
-                  whileHover={{
-                    y: -5,
-                    backgroundColor: "#fcfcfc",
-                  }}
-                  className="
-                    relative
-                    flex
-                    min-h-[185px]
-                    flex-col
-                    items-center
-                    justify-center
-                    border-r
-                    border-[#eeeeee]
-                    px-3
-                    py-5
-                    text-center
-                    last:border-r-0
-
-                    xl:min-h-[230px]
-                    xl:px-5
-                    xl:py-7
-
-                    2xl:min-h-[245px]
-                  "
-                >
-                  {/* Icon Circle */}
-                  <motion.div
-                    whileHover={{
-                      scale: 1.08,
-                    }}
-                    className="
-                      mb-4
-                      flex
-                      h-[50px]
-                      w-[50px]
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#f6f7fb]
-
-                      xl:mb-5
-                      xl:h-[62px]
-                      xl:w-[62px]
-                    "
-                  >
-                    <Icon
-                      size={28}
-                      strokeWidth={1.7}
-                      style={{
-                        color: statColors[stat.type],
-                      }}
-                      className="xl:h-[34px] xl:w-[34px]"
-                    />
-                  </motion.div>
-
-                  {/* Value */}
-                  <h3
-                    className="
-                      text-xl
-                      font-semibold
-                      text-[#172343]
-                      sm:text-2xl
-
-                      xl:text-[30px]
-                      xl:font-bold
-                    "
-                  >
-                    {stat.value}
-                  </h3>
-
-                  {/* Label */}
-                  <p
-                    className="
-                      mt-2
-                      max-w-[90px]
-                      text-[10px]
-                      leading-4
-                      text-[#5f6575]
-                      sm:text-[11px]
-
-                      xl:max-w-[120px]
-                      xl:text-[13px]
-                      xl:leading-5
-                    "
-                  >
-                    {stat.label}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-
-          {/* RFQ CARDS */}
-          <motion.div
-            initial={{ opacity: 0, x: 35 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65 }}
+          {/* ================= CARDS ================= */}
+          <div
+            ref={sliderRef}
             className="
-              grid
-              grid-cols-1
+              flex
+              snap-x
+              snap-mandatory
               gap-4
-              sm:grid-cols-2
-              lg:grid-cols-3
-              2xl:grid-cols-5
+              overflow-x-auto
+              scroll-smooth
+              pb-1
+
+              [&::-webkit-scrollbar]:hidden
+              [-ms-overflow-style:none]
+              [scrollbar-width:none]
             "
           >
-            {internationalRFQData.map((rfq, index) => (
+            {rfqData.map((rfq, index) => (
               <motion.div
                 key={rfq.id}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{
+                  opacity: 0,
+                  y: 25,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
                 transition={{
                   duration: 0.45,
-                  delay: index * 0.07,
+                  delay: index * 0.06,
                 }}
                 whileHover={{
-                  y: -7,
-                  scale: 1.015,
+                  y: -6,
                 }}
                 className="
                   group
                   flex
-                  min-h-[230px]
+                  min-h-[315px]
+                  w-[260px]
+                  shrink-0
+                  snap-start
                   flex-col
-                  rounded-[14px]
+                  overflow-hidden
+                  rounded-[9px]
                   border
-                  border-[#e9e9e9]
-                  bg-white
-                  p-5
-                  shadow-[0_6px_22px_rgba(0,0,0,0.045)]
-                  transition-shadow
+                  border-[#D7D7D7]
+                  bg-[#F5F5F3]
+                  px-5
+                  py-5
+                  shadow-[0_7px_22px_rgba(0,0,0,0.18)]
+                  transition-all
                   duration-300
-                  hover:shadow-[0_16px_35px_rgba(0,0,0,0.10)]
+
+                  hover:shadow-[0_15px_30px_rgba(0,0,0,0.28)]
+
+                  sm:w-[275px]
+                  lg:w-[285px]
+                  2xl:w-[calc((100%-80px)/6)]
+                  2xl:min-w-0
                 "
               >
-                {/* Country */}
+                {/* ================= COUNTRY ================= */}
                 <div className="flex items-center gap-3">
+                  {/* Flag */}
                   <div
                     className="
-                      h-[24px]
-                      w-[36px]
+                      h-[31px]
+                      w-[44px]
                       shrink-0
                       overflow-hidden
-                      rounded-[4px]
+                      rounded-[3px]
                       border
                       border-black/10
                       bg-white
                     "
                   >
                     <img
-                      src={flagImages[rfq.flag]}
+                      src={rfq.flag}
                       alt={`${rfq.country} flag`}
-                      className="h-full w-full object-cover"
+                      className="
+                        h-full
+                        w-full
+                        object-cover
+                      "
                     />
                   </div>
 
-                  <span className="text-[13px] font-semibold text-[#273452]">
+                  {/* Country Name */}
+                  <p
+                    className="
+                      text-[14px]
+                      font-semibold
+                      text-[#252525]
+
+                      sm:text-[15px]
+                    "
+                  >
                     {rfq.country}
-                  </span>
+                  </p>
                 </div>
 
-                {/* RFQ Title */}
+                {/* ================= TITLE ================= */}
                 <h3
                   className="
-                    mt-5
-                    text-[14px]
+                    mt-6
+                    min-h-[45px]
+                    text-[15px]
                     font-semibold
-                    leading-5
-                    text-[#172343]
+                    leading-[1.45]
+                    text-[#1B1B1B]
                     transition-colors
-                    group-hover:text-[#174ba5]
+                    duration-300
+
+                    group-hover:text-[#A96F16]
+
+                    sm:text-[16px]
                   "
                 >
                   {rfq.title}
                 </h3>
 
-                {/* Details */}
-                <div className="mt-3 flex-1 space-y-2">
-                  <p className="text-[11px] leading-5 text-[#777f8f]">
+                {/* ================= DETAILS ================= */}
+                <div
+                  className="
+                    mt-3
+                    flex-1
+                    space-y-2
+                  "
+                >
+                  {/* Category */}
+                  <p
+                    className="
+                      text-[12px]
+                      font-medium
+                      leading-[1.5]
+                      text-[#666666]
+
+                      sm:text-[13px]
+                    "
+                  >
                     {rfq.category}
                   </p>
 
-                  <p className="text-[11px] leading-5 text-[#777f8f]">
+                  {/* Qty */}
+                  <p
+                    className="
+                      text-[12px]
+                      leading-[1.5]
+                      text-[#777777]
+
+                      sm:text-[13px]
+                    "
+                  >
                     Qty:{" "}
-                    <span className="font-medium text-[#495064]">
+                    <span
+                      className="
+                        font-medium
+                        text-[#4A4A4A]
+                      "
+                    >
                       {rfq.quantity}
                     </span>
                   </p>
 
-                  <p className="text-[11px] leading-5 text-[#777f8f]">
+                  {/* Date */}
+                  <p
+                    className="
+                      text-[12px]
+                      leading-[1.5]
+                      text-[#777777]
+
+                      sm:text-[13px]
+                    "
+                  >
                     {rfq.date}
                   </p>
                 </div>
 
-                {/* Active Status */}
+                {/* ================= ACTIVE STATUS ================= */}
                 <motion.div
                   whileHover={{
                     scale: 1.02,
@@ -334,19 +443,19 @@ export default function InternationalRFQ() {
                   className="
                     mt-5
                     flex
+                    min-h-[42px]
                     items-center
                     justify-center
                     gap-2
-                    rounded-md
-                    border
-                    border-[#b9e5c1]
-                    bg-[#e8f7eb]
+                    rounded-[5px]
+                    bg-[#E4E9E3]
                     px-3
-                    py-2.5
-                    text-[12px]
-                    font-extrabold
-                    tracking-wide
-                    text-[#23823a]
+                    py-2
+                    text-[13px]
+                    font-semibold
+                    text-[#397346]
+
+                    sm:text-[14px]
                   "
                 >
                   <span
@@ -354,8 +463,7 @@ export default function InternationalRFQ() {
                       h-[7px]
                       w-[7px]
                       rounded-full
-                      bg-[#3aaa55]
-                      shadow-[0_0_8px_rgba(58,170,85,0.45)]
+                      bg-[#4C9458]
                     "
                   />
 
@@ -363,9 +471,42 @@ export default function InternationalRFQ() {
                 </motion.div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
+
+          {/* ================= RIGHT ARROW ================= */}
+          <motion.button
+            onClick={scrollRight}
+            whileHover={{
+              scale: 1.08,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            className="
+              absolute
+              -right-[21px]
+              top-1/2
+              z-30
+              hidden
+              h-[43px]
+              w-[43px]
+              -translate-y-1/2
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#725021]
+              bg-[#04121F]
+              text-[#D69A2B]
+              shadow-[0_8px_20px_rgba(0,0,0,0.35)]
+
+              md:flex
+            "
+          >
+            <ChevronRight size={24} />
+          </motion.button>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

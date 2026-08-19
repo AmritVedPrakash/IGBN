@@ -3,16 +3,10 @@ import { motion } from "framer-motion";
 import {
   UserRoundPlus,
   BadgeCheck,
-  Images,
-  MessagesSquare,
+  FileText,
   MessageCircleMore,
   Search,
   ShieldCheck,
-  Handshake,
-  Users,
-  Globe2,
-  PackageCheck,
-  Network,
 } from "lucide-react";
 
 import portalScreen from "../../../assets/services/portal-screen.png";
@@ -30,12 +24,7 @@ export default function Laptopsec() {
       subtitle: "& Authentication",
     },
     {
-      icon: Images,
-      title: "Product Showcase",
-      subtitle: "& Catalogs",
-    },
-    {
-      icon: MessagesSquare,
+      icon: FileText,
       title: "RFQ Management",
       subtitle: "& Lead Matching",
     },
@@ -54,127 +43,372 @@ export default function Laptopsec() {
       title: "Secure Transactions",
       subtitle: "& Data Protection",
     },
-    {
-      icon: Handshake,
-      title: "Deals & Business",
-      subtitle: "Connections",
-    },
-  ];
-
-  const stats = [
-    {
-      icon: Users,
-      value: "10,000+",
-      label: "Verified Buyers",
-    },
-    {
-      icon: Users,
-      value: "5,000+",
-      label: "Verified Suppliers",
-    },
-    {
-      icon: PackageCheck,
-      value: "25K+",
-      label: "Products Listed",
-    },
-    {
-      icon: Globe2,
-      value: "30+",
-      label: "Countries Connected",
-    },
-    {
-      icon: MessagesSquare,
-      value: "50K+",
-      label: "RFQs Posted",
-    },
-    {
-      icon: Network,
-      value: "100K+",
-      label: "Business Connections",
-    },
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#071a3a] py-14 md:py-16 lg:py-20">
-      {/* Background glow */}
-      <div className="absolute left-[10%] top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-[#d4a531]/10 blur-[120px]" />
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-[#020D18]
+        px-4
+        py-10
+        sm:px-6
+        lg:px-8
+        lg:py-12
+      "
+    >
+      {/* Background Glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          right-[10%]
+          top-1/2
+          h-[450px]
+          w-[450px]
+          -translate-y-1/2
+          rounded-full
+          bg-[#D39A2E]/[0.06]
+          blur-[130px]
+        "
+      />
 
-      <div className="relative z-10 mx-auto max-w-[1450px] px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[0.9fr_1.4fr] lg:gap-14">
-          {/* =====================================
-              LAPTOP + MOBILE
-          ====================================== */}
+      {/* ================= MAIN OUTER BOX ================= */}
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          max-w-[1650px]
+          overflow-hidden
+          rounded-[12px]
+          border
+          border-[#26384A]
+          bg-[#03111E]
+          px-5
+          py-7
+          shadow-[0_12px_40px_rgba(0,0,0,0.32)]
+          sm:px-7
+          lg:px-8
+          lg:py-8
+        "
+      >
+        <div
+          className="
+            grid
+            grid-cols-1
+            items-center
+            gap-10
+            lg:grid-cols-[0.95fr_1.25fr]
+            lg:gap-10
+            xl:grid-cols-[0.9fr_1.3fr]
+            xl:gap-12
+          "
+        >
+          {/* ==================================================
+              LEFT SIDE
+          ================================================== */}
+          <div>
+            {/* Heading */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55 }}
+            >
+              <h2
+                className="
+                  max-w-[600px]
+                  text-[25px]
+                  font-semibold
+                  uppercase
+                  leading-[1.15]
+                  tracking-[0.02em]
+                  text-[#F7F7F7]
+                  sm:text-[28px]
+                  lg:text-[30px]
+                  xl:text-[32px]
+                "
+              >
+                IGBN PORTAL – YOUR ALL-IN-ONE
+                <br />
+                B2B MARKETPLACE
+              </h2>
+
+              <p
+                className="
+                  mt-3
+                  text-[14px]
+                  font-normal
+                  leading-[1.7]
+                  text-[#D1D6DC]
+                  sm:text-[15px]
+                  lg:text-[16px]
+                "
+              >
+                Connect, trade & grow globally with our smart digital platform.
+              </p>
+
+              {/* Golden small line */}
+              <div
+                className="
+                  mt-4
+                  h-[2px]
+                  w-[55px]
+                  rounded-full
+                  bg-[#D59A27]
+                "
+              />
+            </motion.div>
+
+            {/* ================= FEATURE GRID ================= */}
+            <div
+              className="
+                mt-7
+                grid
+                grid-cols-1
+                border-t
+                border-[#23384C]
+                sm:grid-cols-2
+                lg:grid-cols-3
+              "
+            >
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.4,
+                      delay: index * 0.05,
+                    }}
+                    whileHover={{
+                      y: -3,
+                    }}
+                    className="
+                      group
+                      flex
+                      min-h-[110px]
+                      items-center
+                      gap-4
+                      border-b
+                      border-[#23384C]
+                      px-3
+                      py-5
+                      transition-all
+                      duration-300
+                      hover:bg-[#071725]
+                    "
+                  >
+                    {/* Icon */}
+                    <div
+                      className="
+                        flex
+                        h-[46px]
+                        w-[46px]
+                        shrink-0
+                        items-center
+                        justify-center
+                      "
+                    >
+                      <Icon
+                        size={33}
+                        strokeWidth={1.4}
+                        className="
+                          text-[#E1E5E9]
+                          transition-all
+                          duration-300
+                          group-hover:scale-110
+                          group-hover:text-[#D69A2E]
+                        "
+                      />
+                    </div>
+
+                    {/* Text */}
+                    <div>
+                      <h3
+                        className="
+                          text-[13px]
+                          font-semibold
+                          leading-[1.5]
+                          text-[#F5F6F7]
+                          sm:text-[14px]
+                          xl:text-[15px]
+                        "
+                      >
+                        {feature.title}
+                      </h3>
+
+                      <p
+                        className="
+                          mt-[2px]
+                          text-[12px]
+                          font-normal
+                          leading-[1.45]
+                          text-[#BCC4CC]
+                          sm:text-[13px]
+                          xl:text-[14px]
+                        "
+                      >
+                        {feature.subtitle}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* ==================================================
+              RIGHT SIDE LAPTOP + MOBILE
+          ================================================== */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: 45 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative mx-auto flex w-full max-w-[600px] items-center justify-center pb-10"
+            transition={{ duration: 0.75 }}
+            className="
+              relative
+              mx-auto
+              flex
+              w-full
+              max-w-[800px]
+              items-center
+              justify-center
+              pb-8
+              pt-4
+              lg:pb-3
+            "
           >
-            {/* LAPTOP */}
+            {/* Soft Gold Glow Behind Laptop */}
+            <div
+              className="
+                pointer-events-none
+                absolute
+                left-1/2
+                top-1/2
+                h-[330px]
+                w-[70%]
+                -translate-x-1/2
+                -translate-y-1/2
+                rounded-full
+                bg-[#D59A27]/[0.07]
+                blur-[90px]
+              "
+            />
+
+            {/* ================= LAPTOP ================= */}
             <motion.div
               animate={{
-                y: [0, -6, 0],
+                y: [0, -5, 0],
               }}
               transition={{
                 duration: 5,
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="relative w-[90%]"
+              className="
+                relative
+                z-10
+                w-[85%]
+                sm:w-[82%]
+                lg:w-[84%]
+              "
             >
-              {/* Laptop Screen Frame */}
+              {/* Laptop Frame */}
               <div
                 className="
                   relative
-                  rounded-[16px]
+                  rounded-[17px]
                   border-[7px]
-                  border-[#252a31]
-                  bg-[#111]
+                  border-[#242A31]
+                  bg-[#11151A]
                   p-[4px]
-                  shadow-[0_25px_50px_rgba(0,0,0,0.55)]
+                  shadow-[0_25px_55px_rgba(0,0,0,0.55)]
                 "
               >
-                {/* Camera */}
-                <div className="absolute left-1/2 top-[3px] z-20 h-[3px] w-[3px] -translate-x-1/2 rounded-full bg-[#555]" />
+                {/* Top Camera */}
+                <div
+                  className="
+                    absolute
+                    left-1/2
+                    top-[3px]
+                    z-20
+                    h-[3px]
+                    w-[3px]
+                    -translate-x-1/2
+                    rounded-full
+                    bg-[#777]
+                  "
+                />
 
-                {/* SCREEN IMAGE */}
-                <div className="aspect-[16/10] w-full overflow-hidden rounded-[7px] bg-white">
+                {/* Screen */}
+                <div
+                  className="
+                    aspect-[16/10]
+                    w-full
+                    overflow-hidden
+                    rounded-[7px]
+                    bg-white
+                  "
+                >
                   <img
                     src={portalScreen}
                     alt="IGBN Portal"
-                    className="h-full w-full object-cover object-top"
+                    className="
+                      h-full
+                      w-full
+                      object-cover
+                      object-top
+                    "
                   />
                 </div>
               </div>
 
-              {/* Laptop Bottom */}
+              {/* Laptop Base */}
               <div
                 className="
                   relative
                   mx-auto
-                  h-[14px]
+                  h-[15px]
                   w-[108%]
                   -translate-x-[4%]
-                  rounded-b-[50%]
+                  rounded-b-[55%]
                   bg-gradient-to-b
-                  from-[#c8c8c8]
-                  via-[#8f9398]
-                  to-[#5e6268]
-                  shadow-[0_12px_15px_rgba(0,0,0,0.35)]
+                  from-[#D8D8D8]
+                  via-[#91969B]
+                  to-[#575D63]
+                  shadow-[0_12px_18px_rgba(0,0,0,0.4)]
                 "
               >
-                <div className="absolute left-1/2 top-0 h-[3px] w-[60px] -translate-x-1/2 rounded-b bg-[#555]" />
+                <div
+                  className="
+                    absolute
+                    left-1/2
+                    top-0
+                    h-[3px]
+                    w-[65px]
+                    -translate-x-1/2
+                    rounded-b
+                    bg-[#555B61]
+                  "
+                />
               </div>
             </motion.div>
 
-            {/* MOBILE */}
+            {/* ================= MOBILE ================= */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               animate={{
-                y: [0, -10, 0],
+                y: [0, -8, 0],
               }}
               transition={{
                 y: {
@@ -184,34 +418,36 @@ export default function Laptopsec() {
                 },
                 opacity: {
                   duration: 0.7,
-                  delay: 0.3,
                 },
               }}
               className="
                 absolute
-                bottom-[20px]
-                right-[3%]
-                sm:right-[6%]
-                lg:right-[1%]
+                bottom-[15px]
+                right-[1%]
                 z-20
-                w-[25%]
+                w-[24%]
                 min-w-[90px]
-                max-w-[145px]
+                max-w-[155px]
+
+                sm:right-[5%]
+
+                lg:bottom-[5px]
+                lg:right-0
               "
             >
               {/* Phone Frame */}
               <div
                 className="
                   relative
-                  rounded-[22px]
+                  rounded-[24px]
                   border-[5px]
-                  border-[#20242a]
-                  bg-[#111]
+                  border-[#252A30]
+                  bg-[#11151A]
                   p-[3px]
-                  shadow-[0_20px_35px_rgba(0,0,0,0.55)]
+                  shadow-[0_20px_40px_rgba(0,0,0,0.58)]
                 "
               >
-                {/* Speaker / notch */}
+                {/* Speaker */}
                 <div
                   className="
                     absolute
@@ -222,154 +458,33 @@ export default function Laptopsec() {
                     w-[28%]
                     -translate-x-1/2
                     rounded-full
-                    bg-[#272727]
+                    bg-[#33383D]
                   "
                 />
 
                 {/* Mobile Screen */}
-                <div className="aspect-[9/18] overflow-hidden rounded-[15px] bg-white">
+                <div
+                  className="
+                    aspect-[9/18]
+                    overflow-hidden
+                    rounded-[16px]
+                    bg-white
+                  "
+                >
                   <img
                     src={portalScreen}
                     alt="IGBN Portal Mobile"
-                    className="h-full w-full object-cover object-left-top"
+                    className="
+                      h-full
+                      w-full
+                      object-cover
+                      object-left-top
+                    "
                   />
                 </div>
               </div>
             </motion.div>
           </motion.div>
-
-          {/* =====================================
-              RIGHT SIDE
-          ====================================== */}
-          <div>
-            {/* Heading */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-2xl font-semibold uppercase leading-tight text-white sm:text-3xl lg:text-[34px]">
-                IGBN Portal – Your All-In-One B2B Marketplace
-              </h2>
-
-              <p className="mt-3 text-sm text-white/70 md:text-base">
-                Connect, trade & grow globally with our smart digital platform.
-              </p>
-
-              <div className="mt-4 h-[3px] w-14 rounded-full bg-[#d6a430]" />
-            </motion.div>
-
-            {/* Features */}
-            <div
-              className="
-                mt-8
-                grid
-                grid-cols-1
-                border-y
-                border-white/15
-                sm:grid-cols-2
-                xl:grid-cols-4
-              "
-            >
-              {features.map((feature, index) => {
-                const Icon = feature.icon;
-
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.4,
-                      delay: index * 0.05,
-                    }}
-                    whileHover={{ y: -4 }}
-                    className="
-                      group
-                      flex
-                      min-h-[105px]
-                      items-center
-                      gap-3
-                      border-b
-                      border-white/15
-                      px-4
-                      py-5
-                      sm:border-r
-                      hover:bg-white/[0.03]
-                    "
-                  >
-                    <Icon
-                      size={30}
-                      strokeWidth={1.5}
-                      className="shrink-0 text-white/80 transition-colors group-hover:text-[#d6a430]"
-                    />
-
-                    <div>
-                      <h3 className="text-[12px] font-medium leading-5 text-white md:text-[13px]">
-                        {feature.title}
-                      </h3>
-
-                      <p className="text-[11px] leading-4 text-white/60 md:text-[12px]">
-                        {feature.subtitle}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="
-                mt-7
-                grid
-                grid-cols-2
-                gap-y-7
-                sm:grid-cols-3
-                xl:grid-cols-6
-              "
-            >
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
-
-                return (
-                  <motion.div
-                    key={index}
-                    whileHover={{ y: -4 }}
-                    className={`
-                      flex
-                      items-center
-                      gap-2
-                      px-3
-                      ${index !== 0 ? "xl:border-l xl:border-white/15" : ""}
-                    `}
-                  >
-                    <Icon
-                      size={27}
-                      strokeWidth={1.5}
-                      className="shrink-0 text-[#d6a430]"
-                    />
-
-                    <div>
-                      <p className="text-[13px] font-semibold text-white">
-                        {stat.value}
-                      </p>
-
-                      <p className="mt-1 text-[9px] leading-3 text-white/55">
-                        {stat.label}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          </div>
         </div>
       </div>
     </section>

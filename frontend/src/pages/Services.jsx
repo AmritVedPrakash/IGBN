@@ -1,273 +1,589 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Network,
-  BadgeCheck,
-  Globe2,
-  ChartNoAxesCombined,
-} from "lucide-react";
+import { Globe2, ArrowRight, Play, Plus } from "lucide-react";
 
 import servicesBg from "../assets/services/services-bg.png";
+
+// Change these filenames according to your actual images
+import ambassador1 from "../assets/services/ambassador1.png";
+import ambassador2 from "../assets/services/ambassador2.png";
+import ambassador3 from "../assets/services/ambassador3.png";
+import ambassador4 from "../assets/services/ambassador4.png";
+
 import OurServiceDividions from "../components/sections/services/OurServiceDividions";
 import Laptopsec from "../components/sections/services/Laptopsec";
-import WhyChoose from "../components/sections/WhyChoose";
+import OurImpact from "../components/sections/services/OurImpact";
+import WhyBusinessChoose from "../components/sections/services/WhyBusinessChoose";
+import MadeInIndia from "../components/sections/services/MadeInIndia";
 
 export default function Services() {
-  const features = [
-    {
-      icon: Network,
-      title: "One Group",
-      subtitle: "Multiple Expertise",
-    },
-    {
-      icon: BadgeCheck,
-      title: "360° Solutions",
-      subtitle: "Under One Roof",
-    },
-    {
-      icon: Globe2,
-      title: "Global Reach",
-      subtitle: "Local Understanding",
-    },
-    {
-      icon: ChartNoAxesCombined,
-      title: "Growth Driven",
-      subtitle: "Results Focused",
-    },
-  ];
+  const ambassadors = [ambassador1, ambassador2, ambassador3, ambassador4];
+
+  const scrollToDivisions = () => {
+    const section = document.getElementById("our-divisions");
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  };
 
   return (
     <>
-    
-    <section
-      className="
-        relative
-        min-h-[640px]
-        lg:min-h-[700px]
-        overflow-hidden
-        bg-[#061632]
-        bg-cover
-        bg-center
-        bg-no-repeat
-        flex
-        items-center
-      "
-      style={{
-        backgroundImage: `url(${servicesBg})`,
-      }}
-    >
-      {/* Dark Overlay */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-r
-          from-[#061632]/98
-          via-[#061632]/82
-          to-[#061632]/15
-        "
-      />
-
-      {/* Soft bottom overlay */}
-      <div
-        className="
-          absolute
-          inset-x-0
-          bottom-0
-          h-[180px]
-          bg-gradient-to-t
-          from-[#061632]/80
-          to-transparent
-        "
-      />
-
-      <div
+      {/* =====================================================
+          HERO SECTION
+      ====================================================== */}
+      <section
         className="
           relative
-          z-10
+          flex
+          min-h-[650px]
           w-full
-          max-w-[1450px]
-          mx-auto
-          px-5
-          sm:px-8
-          lg:px-12
-          py-16
-          lg:py-20
+          items-center
+          overflow-hidden
+          bg-[#020D18]
+          bg-cover
+          bg-center
+          bg-no-repeat
+          lg:min-h-[690px]
         "
+        style={{
+          backgroundImage: `url(${servicesBg})`,
+        }}
       >
-        {/* Main Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-[670px]"
-        >
-          {/* Small Heading */}
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="
-              text-[#dda72f]
-              text-sm
-              md:text-base
-              font-semibold
-              uppercase
-              tracking-wide
-              mb-3
-            "
-          >
-            Our Services
-          </motion.p>
-
-          {/* Main Heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="
-              text-white
-              text-3xl
-              sm:text-4xl
-              md:text-5xl
-              lg:text-[58px]
-              font-semibold
-              leading-[1.08]
-            "
-          >
-            Complete Solutions for
-            <br />
-
-            <span className="text-[#dda72f]">
-              Global Business Growth
-            </span>
-          </motion.h1>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="
-              mt-7
-              max-w-[560px]
-              text-white/80
-              text-sm
-              sm:text-base
-              md:text-lg
-              leading-7
-            "
-          >
-            End-to-end support for Indian businesses to connect,
-            compete and grow in global markets.
-          </motion.p>
-        </motion.div>
-
-        {/* Bottom Features */}
-        <motion.div
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.35 }}
+        {/* ================= DARK LEFT OVERLAY ================= */}
+        <div
           className="
-            mt-12
-            lg:mt-16
-            max-w-[900px]
+            absolute
+            inset-0
+            bg-gradient-to-r
+            from-[#020D18]
+            via-[#020D18]/90
+            to-[#020D18]/10
+          "
+        />
+
+        {/* Extra left dark overlay */}
+        <div
+          className="
+            absolute
+            inset-y-0
+            left-0
+            w-[60%]
+            bg-gradient-to-r
+            from-[#020D18]
+            via-[#020D18]/75
+            to-transparent
+          "
+        />
+
+        {/* Bottom Fade */}
+        <div
+          className="
+            absolute
+            inset-x-0
+            bottom-0
+            h-[170px]
+            bg-gradient-to-t
+            from-[#020D18]
+            via-[#020D18]/65
+            to-transparent
+          "
+        />
+
+        {/* Golden world glow */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-[15%]
+            top-[45%]
+            h-[380px]
+            w-[380px]
+            -translate-y-1/2
+            rounded-full
+            bg-[#D89A2B]/[0.06]
+            blur-[110px]
+          "
+        />
+
+        {/* =====================================================
+            CONTENT
+        ====================================================== */}
+        <div
+          className="
+            relative
+            z-10
+            mx-auto
             grid
-            grid-cols-2
-            md:grid-cols-4
-            gap-6
-            md:gap-3
+            w-full
+            max-w-[1650px]
+            grid-cols-1
+            items-center
+            gap-10
+            px-5
+            py-20
+            sm:px-7
+            md:px-8
+            lg:grid-cols-[1.05fr_0.95fr]
+            lg:px-10
+            xl:px-12
           "
         >
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
+          {/* =====================================================
+              LEFT CONTENT
+          ====================================================== */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -40,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+            className="
+              max-w-[720px]
+              pt-4
+              lg:pt-0
+            "
+          >
+            {/* ================= HEADING ================= */}
+            <motion.h1
+              initial={{
+                opacity: 0,
+                y: 25,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.1,
+              }}
+              className="
+                text-[36px]
+                font-semibold
+                leading-[1.08]
+                tracking-[-0.02em]
+                text-[#F5F5F5]
 
-            return (
-              <motion.div
-                key={index}
-                whileHover={{
-                  y: -5,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 250,
-                }}
+                sm:text-[44px]
+                md:text-[50px]
+                lg:text-[54px]
+                xl:text-[58px]
+              "
+            >
+              End-to-End Export Solutions.
+              <br />
+              <span className="text-[#D99B2B]">One Global Ecosystem.</span>
+            </motion.h1>
+
+            {/* ================= DESCRIPTION ================= */}
+            <motion.p
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.2,
+              }}
+              className="
+                mt-6
+                max-w-[660px]
+                text-[15px]
+                font-normal
+                leading-[1.8]
+                text-[#D4D9DE]
+
+                sm:text-[16px]
+                md:text-[17px]
+                lg:text-[18px]
+              "
+            >
+              From market intelligence and verified buyers to brand visibility,
+              factory transparency and digital growth – IGBN empowers Indian
+              businesses to expand globally with confidence.
+            </motion.p>
+
+            {/* ================= BUTTONS ================= */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.3,
+              }}
+              className="
+                mt-8
+                flex
+                flex-wrap
+                items-center
+                gap-4
+              "
+            >
+              {/* Explore Button */}
+              <button
+                onClick={scrollToDivisions}
                 className="
+                  group
                   flex
+                  min-h-[52px]
                   items-center
+                  justify-center
                   gap-3
-                  md:px-4
-                  first:pl-0
+                  rounded-[6px]
+                  border
+                  border-[#D99B2B]
+                  bg-gradient-to-r
+                  from-[#DBA23E]
+                  via-[#D59A2E]
+                  to-[#C88A22]
+                  px-7
+                  text-[14px]
+                  font-semibold
+                  text-[#09121B]
+                  shadow-[0_8px_25px_rgba(216,154,43,0.16)]
+                  transition-all
+                  duration-300
+
+                  hover:-translate-y-[2px]
+                  hover:shadow-[0_10px_28px_rgba(216,154,43,0.28)]
+
+                  sm:text-[15px]
                 "
               >
-                {/* Icon circle */}
-                <motion.div
-                  whileHover={{
-                    rotate: 5,
-                    scale: 1.08,
-                  }}
+                Explore Divisions
+                <ArrowRight
+                  size={19}
+                  strokeWidth={2}
                   className="
-                    shrink-0
-                    w-[48px]
-                    h-[48px]
-                    md:w-[54px]
-                    md:h-[54px]
-                    rounded-full
-                    border
-                    border-[#dda72f]/70
+                    transition-transform
+                    duration-300
+                    group-hover:translate-x-1
+                  "
+                />
+              </button>
+
+              {/* Watch Button */}
+              <button
+                className="
+                  group
+                  flex
+                  min-h-[52px]
+                  items-center
+                  justify-center
+                  gap-4
+                  rounded-[6px]
+                  border
+                  border-[#B17B27]
+                  bg-[#071421]/60
+                  px-7
+                  text-[14px]
+                  font-semibold
+                  text-[#DCA03A]
+                  backdrop-blur-sm
+                  transition-all
+                  duration-300
+
+                  hover:bg-[#D99B2B]/10
+                  hover:border-[#D99B2B]
+
+                  sm:text-[15px]
+                "
+              >
+                Watch How It Works
+                <span
+                  className="
                     flex
+                    h-[23px]
+                    w-[23px]
                     items-center
                     justify-center
-                    bg-[#071b3c]/40
-                    backdrop-blur-sm
-                    shadow-[0_0_20px_rgba(221,167,47,0.08)]
+                    rounded-full
+                    border
+                    border-[#D7DCE0]
                   "
                 >
-                  <Icon
-                    size={25}
-                    strokeWidth={1.6}
-                    className="text-[#dda72f]"
+                  <Play
+                    size={10}
+                    fill="currentColor"
+                    strokeWidth={1.5}
+                    className="ml-[1px] text-[#E2E5E8]"
                   />
-                </motion.div>
+                </span>
+              </button>
+            </motion.div>
+          </motion.div>
 
-                {/* Text */}
+          {/* =====================================================
+              RIGHT SIDE
+          ====================================================== */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 40,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.15,
+            }}
+            className="
+              relative
+              hidden
+              min-h-[450px]
+              items-center
+              justify-end
+              lg:flex
+            "
+          >
+            {/* =================================================
+                GLOBAL PRESENCE CARD
+            ================================================= */}
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.94,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.7,
+                delay: 0.45,
+              }}
+              whileHover={{
+                y: -5,
+              }}
+              className="
+                relative
+                mr-1
+                w-[235px]
+                overflow-hidden
+                rounded-[15px]
+                border
+                border-[#25415A]
+                bg-[#071421]/90
+                px-5
+                py-6
+                shadow-[0_15px_45px_rgba(0,0,0,0.45)]
+                backdrop-blur-md
+
+                xl:w-[250px]
+              "
+            >
+              {/* Card subtle glow */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-[60px]
+                  -top-[70px]
+                  h-[170px]
+                  w-[170px]
+                  rounded-full
+                  bg-[#D99B2B]/[0.07]
+                  blur-[50px]
+                "
+              />
+
+              {/* ================= COUNTRIES ================= */}
+              <div className="relative flex items-center gap-4">
+                <div
+                  className="
+                    flex
+                    h-[52px]
+                    w-[52px]
+                    shrink-0
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-[#D99B2B]/40
+                    bg-[#D99B2B]/[0.04]
+                  "
+                >
+                  <Globe2
+                    size={31}
+                    strokeWidth={1.5}
+                    className="text-[#D99B2B]"
+                  />
+                </div>
+
                 <div>
-                  <h3
+                  <p
                     className="
-                      text-white
-                      text-xs
-                      sm:text-sm
-                      font-medium
-                      leading-5
+                      text-[23px]
+                      font-semibold
+                      leading-none
+                      text-[#F6F6F6]
                     "
                   >
-                    {feature.title}
-                  </h3>
+                    21+
+                  </p>
 
                   <p
                     className="
-                      text-white/70
-                      text-[10px]
-                      sm:text-xs
-                      mt-0.5
-                      leading-4
+                      mt-2
+                      text-[12px]
+                      font-medium
+                      text-[#CFD4DA]
                     "
                   >
-                    {feature.subtitle}
+                    Countries
                   </p>
                 </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-      </div>
-    </section>
-    <div>
-      <OurServiceDividions/>
-      <Laptopsec/>
-      <WhyChoose/>
-    </div>
+              </div>
 
+              {/* Global Presence */}
+              <h3
+                className="
+                  relative
+                  mt-5
+                  text-[16px]
+                  font-semibold
+                  text-[#E8EBEE]
+                "
+              >
+                Global Presence
+              </h3>
+
+              {/* Divider */}
+              <div
+                className="
+                  my-4
+                  h-[1px]
+                  w-full
+                  bg-gradient-to-r
+                  from-[#263C4F]
+                  via-[#334A5D]
+                  to-transparent
+                "
+              />
+
+              {/* ================= AVATARS ================= */}
+              <div className="relative flex items-center">
+                {ambassadors.map((image, index) => (
+                  <div
+                    key={index}
+                    className="
+                      relative
+                      h-[42px]
+                      w-[42px]
+                      overflow-hidden
+                      rounded-full
+                      border-2
+                      border-[#D7DADC]
+                      bg-[#0B1925]
+                    "
+                    style={{
+                      marginLeft: index === 0 ? "0px" : "-9px",
+                      zIndex: ambassadors.length - index,
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={`Trade Ambassador ${index + 1}`}
+                      className="
+                        h-full
+                        w-full
+                        object-cover
+                        object-center
+                      "
+                    />
+                  </div>
+                ))}
+
+                {/* Plus circle */}
+                <div
+                  className="
+                    relative
+                    z-10
+                    -ml-[8px]
+                    flex
+                    h-[42px]
+                    w-[42px]
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-[#B47C26]
+                    bg-[#071421]
+                  "
+                >
+                  <Plus
+                    size={18}
+                    strokeWidth={1.6}
+                    className="text-[#D99B2B]"
+                  />
+                </div>
+              </div>
+
+              {/* ================= AMBASSADOR COUNT ================= */}
+              <div className="relative mt-5">
+                <p
+                  className="
+                    text-[25px]
+                    font-semibold
+                    leading-none
+                    text-[#D99B2B]
+                  "
+                >
+                  500+
+                </p>
+
+                <p
+                  className="
+                    mt-2
+                    text-[13px]
+                    font-medium
+                    text-[#D2D7DC]
+                  "
+                >
+                  Trade Ambassadors
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* =====================================================
+          REST OF SERVICES PAGE
+      ====================================================== */}
+
+      <div id="our-divisions">
+        <OurServiceDividions />
+      </div>
+
+      <Laptopsec />
+
+      <OurImpact />
+
+      <WhyBusinessChoose />
+
+      <MadeInIndia />
     </>
   );
 }
