@@ -1,342 +1,829 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Handshake,
-  Briefcase,
-  Globe2,
   User,
+  Mail,
+  Building2,
+  Phone,
+  MessageSquare,
+  Globe2,
+  UsersRound,
+  Handshake,
+  TrendingUp,
   Headphones,
-  Megaphone,
-  Send,
+  BadgeCheck,
+  ArrowRight,
   ShieldCheck,
-  ChevronDown,
 } from "lucide-react";
 
-const NAVY = "#172343";
-const GOLD = "#dfa62f";
-
-const categories = [
-  {
-    icon: Handshake,
-    title: "General Inquiries",
-    desc: "For general questions and information about IGBN Worldwide.",
-  },
-  {
-    icon: Briefcase,
-    title: "Business Collaboration",
-    desc: "Explore partnership and collaboration opportunities.",
-  },
-  {
-    icon: Globe2,
-    title: "Supplier Onboarding",
-    desc: "Want to be a verified supplier? Get started here.",
-  },
-  {
-    icon: User,
-    title: "Buyer Support",
-    desc: "Assistance for global buyers and sourcing requirements.",
-  },
-  {
-    icon: Headphones,
-    title: "Technical Support",
-    desc: "Help with platform access, issues or technical assistance.",
-  },
-  {
-    icon: Megaphone,
-    title: "Media & Press",
-    desc: "For media inquiries, press releases and brand assets.",
-  },
-];
-
-const subjects = [
-  "General Inquiry",
-  "Business Collaboration",
-  "Supplier Onboarding",
-  "Buyer Support",
-  "Technical Support",
-  "Media & Press",
-];
-
-// Common input classes reused everywhere — explicit text + bg color fixes the invisible text issue
-const inputClass =
-  "w-full px-4 py-2.5 rounded-lg border border-gray-200 text-sm outline-none transition-all bg-white text-gray-900 placeholder:text-gray-400 focus:border-[#dfa62f] focus:ring-2 focus:ring-[#dfa62f]/20";
+// Actual image filename ke according change kar lena
+import centerImg from "../../../assets/contactimg/connect-center.png";
 
 export default function GetInTouch() {
   const [formData, setFormData] = useState({
-    fullName: "",
+    name: "",
     email: "",
     company: "",
-    countryCode: "+91",
     phone: "",
-    subject: "",
+    type: "",
+    interest: "",
     message: "",
+    agree: false,
   });
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (field) => (e) => {
-    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+  const benefits = [
+    {
+      icon: Globe2,
+      title: "Global Market Access",
+      text: "Reach 21+ countries with ease",
+      position: "left-top",
+    },
+    {
+      icon: UsersRound,
+      title: "Verified Network",
+      text: "Connect with verified buyers & suppliers",
+      position: "left-middle",
+    },
+    {
+      icon: Handshake,
+      title: "End-to-End Support",
+      text: "From market research to deal closure",
+      position: "left-bottom",
+    },
+    {
+      icon: BadgeCheck,
+      title: "Reliable Partnerships",
+      text: "Build long-term, trust-based relationships",
+      position: "right-top",
+    },
+    {
+      icon: TrendingUp,
+      title: "Business Growth",
+      text: "Scale your business globally",
+      position: "right-middle",
+    },
+    {
+      icon: Headphones,
+      title: "Fast & Efficient Communication",
+      text: "Quick responses across timezones",
+      position: "right-bottom",
+    },
+  ];
+
+  const handleChange = (e) => {
+    const { name, value, checked, type } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 1200);
+
+    console.log("Contact Form:", formData);
   };
 
   return (
-    <section className="bg-[#f8f9fc] py-16 px-5 md:px-10">
-      <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* LEFT SIDE — Get in Touch */}
+    <section
+      className="
+        relative
+        w-full
+        overflow-hidden
+        bg-[#020D18]
+        px-4
+        py-10
+        sm:px-6
+        lg:px-8
+      "
+    >
+      {/* Background Glow */}
+      <div
+        className="
+          pointer-events-none
+          absolute
+          left-1/2
+          top-1/2
+          h-[600px]
+          w-[900px]
+          -translate-x-1/2
+          -translate-y-1/2
+          rounded-full
+          bg-[#D69A2B]/[0.025]
+          blur-[150px]
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+          mx-auto
+          grid
+          max-w-[1650px]
+          grid-cols-1
+          gap-5
+          xl:grid-cols-[0.92fr_1.08fr]
+        "
+      >
+        {/* =====================================================
+            LEFT - FORM
+        ====================================================== */}
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -35 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.65 }}
+          className="
+            rounded-[12px]
+            border
+            border-[#765323]/80
+            bg-[#03111F]
+            px-6
+            py-6
+            shadow-[0_12px_35px_rgba(0,0,0,0.30)]
+            sm:px-7
+            lg:px-8
+          "
         >
-          <p
-            className="text-sm font-bold uppercase tracking-wide"
-            style={{ color: GOLD }}
-          >
-            Get in Touch
-          </p>
-
+          {/* Heading */}
           <h2
-            className="mt-2 text-3xl md:text-4xl font-bold"
-            style={{ color: NAVY }}
+            className="
+              text-[24px]
+              font-semibold
+              uppercase
+              leading-tight
+              text-[#F4F5F6]
+              sm:text-[27px]
+              lg:text-[30px]
+            "
           >
-            Let's Start a Conversation
+            Let&apos;s Connect & Create Opportunities
           </h2>
 
-          <p className="mt-3 text-gray-500 text-sm md:text-base max-w-[480px]">
-            Fill out the form and our representative will get back to you
-            shortly.
+          <p
+            className="
+              mt-2
+              text-[15px]
+              leading-[1.6]
+              text-[#C1C8CE]
+              sm:text-[18px]
+              lg:text-[17px]
+            "
+          >
+            Fill in your details and our team will get back to you shortly.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-8">
-            {categories.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  whileHover={{ y: -6 }}
-                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 cursor-pointer transition-shadow hover:shadow-md"
-                >
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center mb-4"
-                    style={{ backgroundColor: NAVY }}
-                  >
-                    <Icon size={20} color={GOLD} />
-                  </div>
-                  <h3
-                    className="font-semibold text-sm md:text-base mb-1"
-                    style={{ color: NAVY }}
-                  >
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-xs md:text-sm leading-5">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              );
-            })}
-          </div>
-        </motion.div>
+          {/* ================= FORM ================= */}
+          <form onSubmit={handleSubmit} className="mt-6">
+            {/* Name + Email */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <InputBox
+                icon={User}
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleChange}
+              />
 
-        {/* RIGHT SIDE — Send Us a Message (Form) */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8"
-        >
-          <h2 className="text-xl md:text-2xl font-bold" style={{ color: NAVY }}>
-            Send Us a Message
-          </h2>
-          <div
-            className="w-10 h-[3px] mt-2 mb-6"
-            style={{ backgroundColor: GOLD }}
-          />
+              <InputBox
+                icon={Mail}
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+              />
 
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Full Name + Email */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Full Name <span style={{ color: GOLD }}>*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.fullName}
-                  onChange={handleChange("fullName")}
-                  placeholder="Enter your full name"
-                  className={inputClass}
-                />
-              </div>
+              <InputBox
+                icon={Building2}
+                type="text"
+                name="company"
+                placeholder="Company Name"
+                value={formData.company}
+                onChange={handleChange}
+              />
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Email Address <span style={{ color: GOLD }}>*</span>
-                </label>
-                <input
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange("email")}
-                  placeholder="Enter your email"
-                  className={inputClass}
-                />
-              </div>
-            </div>
-
-            {/* Company + Phone */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Company Name
-                </label>
-                <input
-                  type="text"
-                  value={formData.company}
-                  onChange={handleChange("company")}
-                  placeholder="Enter your company name"
-                  className={inputClass}
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Phone Number
-                </label>
-                <div className="flex rounded-lg border border-gray-200 overflow-hidden bg-white focus-within:border-[#dfa62f] focus-within:ring-2 focus-within:ring-[#dfa62f]/20 transition-all">
-                  <select
-                    value={formData.countryCode}
-                    onChange={handleChange("countryCode")}
-                    className="bg-gray-50 text-sm px-2.5 border-r border-gray-200 outline-none cursor-pointer text-gray-900"
-                  >
-                    <option value="+91" className="text-gray-900 bg-white">
-                      🇮🇳 +91
-                    </option>
-                    <option value="+1" className="text-gray-900 bg-white">
-                      🇺🇸 +1
-                    </option>
-                    <option value="+44" className="text-gray-900 bg-white">
-                      🇬🇧 +44
-                    </option>
-                    <option value="+971" className="text-gray-900 bg-white">
-                      🇦🇪 +971
-                    </option>
-                  </select>
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={handleChange("phone")}
-                    placeholder="Enter your number"
-                    className="w-full px-3 py-2.5 text-sm outline-none bg-white text-gray-900 placeholder:text-gray-400"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Subject */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                Subject <span style={{ color: GOLD }}>*</span>
-              </label>
-              <div className="relative">
-                <select
-                  required
-                  value={formData.subject}
-                  onChange={handleChange("subject")}
-                  className={`${inputClass} appearance-none cursor-pointer`}
-                >
-                  <option value="" disabled className="text-gray-400 bg-white">
-                    Select a subject
-                  </option>
-                  {subjects.map((s) => (
-                    <option
-                      key={s}
-                      value={s}
-                      className="text-gray-900 bg-white"
-                    >
-                      {s}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown
-                  size={16}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"
-                />
-              </div>
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                Message <span style={{ color: GOLD }}>*</span>
-              </label>
-              <textarea
-                required
-                rows={4}
-                value={formData.message}
-                onChange={handleChange("message")}
-                placeholder="Type your message here..."
-                className={`${inputClass} resize-none`}
+              <InputBox
+                icon={Phone}
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Selects */}
+            <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <select
+                name="type"
+                value={formData.type}
+                onChange={handleChange}
+                className="
+                  h-[55px]
+                  rounded-[7px]
+                  border
+                  border-[#2A3E50]
+                  bg-[#061522]
+                  px-4
+                  text-[15px]
+                  text-[#DCE1E5]
+                  outline-none
+                  transition-all
+                  focus:border-[#D69A2B]
+                  sm:text-[16px]
+                "
+              >
+                <option value="">I am a...</option>
+                <option value="buyer">Buyer</option>
+                <option value="supplier">Supplier</option>
+                <option value="manufacturer">Manufacturer</option>
+                <option value="partner">Business Partner</option>
+              </select>
+
+              <select
+                name="interest"
+                value={formData.interest}
+                onChange={handleChange}
+                className="
+                  h-[55px]
+                  rounded-[7px]
+                  border
+                  border-[#2A3E50]
+                  bg-[#061522]
+                  px-4
+                  text-[15px]
+                  text-[#DCE1E5]
+                  outline-none
+                  transition-all
+                  focus:border-[#D69A2B]
+                  sm:text-[16px]
+                "
+              >
+                <option value="">Interested In...</option>
+                <option value="export">Export Opportunities</option>
+                <option value="buyers">Buyer Connections</option>
+                <option value="market">Market Intelligence</option>
+                <option value="services">IGBN Services</option>
+              </select>
+            </div>
+
+            {/* Message */}
+            <div className="relative mt-4">
+              <MessageSquare
+                size={20}
+                className="
+                  absolute
+                  left-4
+                  top-4
+                  text-[#D69A2B]
+                "
+              />
+
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Your Message / Requirements"
+                rows={5}
+                className="
+                  w-full
+                  resize-none
+                  rounded-[7px]
+                  border
+                  border-[#2A3E50]
+                  bg-[#061522]
+                  pb-4
+                  pl-12
+                  pr-4
+                  pt-4
+                  text-[15px]
+                  leading-[1.6]
+                  text-[#E3E6E9]
+                  outline-none
+                  placeholder:text-[#99A2AB]
+                  focus:border-[#D69A2B]
+                  sm:text-[16px]
+                "
+              />
+            </div>
+
+            {/* Agreement */}
+            <label
+              className="
+                mt-4
+                flex
+                cursor-pointer
+                items-start
+                gap-3
+              "
+            >
+              <input
+                type="checkbox"
+                name="agree"
+                checked={formData.agree}
+                onChange={handleChange}
+                className="
+                  mt-[3px]
+                  h-[18px]
+                  w-[18px]
+                  shrink-0
+                  accent-[#D69A2B]
+                "
+              />
+
+              <span
+                className="
+                  text-[13px]
+                  leading-[1.5]
+                  text-[#C6CDD3]
+                  sm:text-[14px]
+                  lg:text-[15px]
+                "
+              >
+                I agree to the{" "}
+                <span className="font-medium text-[#D69A2B]">
+                  Privacy Policy
+                </span>{" "}
+                and{" "}
+                <span className="font-medium text-[#D69A2B]">
+                  Terms & Conditions
+                </span>
+              </span>
+            </label>
+
+            {/* Submit */}
             <motion.button
               type="submit"
-              disabled={submitting}
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-2 py-3.5 rounded-lg font-semibold text-sm text-white transition-opacity disabled:opacity-70"
-              style={{ backgroundColor: NAVY }}
+              whileHover={{
+                y: -3,
+              }}
+              whileTap={{
+                scale: 0.98,
+              }}
+              className="
+                group
+                mt-5
+                flex
+                min-h-[56px]
+                w-full
+                items-center
+                justify-center
+                gap-4
+                rounded-[7px]
+                border
+                border-[#D69A2B]
+                bg-gradient-to-r
+                from-[#E1AA48]
+                via-[#D99B2B]
+                to-[#C98A24]
+                text-[16px]
+                font-semibold
+                uppercase
+                text-[#07111B]
+                shadow-[0_8px_25px_rgba(214,154,43,0.20)]
+                sm:text-[17px]
+                lg:text-[18px]
+              "
             >
-              {submitting ? (
-                <>
-                  <motion.span
-                    animate={{ rotate: 360 }}
-                    transition={{
-                      duration: 0.8,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                    className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full"
-                  />
-                  Sending...
-                </>
-              ) : submitted ? (
-                <>
-                  <ShieldCheck size={16} />
-                  Message Sent!
-                </>
-              ) : (
-                <>
-                  <Send size={16} />
-                  Send Message
-                </>
-              )}
+              Submit & Connect
+              <ArrowRight
+                size={22}
+                className="
+                  transition-transform
+                  duration-300
+                  group-hover:translate-x-1
+                "
+              />
             </motion.button>
 
-            <p className="flex items-center justify-center gap-1.5 text-xs text-gray-500 pt-1">
-              <ShieldCheck size={13} className="text-green-600" />
+            {/* Security */}
+            <div
+              className="
+                mt-4
+                flex
+                items-center
+                justify-center
+                gap-2
+                text-center
+                text-[12px]
+                text-[#9FA8B0]
+                sm:text-[13px]
+              "
+            >
+              <ShieldCheck size={17} className="text-[#D69A2B]" />
               Your information is safe with us. We respect your privacy.
-            </p>
+            </div>
           </form>
+        </motion.div>
+
+        {/* =====================================================
+            RIGHT CARD
+        ====================================================== */}
+        <motion.div
+          initial={{ opacity: 0, x: 35 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          className="
+            relative
+            min-h-[650px]
+            overflow-hidden
+            rounded-[12px]
+            border
+            border-[#765323]/80
+            bg-[#03111F]
+            px-5
+            py-6
+            shadow-[0_12px_35px_rgba(0,0,0,0.30)]
+            sm:px-7
+            lg:px-8
+          "
+        >
+          {/* Golden Glow */}
+          <div
+            className="
+              pointer-events-none
+              absolute
+              left-1/2
+              top-[57%]
+              h-[380px]
+              w-[380px]
+              -translate-x-1/2
+              -translate-y-1/2
+              rounded-full
+              bg-[#D69A2B]/[0.035]
+              blur-[100px]
+            "
+          />
+
+          {/* Heading */}
+          <div className="relative z-10 text-center">
+            <h2
+              className="
+                text-[24px]
+                font-semibold
+                uppercase
+                text-[#F4F5F6]
+                sm:text-[27px]
+                lg:text-[30px]
+              "
+            >
+              Why Connect With IGBN?
+            </h2>
+
+            <p
+              className="
+                mx-auto
+                mt-2
+                max-w-[650px]
+                text-[14px]
+                leading-[1.6]
+                text-[#BBC3CA]
+                sm:text-[18px]
+                lg:text-[18px]
+              "
+            >
+              We don&apos;t just connect people. We build global business
+              success stories.
+            </p>
+          </div>
+
+          {/* =================================================
+              NETWORK AREA
+          ================================================== */}
+          <div
+            className="
+              relative
+              mx-auto
+              mt-6
+              min-h-[500px]
+              max-w-[820px]
+            "
+          >
+            {/* ================= ORBIT CIRCLES ================= */}
+            <motion.div
+              animate={{
+                rotate: 360,
+              }}
+              transition={{
+                duration: 35,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+              className="
+                pointer-events-none
+                absolute
+                left-1/2
+                top-1/2
+                h-[360px]
+                w-[360px]
+                -translate-x-1/2
+                -translate-y-1/2
+                rounded-full
+                border
+                border-[#8B6328]/45
+
+                sm:h-[400px]
+                sm:w-[400px]
+              "
+            >
+              <div
+                className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  h-[275px]
+                  w-[275px]
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  rounded-full
+                  border
+                  border-[#8B6328]/45
+                "
+              />
+
+              <div
+                className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  h-[190px]
+                  w-[190px]
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  rounded-full
+                  border
+                  border-[#8B6328]/45
+                "
+              />
+            </motion.div>
+
+            {/* ================= CENTER IMAGE ================= */}
+            <motion.div
+              animate={{
+                y: [0, -6, 0],
+                scale: [1, 1.025, 1],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              className="
+                absolute
+                left-1/2
+                top-1/2
+                z-20
+                flex
+                h-[175px]
+                w-[175px]
+                -translate-x-1/2
+                -translate-y-1/2
+                items-center
+                justify-center
+                rounded-full
+                bg-[#071522]/90
+                shadow-[0_0_35px_rgba(214,154,43,0.13)]
+
+                sm:h-[200px]
+                sm:w-[200px]
+              "
+            >
+              <img
+                src={centerImg}
+                alt="IGBN Global Network"
+                className="
+                  h-[90%]
+                  w-[90%]
+                  object-contain
+                "
+              />
+            </motion.div>
+
+            {/* ================= BENEFIT ITEMS ================= */}
+            {benefits.map((item, index) => {
+              const Icon = item.icon;
+
+              const positionClasses = {
+                "left-top": "left-[1%] top-[5%] sm:left-[2%]",
+                "left-middle": "left-0 top-[38%]",
+                "left-bottom": "left-[2%] bottom-[6%]",
+
+                "right-top": "right-[1%] top-[5%]",
+                "right-middle": "right-0 top-[39%]",
+                "right-bottom": "right-[1%] bottom-[6%]",
+              };
+
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{
+                    opacity: 0,
+                    scale: 0.8,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.45,
+                    delay: 0.15 + index * 0.08,
+                  }}
+                  whileHover={{
+                    scale: 1.04,
+                  }}
+                  className={`
+                    absolute
+                    z-30
+                    hidden
+                    w-[190px]
+                    items-center
+                    gap-3
+
+                    sm:flex
+
+                    ${positionClasses[item.position]}
+                  `}
+                >
+                  {/* Icon */}
+                  <motion.div
+                    animate={{
+                      y: [0, -4, 0],
+                    }}
+                    transition={{
+                      duration: 3 + index * 0.25,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                    className="
+                      flex
+                      h-[52px]
+                      w-[52px]
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-full
+                      border
+                      border-[#A9782D]/70
+                      bg-[#071522]
+                      shadow-[0_0_15px_rgba(214,154,43,0.07)]
+                    "
+                  >
+                    <Icon
+                      size={33}
+                      strokeWidth={2}
+                      className="text-[#D69A2B]"
+                    />
+                  </motion.div>
+
+                  <div>
+                    <h3
+                      className="
+                        
+                        font-semibold
+                        leading-[1.4]
+                        text-[#E8EBED]
+                        text-[18px]
+                        sm:text-[18px]
+                        lg:text-[18px]
+                      "
+                    >
+                      {item.title}
+                    </h3>
+
+                    <p
+                      className="
+                        mt-1
+                        text-[12px]
+                        leading-[1.45]
+                        text-[#AFB8C0]
+                        sm:text-[16px]
+                        lg:text-[16px]
+                      "
+                    >
+                      {item.text}
+                    </p>
+                  </div>
+                </motion.div>
+              );
+            })}
+
+            {/* ================= MOBILE BENEFITS ================= */}
+            <div
+              className="
+                absolute
+                inset-x-0
+                bottom-0
+                grid
+                grid-cols-1
+                gap-3
+                sm:hidden
+              "
+            >
+              {benefits.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.title}
+                    className="
+                      flex
+                      items-center
+                      gap-3
+                      rounded-[7px]
+                      border
+                      border-[#283C4E]
+                      bg-[#061522]
+                      p-3
+                    "
+                  >
+                    <Icon
+                      size={24}
+                      className="
+                        shrink-0
+                        text-[#D69A2B]
+                      "
+                    />
+
+                    <div>
+                      <p
+                        className="
+                          text-[14px]
+                          font-semibold
+                          text-[#E6E9EB]
+                        "
+                      >
+                        {item.title}
+                      </p>
+
+                      <p
+                        className="
+                          mt-1
+                          text-[12px]
+                          text-[#AEB7BF]
+                        "
+                      >
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+/* =====================================================
+   INPUT COMPONENT
+===================================================== */
+
+function InputBox({ icon: Icon, type, name, placeholder, value, onChange }) {
+  return (
+    <div className="relative">
+      <Icon
+        size={19}
+        className="
+          absolute
+          left-4
+          top-1/2
+          -translate-y-1/2
+          text-[#D69A2B]
+        "
+      />
+
+      <input
+        type={type}
+        name={name}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        className="
+          h-[55px]
+          w-full
+          rounded-[7px]
+          border
+          border-[#2A3E50]
+          bg-[#061522]
+          pl-12
+          pr-4
+          text-[15px]
+          text-[#E4E7E9]
+          outline-none
+          transition-all
+          placeholder:text-[#98A1AA]
+          focus:border-[#D69A2B]
+          sm:text-[16px]
+        "
+      />
+    </div>
   );
 }

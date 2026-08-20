@@ -7,7 +7,10 @@ import usaFlag from "../assets/flag/usa.png";
 import GlobalUnderstanding from "../components/sections/marketanalyses/GlobalUnderstanding";
 import TopMarket from "../components/sections/marketanalyses/TopMarket";
 import ExplorIndustry from "../components/sections/marketanalyses/ExplorIndustry";
-// import WhatIndiaProduce from "../components/sections/marketanalyses/WhatIndiaProduce";
+import WhatIndiaProduce from "../components/sections/marketanalyses/WhatIndiaProduce";
+import AiMarketRepoGenerater from "../components/sections/marketanalyses/AiMarketRepoGenerater";
+import ReportsLibrary from "../components/sections/marketanalyses/ReportsLibrary";
+import PartnerWithIGBN from "../components/sections/marketanalyses/PartnerWithIGBN";
 
 export default function MarketAnalyses() {
   const [product, setProduct] = useState("Rice");
@@ -843,7 +846,10 @@ export default function MarketAnalyses() {
       <GlobalUnderstanding/>
       <TopMarket/>
       <ExplorIndustry/>
-      {/* <WhatIndiaProduce/> */}
+      <WhatIndiaProduce/>
+      <AiMarketRepoGenerater/>
+      <ReportsLibrary/>
+      <PartnerWithIGBN/>
     </div>
     </>
   );

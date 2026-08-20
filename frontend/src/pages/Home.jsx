@@ -24,12 +24,15 @@ import KeyMetrics from "../components/sections/KeyMetrics";
 import HowItWorks from "../components/sections/HowItWorks";
 import LatestInsights from "../components/sections/LatestInsights";
 import KeyMetrics2 from "../components/sections/KeyMetrics2";
+import GlobalTradeHero from "../components/sections/home/GlobalTradeHero/GlobalTradeHero";
 // import InternationalRFQ from "../components/sections/InternationalRFQ.jsx";
 
 export default function Home() {
   return (
     <>
-      <Hero />
+      {/* <Hero /> */}
+      <GlobalTradeHero/>
+      
       {/* <WhyChoose />
       <TrustedBy />
      

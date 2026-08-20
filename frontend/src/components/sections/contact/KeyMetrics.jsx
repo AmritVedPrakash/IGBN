@@ -1,78 +1,73 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import {
-  Globe2,
-  ScanLine,
-  UserRoundCheck,
   UsersRound,
-  Share2,
-  Award,
+  Building2,
+  PackageOpen,
+  MessagesSquare,
+  CircleDollarSign,
 } from "lucide-react";
 
 export default function KeyMetrics() {
   const metrics = [
     {
-      icon: Globe2,
-      label: "Countries Connected",
-      value: 21,
-      suffix: "+",
-    },
-    {
-      icon: ScanLine,
-      label: "Active RFQs",
-      value: 3482,
-      suffix: "",
-    },
-    {
-      icon: UserRoundCheck,
-      label: "Verified Suppliers",
-      value: 1250,
-      suffix: "+",
-    },
-    {
       icon: UsersRound,
-      label: "Buyer Introductions",
-      value: 186,
-      suffix: "",
-    },
-    {
-      icon: Share2,
-      label: "Products Covered",
-      value: 500,
+      value: 10000,
+      prefix: "",
       suffix: "+",
+      displayType: "normal",
+      label: "Verified Buyers",
     },
     {
-      icon: Award,
-      label: "Trade Ambassadors",
-      value: 17,
-      suffix: "",
+      icon: Building2,
+      value: 5000,
+      prefix: "",
+      suffix: "+",
+      displayType: "normal",
+      label: "Verified Suppliers",
+    },
+    {
+      icon: PackageOpen,
+      value: 25,
+      prefix: "",
+      suffix: "K+",
+      displayType: "short",
+      label: "Products Listed",
+    },
+    {
+      icon: MessagesSquare,
+      value: 100,
+      prefix: "",
+      suffix: "K+",
+      displayType: "short",
+      label: "RFQs Posted",
+    },
+    {
+      icon: CircleDollarSign,
+      value: 451,
+      prefix: "$",
+      suffix: "B+",
+      displayType: "short",
+      label: "Export Opportunities",
     },
   ];
 
   return (
     <section className="w-full bg-[#020D18] px-4 py-8 sm:px-6 lg:px-8">
       <motion.div
-        initial={{
-          opacity: 0,
-          y: 20,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{
-          duration: 0.6,
-        }}
+        transition={{ duration: 0.6 }}
         className="
           mx-auto
           max-w-[1650px]
           overflow-hidden
-          rounded-[11px]
+          rounded-[12px]
           border
           border-[#725021]/80
           bg-[#03111F]
-          shadow-[0_10px_30px_rgba(0,0,0,0.30)]
+          shadow-[0_12px_40px_rgba(0,0,0,0.30)]
         "
       >
         <div
@@ -81,7 +76,7 @@ export default function KeyMetrics() {
             grid-cols-1
             sm:grid-cols-2
             md:grid-cols-3
-            xl:grid-cols-6
+            xl:grid-cols-5
           "
         >
           {metrics.map((item, index) => {
@@ -92,7 +87,7 @@ export default function KeyMetrics() {
                 key={index}
                 initial={{
                   opacity: 0,
-                  y: 18,
+                  y: 20,
                 }}
                 whileInView={{
                   opacity: 1,
@@ -104,7 +99,7 @@ export default function KeyMetrics() {
                   delay: index * 0.08,
                 }}
                 whileHover={{
-                  y: -4,
+                  y: -5,
                 }}
                 className="
                   group
@@ -112,23 +107,19 @@ export default function KeyMetrics() {
                   flex
                   min-h-[145px]
                   items-center
+                  justify-center
                   gap-5
                   border-b
-                  border-[#27394A]
+                  border-[#26394A]
                   px-5
                   py-6
-                  transition-all
-                  duration-300
-
-                  hover:bg-[#071725]
 
                   xl:border-b-0
-                  xl:px-6
                 "
               >
-                {/* ================= VERTICAL DIVIDER ================= */}
+                {/* ================= DIVIDER ================= */}
                 {index !== metrics.length - 1 && (
-                  <div
+                  <span
                     className="
                       absolute
                       right-0
@@ -148,8 +139,8 @@ export default function KeyMetrics() {
                 {/* ================= ICON ================= */}
                 <motion.div
                   whileHover={{
-                    scale: 1.08,
-                    rotate: -4,
+                    scale: 1.1,
+                    rotate: -5,
                   }}
                   className="
                     flex
@@ -160,38 +151,39 @@ export default function KeyMetrics() {
                     justify-center
                     rounded-full
                     border
-                    border-[#B67E29]/55
-                    bg-[#D69A2B]/[0.03]
-                    transition-all
-                    duration-300
-
-                    group-hover:border-[#D69A2B]
-                    group-hover:bg-[#D69A2B]/[0.06]
+                    border-[#A9782D]/70
+                    bg-[#071522]
+                    shadow-[0_0_18px_rgba(214,154,43,0.08)]
                   "
                 >
                   <Icon
-                    size={36}
+                    size={37}
                     strokeWidth={1.5}
                     className="
                       text-[#D69A2B]
-                      transition-all
+                      transition-colors
                       duration-300
-                      group-hover:scale-110
-                      group-hover:text-[#E7AB41]
+                      group-hover:text-[#E8AE47]
                     "
                   />
                 </motion.div>
 
                 {/* ================= TEXT ================= */}
-                <div className="min-w-0">
-                  {/* Label */}
+                <div>
+                  <CountUpNumber
+                    value={item.value}
+                    prefix={item.prefix}
+                    suffix={item.suffix}
+                    displayType={item.displayType}
+                  />
+
                   <p
                     className="
-                      whitespace-nowrap
+                      mt-3
                       text-[15px]
                       font-medium
                       leading-[1.45]
-                      text-[#D7DCE1]
+                      text-[#DCE1E5]
 
                       sm:text-[16px]
                       lg:text-[17px]
@@ -199,13 +191,6 @@ export default function KeyMetrics() {
                   >
                     {item.label}
                   </p>
-
-                  {/* Animated Value */}
-                  <CountUp
-                    value={item.value}
-                    suffix={item.suffix}
-                    delay={index * 100}
-                  />
                 </div>
               </motion.div>
             );
@@ -216,11 +201,16 @@ export default function KeyMetrics() {
   );
 }
 
-/* ======================================================
+/* =====================================================
    COUNT UP COMPONENT
-====================================================== */
+===================================================== */
 
-function CountUp({ value, suffix = "", delay = 0 }) {
+function CountUpNumber({
+  value,
+  prefix = "",
+  suffix = "",
+  displayType = "normal",
+}) {
   const ref = useRef(null);
 
   const isInView = useInView(ref, {
@@ -234,45 +224,43 @@ function CountUp({ value, suffix = "", delay = 0 }) {
     if (!isInView) return;
 
     let startTime = null;
-    let frameId;
 
     const duration = 1800;
 
-    const startAnimation = () => {
-      const animate = (timestamp) => {
-        if (!startTime) {
-          startTime = timestamp;
-        }
+    const animateCount = (timestamp) => {
+      if (!startTime) {
+        startTime = timestamp;
+      }
 
-        const progress = Math.min((timestamp - startTime) / duration, 1);
+      const progress = Math.min((timestamp - startTime) / duration, 1);
 
-        // Smooth ease-out
-        const eased = 1 - Math.pow(1 - progress, 3);
+      /*
+        Ease Out animation
+        Fast start, smooth finish
+      */
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
 
-        const currentValue = Math.floor(value * eased);
+      const currentValue = Math.floor(easedProgress * value);
 
-        setCount(currentValue);
+      setCount(currentValue);
 
-        if (progress < 1) {
-          frameId = requestAnimationFrame(animate);
-        } else {
-          setCount(value);
-        }
-      };
-
-      frameId = requestAnimationFrame(animate);
-    };
-
-    const timer = setTimeout(startAnimation, delay);
-
-    return () => {
-      clearTimeout(timer);
-
-      if (frameId) {
-        cancelAnimationFrame(frameId);
+      if (progress < 1) {
+        requestAnimationFrame(animateCount);
+      } else {
+        setCount(value);
       }
     };
-  }, [isInView, value, delay]);
+
+    requestAnimationFrame(animateCount);
+  }, [isInView, value]);
+
+  const formatNumber = (number) => {
+    if (displayType === "normal") {
+      return number.toLocaleString("en-US");
+    }
+
+    return number;
+  };
 
   return (
     <motion.p
@@ -293,18 +281,19 @@ function CountUp({ value, suffix = "", delay = 0 }) {
         duration: 0.4,
       }}
       className="
-        mt-3
         whitespace-nowrap
-        text-[29px]
+        text-[28px]
         font-semibold
         leading-none
         text-[#F4F5F6]
 
-        sm:text-[31px]
-        lg:text-[34px]
+        sm:text-[30px]
+        lg:text-[32px]
+        xl:text-[34px]
       "
     >
-      {count.toLocaleString("en-US")}
+      {prefix}
+      {formatNumber(count)}
       {suffix}
     </motion.p>
   );
