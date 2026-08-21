@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Globe2,
   MapPin,
@@ -13,37 +14,44 @@ export default function StatsSection() {
   const stats = [
     {
       icon: Globe2,
-      number: "21+",
+      number: 21,
+      suffix: "+",
       text: "Countries Connected",
     },
     {
       icon: MapPin,
-      number: "3,482+",
+      number: 3482,
+      suffix: "+",
       text: "Active RFQs",
     },
     {
       icon: BadgeCheck,
-      number: "1,250+",
+      number: 1250,
+      suffix: "+",
       text: "Verified Suppliers",
     },
     {
       icon: UsersRound,
-      number: "186+",
+      number: 186,
+      suffix: "+",
       text: "Buyer Introductions",
     },
     {
       icon: Boxes,
-      number: "500+",
+      number: 500,
+      suffix: "+",
       text: "Products Covered",
     },
     {
       icon: Award,
-      number: "17",
+      number: 17,
+      suffix: "",
       text: "Trade Ambassadors",
     },
     {
       icon: Building2,
-      number: "12+",
+      number: 12,
+      suffix: "+",
       text: "Industry Verticals",
     },
   ];
@@ -52,7 +60,21 @@ export default function StatsSection() {
     <section className="w-full bg-[#020D18] px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1650px]">
         {/* ================= STATS BOX ================= */}
-        <div
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
           className="
             overflow-hidden
             rounded-[10px]
@@ -76,8 +98,26 @@ export default function StatsSection() {
               const Icon = item.icon;
 
               return (
-                <div
+                <motion.div
                   key={index}
+                  initial={{
+                    opacity: 0,
+                    y: 15,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.07,
+                  }}
+                  whileHover={{
+                    y: -4,
+                  }}
                   className="
                     group
                     relative
@@ -118,7 +158,11 @@ export default function StatsSection() {
                   )}
 
                   {/* ================= ICON ================= */}
-                  <div
+                  <motion.div
+                    whileHover={{
+                      scale: 1.1,
+                      rotate: -4,
+                    }}
                     className="
                       flex
                       h-[54px]
@@ -149,26 +193,16 @@ export default function StatsSection() {
                         group-hover:text-[#E7AE48]
                       "
                     />
-                  </div>
+                  </motion.div>
 
                   {/* ================= TEXT ================= */}
                   <div className="flex min-w-0 flex-col">
-                    {/* Number */}
-                    <span
-                      className="
-                        whitespace-nowrap
-                        text-[21px]
-                        font-semibold
-                        leading-none
-                        text-[#D99B2B]
-
-                        sm:text-[22px]
-                        lg:text-[23px]
-                        xl:text-[24px]
-                      "
-                    >
-                      {item.number}
-                    </span>
+                    {/* Animated Number */}
+                    <CountUpNumber
+                      value={item.number}
+                      suffix={item.suffix}
+                      delay={index * 100}
+                    />
 
                     {/* Label */}
                     <span
@@ -186,12 +220,104 @@ export default function StatsSection() {
                       {item.text}
                     </span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+/* =====================================================
+   COUNT UP NUMBER
+===================================================== */
+
+function CountUpNumber({ value, suffix = "", delay = 0 }) {
+  const ref = useRef(null);
+
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.5,
+  });
+
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let frameId;
+    let startTime = null;
+
+    const duration = 1800;
+
+    const timer = setTimeout(() => {
+      const animateNumber = (timestamp) => {
+        if (!startTime) {
+          startTime = timestamp;
+        }
+
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+
+        // Smooth ease-out
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+        const currentValue = Math.floor(value * easedProgress);
+
+        setCount(currentValue);
+
+        if (progress < 1) {
+          frameId = requestAnimationFrame(animateNumber);
+        } else {
+          setCount(value);
+        }
+      };
+
+      frameId = requestAnimationFrame(animateNumber);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+    };
+  }, [isInView, value, delay]);
+
+  return (
+    <motion.span
+      ref={ref}
+      initial={{
+        opacity: 0,
+        scale: 0.8,
+      }}
+      animate={
+        isInView
+          ? {
+              opacity: 1,
+              scale: 1,
+            }
+          : {}
+      }
+      transition={{
+        duration: 0.4,
+      }}
+      className="
+        whitespace-nowrap
+        text-[21px]
+        font-semibold
+        leading-none
+        text-[#D99B2B]
+
+        sm:text-[25px]
+        lg:text-[25px]
+        xl:text-[32px]
+      "
+    >
+      {count.toLocaleString("en-US")}
+      {suffix}
+    </motion.span>
   );
 }

@@ -208,7 +208,7 @@ export default function GlobalTradeHero() {
               <p
                 className="
                   whitespace-nowrap
-                  text-[15px]
+                  text-[16px]
                   font-semibold
                   text-[#F2F4F5]
                 "
@@ -220,7 +220,7 @@ export default function GlobalTradeHero() {
                 className="
                   mt-2
                   whitespace-nowrap
-                  text-[11px]
+                  text-[12px]
                   font-medium
                   text-[#9AA6AF]
                 "
@@ -297,7 +297,7 @@ export default function GlobalTradeHero() {
               <p
                 className="
                   whitespace-nowrap
-                  text-[15px]
+                  text-[16px]
                   font-semibold
                   text-[#D69A2B]
                 "
@@ -309,7 +309,7 @@ export default function GlobalTradeHero() {
                 className="
                   mt-2
                   whitespace-nowrap
-                  text-[11px]
+                  text-[12px]
                   font-medium
                   text-[#9AA6AF]
                 "

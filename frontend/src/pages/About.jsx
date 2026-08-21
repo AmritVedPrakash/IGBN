@@ -2,7 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, SquarePen } from "lucide-react";
 
-import aboutBg from "../assets/aboutimg/about-bg.png";
+// ================= VIDEO =================
+// Apne actual video filename ke according change kar lena
+import aboutVideo from "../assets/aboutimg/about-video.mp4";
 
 import OurLeadership from "../components/sections/aboutus/OurLeadership";
 import StatsSection from "../components/sections/aboutus/StatsSection";
@@ -12,7 +14,8 @@ import OurGlobalPresence from "../components/sections/aboutus/OurGlobalPresence"
 import GlobalOpportunities from "../components/sections/aboutus/GlobalOpportunities";
 import OurServices from "../components/sections/aboutus/OurServices";
 import PartnerWithIGBN from "../components/sections/aboutus/PartnerWithIGBN";
-
+import WatchOurStory from "../components/sections/aboutus/WatchOurStory";
+// import OurTimeline from "../components/sections/aboutus/OurTimeline";
 export default function About() {
   const scrollToMission = () => {
     const section = document.getElementById("vision-mission");
@@ -39,7 +42,7 @@ export default function About() {
         "
       >
         {/* =====================================================
-            RIGHT SIDE MAP IMAGE ONLY
+            RIGHT SIDE BACKGROUND VIDEO - DESKTOP
         ====================================================== */}
         <div
           className="
@@ -50,68 +53,112 @@ export default function About() {
             hidden
             h-full
             w-[62%]
+            overflow-hidden
             lg:block
           "
         >
-          <img
-            src={aboutBg}
-            alt=""
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
             className="
               h-full
               w-full
               object-cover
               object-center
             "
-          />
+          >
+            <source src={aboutVideo} type="video/mp4" />
+          </video>
 
-          {/* Fade image smoothly into left dark area */}
+          {/* LEFT DARK FADE */}
           <div
             className="
               absolute
               inset-0
               bg-gradient-to-r
               from-[#020D18]
-              via-[#020D18]/20
+              via-[#020D18]/25
               to-transparent
             "
           />
 
-          {/* subtle bottom fade */}
+          {/* VIDEO DARK OVERLAY */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[#020D18]/10
+            "
+          />
+
+          {/* BOTTOM FADE */}
           <div
             className="
               absolute
               inset-x-0
               bottom-0
-              h-[120px]
+              h-[140px]
               bg-gradient-to-t
               from-[#020D18]
+              via-[#020D18]/50
+              to-transparent
+            "
+          />
+
+          {/* TOP FADE */}
+          <div
+            className="
+              absolute
+              inset-x-0
+              top-0
+              h-[70px]
+              bg-gradient-to-b
+              from-[#020D18]/40
               to-transparent
             "
           />
         </div>
 
-        {/* Mobile subtle image */}
+        {/* =====================================================
+            MOBILE BACKGROUND VIDEO
+        ====================================================== */}
         <div
           className="
             pointer-events-none
             absolute
             inset-0
+            overflow-hidden
             lg:hidden
           "
         >
-          <img
-            src={aboutBg}
-            alt=""
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
             className="
               h-full
               w-full
               object-cover
               object-center
-              opacity-20
+              opacity-35
+            "
+          >
+            <source src={aboutVideo} type="video/mp4" />
+          </video>
+
+          {/* Mobile dark overlay */}
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[#020D18]/80
             "
           />
-
-          <div className="absolute inset-0 bg-[#020D18]/85" />
         </div>
 
         {/* =====================================================
@@ -162,7 +209,7 @@ export default function About() {
               max-w-[670px]
             "
           >
-            {/* About IGBN */}
+            {/* ABOUT */}
             <p
               className="
                 mb-2
@@ -170,14 +217,14 @@ export default function About() {
                 font-semibold
                 text-[#F4F5F6]
 
-                sm:text-[21px]
-                lg:text-[23px]
+                sm:text-[25px]
+                lg:text-[40px]
               "
             >
               About IGBN
             </p>
 
-            {/* Main Heading */}
+            {/* MAIN HEADING */}
             <h1
               className="
                 text-[38px]
@@ -199,7 +246,7 @@ export default function About() {
               <span className="text-[#D79A2B]">Export Growth Platform</span>
             </h1>
 
-            {/* Description */}
+            {/* DESCRIPTION */}
             <p
               className="
                 mt-5
@@ -218,17 +265,17 @@ export default function About() {
               dedicated international business development across 21+ countries.
             </p>
 
-            {/* Buttons */}
+            {/* BUTTONS */}
             <div
               className="
-                mt-7
-                flex
-                flex-wrap
-                items-center
-                gap-4
-              "
+    mt-7
+    flex
+    flex-wrap
+    items-center
+    gap-4
+  "
             >
-              {/* Mission */}
+              {/* OUR MISSION */}
               <motion.button
                 onClick={scrollToMission}
                 whileHover={{
@@ -238,90 +285,45 @@ export default function About() {
                   scale: 0.98,
                 }}
                 className="
-                  group
-                  flex
-                  min-h-[50px]
-                  items-center
-                  justify-center
-                  gap-3
-                  rounded-[6px]
-                  border
-                  border-[#D79A2B]
-                  bg-gradient-to-r
-                  from-[#DCA443]
-                  via-[#D69A2B]
-                  to-[#C78A25]
-                  px-7
-                  text-[14px]
-                  font-semibold
-                  text-[#07111A]
-                  shadow-[0_8px_24px_rgba(214,154,43,0.18)]
+      group
+      flex
+      min-h-[50px]
+      items-center
+      justify-center
+      gap-3
+      rounded-[6px]
+      border
+      border-[#D79A2B]
+      bg-gradient-to-r
+      from-[#DCA443]
+      via-[#D69A2B]
+      to-[#C78A25]
+      px-7
+      text-[14px]
+      font-semibold
+      text-[#07111A]
 
-                  sm:text-[15px]
-                "
+      sm:text-[18px]
+    "
               >
                 Our Mission
                 <ArrowRight
-                  size={19}
+                  size={20}
                   className="
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
-                  "
+        transition-transform
+        duration-300
+        group-hover:translate-x-1
+      "
                 />
               </motion.button>
 
-              {/* Story */}
-              <motion.button
-                whileHover={{
-                  y: -2,
-                }}
-                whileTap={{
-                  scale: 0.98,
-                }}
-                className="
-                  group
-                  flex
-                  min-h-[50px]
-                  items-center
-                  justify-center
-                  gap-4
-                  rounded-[6px]
-                  border
-                  border-[#9A6B28]
-                  bg-[#061522]/80
-                  px-7
-                  text-[14px]
-                  font-semibold
-                  text-[#E7E9EB]
-                  backdrop-blur-sm
-
-                  hover:border-[#D79A2B]
-
-                  sm:text-[15px]
-                "
-              >
-                Watch Our Story
-                <span
-                  className="
-                    flex
-                    h-[25px]
-                    w-[25px]
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#DCE0E3]
-                  "
-                >
-                  <Play size={10} fill="currentColor" className="ml-[1px]" />
-                </span>
-              </motion.button>
+              {/* WATCH OUR STORY */}
+              <WatchOurStory />
             </div>
           </motion.div>
 
           {/* =====================================================
-              RIGHT SIDE CARD
+              RIGHT SIDE FLOATING CARD
           ====================================================== */}
           <div
             className="
@@ -366,7 +368,7 @@ export default function About() {
               "
             >
               <div className="flex items-start gap-4">
-                {/* Icon */}
+                {/* ICON */}
                 <div
                   className="
                     flex
@@ -388,7 +390,7 @@ export default function About() {
                   />
                 </div>
 
-                {/* Text */}
+                {/* TEXT */}
                 <p
                   className="
                     text-[14px]
@@ -435,7 +437,9 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Mobile Card */}
+          {/* =====================================================
+              MOBILE CARD
+          ====================================================== */}
           <div
             className="
               mt-8
@@ -469,6 +473,7 @@ export default function About() {
                   text-[14px]
                   leading-[1.7]
                   text-[#E3E6E8]
+
                   sm:text-[15px]
                 "
               >
@@ -492,6 +497,7 @@ export default function About() {
       <div id="vision-mission">
         <VisionMission />
       </div>
+      {/* <OurTimeline/> */}
 
       <OurLeadership />
 

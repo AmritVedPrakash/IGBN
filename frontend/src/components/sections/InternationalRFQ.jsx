@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 // ================= FLAGS =================
 import usaFlag from "../../assets/flag/usa.png";
@@ -78,14 +82,14 @@ export default function InternationalRFQ() {
 
   const scrollLeft = () => {
     sliderRef.current?.scrollBy({
-      left: -320,
+      left: -340,
       behavior: "smooth",
     });
   };
 
   const scrollRight = () => {
     sliderRef.current?.scrollBy({
-      left: 320,
+      left: 340,
       behavior: "smooth",
     });
   };
@@ -98,12 +102,13 @@ export default function InternationalRFQ() {
         overflow-hidden
         bg-[#020D18]
         px-4
-        py-9
+        py-10
+
         sm:px-6
         lg:px-8
       "
     >
-      {/* Background Glow */}
+      {/* ================= BACKGROUND GLOW ================= */}
       <div
         className="
           pointer-events-none
@@ -148,8 +153,8 @@ export default function InternationalRFQ() {
           border-[#725021]/80
           bg-[#03111F]
           px-4
-          pb-6
-          pt-5
+          pb-7
+          pt-6
           shadow-[0_12px_35px_rgba(0,0,0,0.30)]
 
           sm:px-5
@@ -161,7 +166,7 @@ export default function InternationalRFQ() {
         ====================================================== */}
         <div
           className="
-            mb-5
+            mb-6
             flex
             flex-wrap
             items-center
@@ -172,14 +177,14 @@ export default function InternationalRFQ() {
           {/* Heading */}
           <h2
             className="
-              text-[21px]
+              text-[25px]
               font-semibold
               leading-tight
               text-[#F5F5F5]
 
-              sm:text-[23px]
-              md:text-[25px]
-              lg:text-[27px]
+              sm:text-[27px]
+              md:text-[29px]
+              lg:text-[31px]
             "
           >
             Active RFQs Worldwide
@@ -194,18 +199,19 @@ export default function InternationalRFQ() {
               group
               flex
               items-center
-              gap-2
-              text-[13px]
+              gap-2.5
+              text-[15px]
               font-semibold
               text-[#D69A2B]
 
-              sm:text-[14px]
-              lg:text-[15px]
+              sm:text-[16px]
+              lg:text-[17px]
             "
           >
             View All RFQs
+
             <ArrowRight
-              size={19}
+              size={21}
               strokeWidth={2}
               className="
                 transition-transform
@@ -231,12 +237,12 @@ export default function InternationalRFQ() {
             }}
             className="
               absolute
-              -left-[21px]
+              -left-[22px]
               top-1/2
               z-30
               hidden
-              h-[43px]
-              w-[43px]
+              h-[46px]
+              w-[46px]
               -translate-y-1/2
               items-center
               justify-center
@@ -250,7 +256,7 @@ export default function InternationalRFQ() {
               md:flex
             "
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={27} />
           </motion.button>
 
           {/* ================= CARDS ================= */}
@@ -294,40 +300,41 @@ export default function InternationalRFQ() {
                 className="
                   group
                   flex
-                  min-h-[315px]
-                  w-[260px]
+                  min-h-[350px]
+                  w-[285px]
                   shrink-0
                   snap-start
                   flex-col
                   overflow-hidden
-                  rounded-[9px]
+                  rounded-[10px]
                   border
                   border-[#D7D7D7]
                   bg-[#F5F5F3]
                   px-5
-                  py-5
+                  py-6
                   shadow-[0_7px_22px_rgba(0,0,0,0.18)]
                   transition-all
                   duration-300
 
                   hover:shadow-[0_15px_30px_rgba(0,0,0,0.28)]
 
-                  sm:w-[275px]
-                  lg:w-[285px]
+                  sm:w-[300px]
+                  lg:w-[315px]
+
                   2xl:w-[calc((100%-80px)/6)]
                   2xl:min-w-0
                 "
               >
                 {/* ================= COUNTRY ================= */}
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3.5">
                   {/* Flag */}
                   <div
                     className="
-                      h-[31px]
-                      w-[44px]
+                      h-[34px]
+                      w-[48px]
                       shrink-0
                       overflow-hidden
-                      rounded-[3px]
+                      rounded-[4px]
                       border
                       border-black/10
                       bg-white
@@ -347,11 +354,12 @@ export default function InternationalRFQ() {
                   {/* Country Name */}
                   <p
                     className="
-                      text-[14px]
+                      text-[16px]
                       font-semibold
                       text-[#252525]
 
-                      sm:text-[15px]
+                      sm:text-[17px]
+                      lg:text-[22px]
                     "
                   >
                     {rfq.country}
@@ -362,8 +370,8 @@ export default function InternationalRFQ() {
                 <h3
                   className="
                     mt-6
-                    min-h-[45px]
-                    text-[15px]
+                    min-h-[56px]
+                    text-[18px]
                     font-semibold
                     leading-[1.45]
                     text-[#1B1B1B]
@@ -372,7 +380,8 @@ export default function InternationalRFQ() {
 
                     group-hover:text-[#A96F16]
 
-                    sm:text-[16px]
+                    sm:text-[19px]
+                    lg:text-[20px]
                   "
                 >
                   {rfq.title}
@@ -381,40 +390,42 @@ export default function InternationalRFQ() {
                 {/* ================= DETAILS ================= */}
                 <div
                   className="
-                    mt-3
+                    mt-4
                     flex-1
-                    space-y-2
+                    space-y-3
                   "
                 >
                   {/* Category */}
                   <p
                     className="
-                      text-[12px]
+                      text-[14px]
                       font-medium
-                      leading-[1.5]
-                      text-[#666666]
+                      leading-[1.55]
+                      text-[#5D5D5D]
 
-                      sm:text-[13px]
+                      sm:text-[15px]
+                      lg:text-[16px]
                     "
                   >
                     {rfq.category}
                   </p>
 
-                  {/* Qty */}
+                  {/* Quantity */}
                   <p
                     className="
-                      text-[12px]
-                      leading-[1.5]
-                      text-[#777777]
+                      text-[14px]
+                      leading-[1.55]
+                      text-[#707070]
 
-                      sm:text-[13px]
+                      sm:text-[15px]
+                      lg:text-[16px]
                     "
                   >
                     Qty:{" "}
                     <span
                       className="
-                        font-medium
-                        text-[#4A4A4A]
+                        font-semibold
+                        text-[#424242]
                       "
                     >
                       {rfq.quantity}
@@ -424,11 +435,13 @@ export default function InternationalRFQ() {
                   {/* Date */}
                   <p
                     className="
-                      text-[12px]
-                      leading-[1.5]
-                      text-[#777777]
+                      text-[14px]
+                      font-medium
+                      leading-[1.55]
+                      text-[#707070]
 
-                      sm:text-[13px]
+                      sm:text-[15px]
+                      lg:text-[16px]
                     "
                   >
                     {rfq.date}
@@ -441,27 +454,27 @@ export default function InternationalRFQ() {
                     scale: 1.02,
                   }}
                   className="
-                    mt-5
+                    mt-6
                     flex
-                    min-h-[42px]
+                    min-h-[48px]
                     items-center
                     justify-center
-                    gap-2
-                    rounded-[5px]
+                    gap-2.5
+                    rounded-[6px]
                     bg-[#E4E9E3]
                     px-3
                     py-2
-                    text-[13px]
+                    text-[15px]
                     font-semibold
                     text-[#397346]
 
-                    sm:text-[14px]
+                    sm:text-[16px]
                   "
                 >
                   <span
                     className="
-                      h-[7px]
-                      w-[7px]
+                      h-[8px]
+                      w-[8px]
                       rounded-full
                       bg-[#4C9458]
                     "
@@ -484,12 +497,12 @@ export default function InternationalRFQ() {
             }}
             className="
               absolute
-              -right-[21px]
+              -right-[22px]
               top-1/2
               z-30
               hidden
-              h-[43px]
-              w-[43px]
+              h-[46px]
+              w-[46px]
               -translate-y-1/2
               items-center
               justify-center
@@ -503,7 +516,7 @@ export default function InternationalRFQ() {
               md:flex
             "
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={27} />
           </motion.button>
         </div>
       </motion.div>

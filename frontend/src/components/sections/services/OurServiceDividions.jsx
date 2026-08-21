@@ -185,7 +185,7 @@ export default function OurServiceDivisions() {
                   group
                   relative
                   flex
-                  min-h-[430px]
+                  min-h-[360px]
                   overflow-hidden
                   rounded-[9px]
                   border

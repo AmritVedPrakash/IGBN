@@ -154,8 +154,8 @@ export default function OurFourDivision() {
                   rounded-[10px]
                   border
                   bg-[#03111F]
-                  px-6
-                  py-6
+                  px-8
+                  py-8
                   shadow-[0_10px_30px_rgba(0,0,0,0.30)]
                   transition-all
                   duration-300
@@ -226,7 +226,7 @@ export default function OurFourDivision() {
                         uppercase
                         leading-[1.35]
                         sm:text-[17px]
-                        lg:text-[18px]
+                        lg:text-[21px]
                       "
                       style={{
                         color: division.color,
@@ -242,7 +242,7 @@ export default function OurFourDivision() {
                         font-medium
                         leading-[1.45]
                         text-[#D7DCE1]
-                        sm:text-[14px]
+                        sm:text-[17px]
                       "
                     >
                       {division.tagline}
@@ -261,7 +261,7 @@ export default function OurFourDivision() {
     leading-[1.8]
     text-[#D7DCE1]
     sm:text-[15px]
-    lg:text-[16px]
+    lg:text-[17px]
   "
 >
   {division.description}
@@ -283,7 +283,7 @@ export default function OurFourDivision() {
     gap-2
     text-[14px]
     font-semibold
-    sm:text-[15px]
+    sm:text-[17px]
   "
   style={{
     color: division.color,

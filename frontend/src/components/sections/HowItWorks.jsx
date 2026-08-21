@@ -7,6 +7,7 @@ import {
   UsersRound,
   MapPin,
   ArrowRight,
+  ArrowDown,
 } from "lucide-react";
 
 export default function HowItWorks() {
@@ -163,7 +164,7 @@ export default function HowItWorks() {
                       whileInView={{ scaleX: 1 }}
                       viewport={{ once: true }}
                       transition={{
-                        duration: 0.6,
+                        duration: 0.7,
                         delay: 0.3 + index * 0.1,
                       }}
                       className="
@@ -182,14 +183,14 @@ export default function HowItWorks() {
                       <div
                         className="
                           flex-1
-                          border-t-2
+                          border-t-4
                           border-dotted
                           border-[#9A6C26]
                         "
                       />
 
                       <ArrowRight
-                        size={20}
+                        size={25}
                         strokeWidth={2}
                         className="
                           -ml-[2px]
@@ -210,7 +211,7 @@ export default function HowItWorks() {
                     leading-[1.4]
                     text-[#F3F4F5]
                     sm:text-[18px]
-                    lg:text-[19px]
+                    lg:text-[20px]
                   "
                 >
                   {step.title}
@@ -225,17 +226,18 @@ export default function HowItWorks() {
                     leading-[1.7]
                     text-[#CDD3D9]
                     sm:text-[15px]
-                    lg:text-[16px]
+                    lg:text-[17px]
                   "
                 >
                   {step.description}
                 </p>
 
                 {/* MOBILE / TABLET CONNECTOR */}
+                {/* MOBILE / TABLET CONNECTOR */}
                 {index !== steps.length - 1 && (
                   <motion.div
                     animate={{
-                      x: [0, 5, 0],
+                      y: [0, 5, 0],
                     }}
                     transition={{
                       duration: 1.6,
@@ -243,25 +245,26 @@ export default function HowItWorks() {
                       ease: "easeInOut",
                     }}
                     className="
-                      mt-5
-                      flex
-                      items-center
-                      justify-center
-                      text-[#D69A2B]
-                      2xl:hidden
-                    "
+      mt-5
+      flex
+      flex-col
+      items-center
+      justify-center
+      text-[#D69A2B]
+      2xl:hidden
+    "
                   >
                     <div
                       className="
-                        mr-1
-                        w-[45px]
-                        border-t-2
-                        border-dotted
-                        border-[#9A6C26]
-                      "
+        mb-1
+        h-[45px]
+        border-l-2
+        border-dotted
+        border-[#9A6C26]
+      "
                     />
 
-                    <ArrowRight size={19} />
+                    <ArrowDown size={18} />
                   </motion.div>
                 )}
               </motion.div>

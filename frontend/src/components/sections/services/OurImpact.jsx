@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   Trophy,
   Users,
@@ -13,37 +14,51 @@ export default function OurImpact() {
   const impactData = [
     {
       icon: Trophy,
-      number: "3,482+",
+      number: 3482,
+      prefix: "",
+      suffix: "+",
       text: "Active RFQs",
     },
     {
       icon: Users,
-      number: "1,250+",
+      number: 1250,
+      prefix: "",
+      suffix: "+",
       text: "Verified Suppliers",
     },
     {
       icon: UserPlus,
-      number: "186+",
+      number: 186,
+      prefix: "",
+      suffix: "+",
       text: "Buyer Introductions",
     },
     {
       icon: DollarSign,
-      number: "$451B+",
+      number: 451,
+      prefix: "$",
+      suffix: "B+",
       text: "Export Opportunities",
     },
     {
       icon: Building2,
-      number: "500+",
+      number: 500,
+      prefix: "",
+      suffix: "+",
       text: "Products Covered",
     },
     {
       icon: BadgeCheck,
-      number: "17",
+      number: 17,
+      prefix: "",
+      suffix: "",
       text: "Trade Ambassadors",
     },
     {
       icon: Layers3,
-      number: "12+",
+      number: 12,
+      prefix: "",
+      suffix: "+",
       text: "Industry Verticals",
     },
   ];
@@ -52,7 +67,21 @@ export default function OurImpact() {
     <section className="w-full bg-[#020d19] px-4 py-8 md:px-6 lg:px-8">
       <div className="mx-auto max-w-[1650px]">
         {/* ================= HEADING ================= */}
-        <div className="mb-3 flex items-center justify-center gap-4 px-2 sm:px-5">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: -15,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+          }}
+          className="mb-3 flex items-center justify-center gap-4 px-2 sm:px-5"
+        >
           {/* Left Golden Line */}
           <div className="flex w-full max-w-[420px] items-center">
             <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#9e6918] to-[#d99a28]" />
@@ -71,6 +100,7 @@ export default function OurImpact() {
               uppercase
               tracking-[0.04em]
               text-[#f5f5f5]
+
               sm:text-[18px]
               md:text-[20px]
               lg:text-[22px]
@@ -85,10 +115,25 @@ export default function OurImpact() {
 
             <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#9e6918] to-[#d99a28]" />
           </div>
-        </div>
+        </motion.div>
 
         {/* ================= IMPACT BOX ================= */}
-        <div
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.2,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
           className="
             overflow-hidden
             rounded-[12px]
@@ -112,8 +157,26 @@ export default function OurImpact() {
               const Icon = item.icon;
 
               return (
-                <div
+                <motion.div
                   key={index}
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: index * 0.07,
+                  }}
+                  whileHover={{
+                    y: -4,
+                  }}
                   className="
                     group
                     relative
@@ -137,7 +200,7 @@ export default function OurImpact() {
                     2xl:border-b-0
                   "
                 >
-                  {/* Vertical separator desktop */}
+                  {/* Vertical separator */}
                   {index !== impactData.length - 1 && (
                     <span
                       className="
@@ -157,7 +220,11 @@ export default function OurImpact() {
                   )}
 
                   {/* ================= ICON ================= */}
-                  <div
+                  <motion.div
+                    whileHover={{
+                      scale: 1.1,
+                      rotate: -4,
+                    }}
                     className="
                       flex
                       h-[60px]
@@ -176,29 +243,20 @@ export default function OurImpact() {
                         transition-all
                         duration-300
 
-                        group-hover:scale-110
                         group-hover:text-[#e4a53e]
                       "
                     />
-                  </div>
+                  </motion.div>
 
                   {/* ================= TEXT ================= */}
                   <div className="flex flex-col">
-                    {/* Number */}
-                    <span
-                      className="
-                        whitespace-nowrap
-                        text-[23px]
-                        font-semibold
-                        leading-none
-                        text-[#d99a28]
-
-                        sm:text-[25px]
-                        lg:text-[27px]
-                      "
-                    >
-                      {item.number}
-                    </span>
+                    {/* Animated Number */}
+                    <CountUpNumber
+                      value={item.number}
+                      prefix={item.prefix}
+                      suffix={item.suffix}
+                      delay={index * 100}
+                    />
 
                     {/* Description */}
                     <span
@@ -217,12 +275,104 @@ export default function OurImpact() {
                       {item.text}
                     </span>
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
+  );
+}
+
+/* =====================================================
+   COUNT UP NUMBER
+===================================================== */
+
+function CountUpNumber({ value, prefix = "", suffix = "", delay = 0 }) {
+  const ref = useRef(null);
+
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.5,
+  });
+
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let frameId;
+    let startTime = null;
+
+    const duration = 1800;
+
+    const timer = setTimeout(() => {
+      const animateNumber = (timestamp) => {
+        if (!startTime) {
+          startTime = timestamp;
+        }
+
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+
+        // Smooth ease-out
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+        const currentValue = Math.floor(value * easedProgress);
+
+        setCount(currentValue);
+
+        if (progress < 1) {
+          frameId = requestAnimationFrame(animateNumber);
+        } else {
+          setCount(value);
+        }
+      };
+
+      frameId = requestAnimationFrame(animateNumber);
+    }, delay);
+
+    return () => {
+      clearTimeout(timer);
+
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+    };
+  }, [isInView, value, delay]);
+
+  return (
+    <motion.span
+      ref={ref}
+      initial={{
+        opacity: 0,
+        scale: 0.8,
+      }}
+      animate={
+        isInView
+          ? {
+              opacity: 1,
+              scale: 1,
+            }
+          : {}
+      }
+      transition={{
+        duration: 0.4,
+      }}
+      className="
+        whitespace-nowrap
+        text-[23px]
+        font-semibold
+        leading-none
+        text-[#d99a28]
+
+        sm:text-[25px]
+        lg:text-[30px]
+      "
+    >
+      {prefix}
+      {count.toLocaleString("en-US")}
+      {suffix}
+    </motion.span>
   );
 }

@@ -1,14 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe2, ArrowRight, Play, Plus } from "lucide-react";
+import {
+  Globe2,
+  ArrowRight,
+  Play,
+  MapPin,
+  BadgeCheck,
+  Handshake,
+} from "lucide-react";
 
-import servicesBg from "../assets/services/services-bg.png";
-
-// Change these filenames according to your actual images
-import ambassador1 from "../assets/services/ambassador1.png";
-import ambassador2 from "../assets/services/ambassador2.png";
-import ambassador3 from "../assets/services/ambassador3.png";
-import ambassador4 from "../assets/services/ambassador4.png";
+// =====================================================
+// HERO BACKGROUND VIDEO
+// Apne actual video filename ke according change kar lena
+// =====================================================
+import servicesVideo from "../assets/aboutimg/about-video.mp4";
 
 import OurServiceDividions from "../components/sections/services/OurServiceDividions";
 import Laptopsec from "../components/sections/services/Laptopsec";
@@ -17,8 +22,6 @@ import WhyBusinessChoose from "../components/sections/services/WhyBusinessChoose
 import MadeInIndia from "../components/sections/services/MadeInIndia";
 
 export default function Services() {
-  const ambassadors = [ambassador1, ambassador2, ambassador3, ambassador4];
-
   const scrollToDivisions = () => {
     const section = document.getElementById("our-divisions");
 
@@ -28,6 +31,21 @@ export default function Services() {
       });
     }
   };
+
+  const networkPoints = [
+    {
+      icon: MapPin,
+      text: "In-Country Support",
+    },
+    {
+      icon: BadgeCheck,
+      text: "Verified Global Network",
+    },
+    {
+      icon: Handshake,
+      text: "Business Introductions",
+    },
+  ];
 
   return (
     <>
@@ -43,34 +61,64 @@ export default function Services() {
           items-center
           overflow-hidden
           bg-[#020D18]
-          bg-cover
-          bg-center
-          bg-no-repeat
+
           lg:min-h-[690px]
         "
-        style={{
-          backgroundImage: `url(${servicesBg})`,
-        }}
       >
-        {/* ================= DARK LEFT OVERLAY ================= */}
+        {/* =====================================================
+            BACKGROUND VIDEO
+        ====================================================== */}
         <div
           className="
+            pointer-events-none
             absolute
             inset-0
+            z-0
+            overflow-hidden
+          "
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            className="
+              h-full
+              w-full
+              object-cover
+              object-center
+            "
+          >
+            <source src={servicesVideo} type="video/mp4" />
+          </video>
+        </div>
+
+        {/* =====================================================
+            DARK LEFT OVERLAY
+        ====================================================== */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+            z-[1]
             bg-gradient-to-r
             from-[#020D18]
             via-[#020D18]/90
-            to-[#020D18]/10
+            to-[#020D18]/20
           "
         />
 
         {/* Extra left dark overlay */}
         <div
           className="
+            pointer-events-none
             absolute
             inset-y-0
             left-0
-            w-[60%]
+            z-[1]
+            w-[64%]
             bg-gradient-to-r
             from-[#020D18]
             via-[#020D18]/75
@@ -78,33 +126,62 @@ export default function Services() {
           "
         />
 
-        {/* Bottom Fade */}
-        <div
-          className="
-            absolute
-            inset-x-0
-            bottom-0
-            h-[170px]
-            bg-gradient-to-t
-            from-[#020D18]
-            via-[#020D18]/65
-            to-transparent
-          "
-        />
-
-        {/* Golden world glow */}
+        {/* Overall subtle dark layer */}
         <div
           className="
             pointer-events-none
             absolute
-            right-[15%]
+            inset-0
+            z-[1]
+            bg-[#020D18]/15
+          "
+        />
+
+        {/* Bottom Fade */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-x-0
+            bottom-0
+            z-[2]
+            h-[180px]
+            bg-gradient-to-t
+            from-[#020D18]
+            via-[#020D18]/70
+            to-transparent
+          "
+        />
+
+        {/* Top Fade */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-x-0
+            top-0
+            z-[2]
+            h-[90px]
+            bg-gradient-to-b
+            from-[#020D18]/55
+            to-transparent
+          "
+        />
+
+        {/* Golden glow */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-[14%]
             top-[45%]
-            h-[380px]
-            w-[380px]
+            z-[2]
+            h-[420px]
+            w-[420px]
             -translate-y-1/2
             rounded-full
             bg-[#D89A2B]/[0.06]
-            blur-[110px]
+            blur-[120px]
           "
         />
 
@@ -124,10 +201,13 @@ export default function Services() {
             gap-10
             px-5
             py-20
+
             sm:px-7
             md:px-8
+
             lg:grid-cols-[1.05fr_0.95fr]
             lg:px-10
+
             xl:px-12
           "
         >
@@ -149,6 +229,7 @@ export default function Services() {
             className="
               max-w-[720px]
               pt-4
+
               lg:pt-0
             "
           >
@@ -302,8 +383,8 @@ export default function Services() {
                   transition-all
                   duration-300
 
-                  hover:bg-[#D99B2B]/10
                   hover:border-[#D99B2B]
+                  hover:bg-[#D99B2B]/10
 
                   sm:text-[15px]
                 "
@@ -325,7 +406,10 @@ export default function Services() {
                     size={10}
                     fill="currentColor"
                     strokeWidth={1.5}
-                    className="ml-[1px] text-[#E2E5E8]"
+                    className="
+                      ml-[1px]
+                      text-[#E2E5E8]
+                    "
                   />
                 </span>
               </button>
@@ -354,6 +438,7 @@ export default function Services() {
               min-h-[450px]
               items-center
               justify-end
+
               lg:flex
             "
           >
@@ -378,63 +463,78 @@ export default function Services() {
               }}
               className="
                 relative
+                left-[150px]
                 mr-1
-                w-[235px]
+                translate-y-35
+                w-[285px]
                 overflow-hidden
                 rounded-[15px]
                 border
-                border-[#25415A]
+                border-[#765323]/90
                 bg-[#071421]/90
-                px-5
-                py-6
+                px-6
+                py-7
                 shadow-[0_15px_45px_rgba(0,0,0,0.45)]
                 backdrop-blur-md
 
-                xl:w-[250px]
+                xl:w-[310px]
               "
             >
-              {/* Card subtle glow */}
+              {/* Card Glow */}
               <div
                 className="
                   pointer-events-none
                   absolute
                   -right-[60px]
                   -top-[70px]
-                  h-[170px]
-                  w-[170px]
+                  h-[180px]
+                  w-[180px]
                   rounded-full
-                  bg-[#D99B2B]/[0.07]
-                  blur-[50px]
+                  bg-[#D99B2B]/[0.08]
+                  blur-[55px]
                 "
               />
 
-              {/* ================= COUNTRIES ================= */}
-              <div className="relative flex items-center gap-4">
-                <div
+              {/* =================================================
+                  COUNTRY COUNT
+              ================================================= */}
+              <div
+                className="
+                  relative
+                  flex
+                  items-center
+                  gap-4
+                "
+              >
+                <motion.div
+                  whileHover={{
+                    scale: 1.08,
+                    rotate: -4,
+                  }}
                   className="
                     flex
-                    h-[52px]
-                    w-[52px]
+                    h-[58px]
+                    w-[58px]
                     shrink-0
                     items-center
                     justify-center
                     rounded-full
                     border
-                    border-[#D99B2B]/40
-                    bg-[#D99B2B]/[0.04]
+                    border-[#D99B2B]/50
+                    bg-[#D99B2B]/[0.05]
                   "
                 >
                   <Globe2
-                    size={31}
+                    size={33}
                     strokeWidth={1.5}
                     className="text-[#D99B2B]"
                   />
-                </div>
+                </motion.div>
 
                 <div>
                   <p
                     className="
-                      text-[23px]
+                      text-[29px]
                       font-semibold
                       leading-none
                       text-[#F6F6F6]
@@ -446,105 +546,140 @@ export default function Services() {
                   <p
                     className="
                       mt-2
-                      text-[12px]
+                      text-[14px]
                       font-medium
                       text-[#CFD4DA]
                     "
                   >
-                    Countries
+                    Countries Connected
                   </p>
                 </div>
               </div>
 
-              {/* Global Presence */}
-              <h3
+              {/* Divider */}
+              <div
                 className="
-                  relative
-                  mt-5
-                  text-[16px]
-                  font-semibold
-                  text-[#E8EBEE]
+                  my-5
+                  h-[1px]
+                  w-full
+                  bg-gradient-to-r
+                  from-[#765323]/20
+                  via-[#765323]
+                  to-[#765323]/20
                 "
-              >
-                Global Presence
-              </h3>
+              />
+
+              {/* =================================================
+                  TEXT INSTEAD OF AMBASSADOR IMAGES
+              ================================================= */}
+              {/* <div className="relative">
+                <p
+                  className="
+                    text-[17px]
+                    font-semibold
+                    text-[#F2F4F5]
+                  "
+                >
+                  Global Business Network
+                </p>
+
+                <p
+                  className="
+                    mt-2
+                    text-[14px]
+                    leading-[1.65]
+                    text-[#BCC5CC]
+                  "
+                >
+                  Local market expertise, verified connections and dedicated
+                  international business support across our growing global
+                  network.
+                </p>
+              </div> */}
+
+              {/* =================================================
+                  NETWORK POINTS
+              ================================================= */}
+              <div className="relative mt-5 space-y-3">
+                {networkPoints.map((item, index) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <motion.div
+                      key={item.text}
+                      initial={{
+                        opacity: 0,
+                        x: 15,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      transition={{
+                        duration: 0.4,
+                        delay: 0.65 + index * 0.1,
+                      }}
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                      "
+                    >
+                      <div
+                        className="
+                          flex
+                          h-[33px]
+                          w-[33px]
+                          shrink-0
+                          items-center
+                          justify-center
+                          rounded-full
+                          border
+                          border-[#D99B2B]/40
+                          bg-[#D99B2B]/[0.04]
+                        "
+                      >
+                        <Icon
+                          size={17}
+                          strokeWidth={1.6}
+                          className="text-[#D99B2B]"
+                        />
+                      </div>
+
+                      <span
+                        className="
+                          text-[14px]
+                          font-medium
+                          text-[#DFE3E6]
+                        "
+                      >
+                        {item.text}
+                      </span>
+                    </motion.div>
+                  );
+                })}
+              </div>
 
               {/* Divider */}
               <div
                 className="
-                  my-4
+                  my-5
                   h-[1px]
                   w-full
                   bg-gradient-to-r
-                  from-[#263C4F]
-                  via-[#334A5D]
+                  from-transparent
+                  via-[#354B5D]
                   to-transparent
                 "
               />
 
-              {/* ================= AVATARS ================= */}
-              <div className="relative flex items-center">
-                {ambassadors.map((image, index) => (
-                  <div
-                    key={index}
-                    className="
-                      relative
-                      h-[42px]
-                      w-[42px]
-                      overflow-hidden
-                      rounded-full
-                      border-2
-                      border-[#D7DADC]
-                      bg-[#0B1925]
-                    "
-                    style={{
-                      marginLeft: index === 0 ? "0px" : "-9px",
-                      zIndex: ambassadors.length - index,
-                    }}
-                  >
-                    <img
-                      src={image}
-                      alt={`Trade Ambassador ${index + 1}`}
-                      className="
-                        h-full
-                        w-full
-                        object-cover
-                        object-center
-                      "
-                    />
-                  </div>
-                ))}
-
-                {/* Plus circle */}
-                <div
-                  className="
-                    relative
-                    z-10
-                    -ml-[8px]
-                    flex
-                    h-[42px]
-                    w-[42px]
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-[#B47C26]
-                    bg-[#071421]
-                  "
-                >
-                  <Plus
-                    size={18}
-                    strokeWidth={1.6}
-                    className="text-[#D99B2B]"
-                  />
-                </div>
-              </div>
-
-              {/* ================= AMBASSADOR COUNT ================= */}
-              <div className="relative mt-5">
+              {/* =================================================
+                  BOTTOM INFO
+              ================================================= */}
+              <div className="relative">
                 <p
                   className="
-                    text-[25px]
+                    text-[24px]
                     font-semibold
                     leading-none
                     text-[#D99B2B]
@@ -556,8 +691,9 @@ export default function Services() {
                 <p
                   className="
                     mt-2
-                    text-[13px]
+                    text-[14px]
                     font-medium
+                    leading-[1.55]
                     text-[#D2D7DC]
                   "
                 >
@@ -565,6 +701,90 @@ export default function Services() {
                 </p>
               </div>
             </motion.div>
+          </motion.div>
+
+          {/* =====================================================
+              MOBILE GLOBAL CARD
+          ====================================================== */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            className="
+              rounded-[14px]
+              border
+              border-[#765323]/80
+              bg-[#071421]/90
+              p-5
+              backdrop-blur-md
+
+              lg:hidden
+            "
+          >
+            <div className="flex items-center gap-4">
+              <div
+                className="
+                  flex
+                  h-[52px]
+                  w-[52px]
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-[#D99B2B]/50
+                "
+              >
+                <Globe2 size={29} className="text-[#D99B2B]" />
+              </div>
+
+              <div>
+                <p
+                  className="
+                    text-[27px]
+                    font-semibold
+                    text-white
+                  "
+                >
+                  21+
+                </p>
+
+                <p className="text-[14px] text-[#CFD4DA]">
+                  Countries Connected
+                </p>
+              </div>
+            </div>
+
+            <p
+              className="
+                mt-5
+                text-[15px]
+                font-semibold
+                text-[#F2F4F5]
+              "
+            >
+              Global Business Network
+            </p>
+
+            <p
+              className="
+                mt-2
+                text-[14px]
+                leading-[1.7]
+                text-[#BCC5CC]
+              "
+            >
+              Verified global connections, local market expertise and dedicated
+              business support to help Indian companies expand internationally.
+            </p>
           </motion.div>
         </div>
       </section>

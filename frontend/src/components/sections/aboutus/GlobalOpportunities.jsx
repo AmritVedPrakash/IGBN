@@ -66,7 +66,22 @@ export default function GlobalOpportunities() {
 
   return (
     <section className="w-full bg-[#020D18] px-4 py-10 sm:px-6 lg:px-8">
-      <div
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 20,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.1,
+        }}
+        transition={{
+          duration: 0.6,
+        }}
         className="
           mx-auto
           max-w-[1650px]
@@ -76,24 +91,38 @@ export default function GlobalOpportunities() {
           bg-[#03111F]
           px-5
           pb-7
-          pt-4
+          pt-5
           shadow-[0_10px_35px_rgba(0,0,0,0.30)]
+
           sm:px-6
           lg:px-7
         "
       >
-        {/* ================= HEADING ================= */}
+        {/* =====================================================
+            HEADING
+        ====================================================== */}
         <motion.h2
-          initial={{ opacity: 0, y: -15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          initial={{
+            opacity: 0,
+            y: -15,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
           className="
             text-center
             text-[22px]
             font-semibold
             leading-tight
             text-[#F5F5F5]
+
             sm:text-[25px]
             lg:text-[28px]
           "
@@ -101,13 +130,16 @@ export default function GlobalOpportunities() {
           How IGBN Creates Global Opportunities
         </motion.h2>
 
-        {/* ================= PROCESS ================= */}
+        {/* =====================================================
+            PROCESS
+        ====================================================== */}
         <div
           className="
-            mt-7
+            mt-8
             grid
             grid-cols-1
             gap-5
+
             sm:grid-cols-2
             lg:grid-cols-4
             2xl:grid-cols-7
@@ -116,41 +148,82 @@ export default function GlobalOpportunities() {
           {opportunities.map((item, index) => {
             const Icon = item.icon;
 
+            const stepDelay = index * 0.22;
+
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                  amount: 0.25,
+                }}
                 transition={{
-                  duration: 0.45,
-                  delay: index * 0.06,
+                  duration: 0.5,
+                  delay: stepDelay,
                 }}
                 className="
                   group
                   relative
                   flex
-                  min-h-[245px]
+                  min-h-[255px]
                   flex-col
                   items-center
                   px-3
                   text-center
                 "
               >
-                {/* ================= ICON + ARROW ================= */}
-                <div className="relative flex w-full items-center justify-center">
-                  {/* Icon Circle */}
+                {/* =================================================
+                    ICON + DESKTOP CONNECTION
+                ================================================= */}
+                <div
+                  className="
+                    relative
+                    flex
+                    w-full
+                    items-center
+                    justify-center
+                  "
+                >
+                  {/* ================= ICON CIRCLE ================= */}
                   <motion.div
+                    initial={{
+                      opacity: 0,
+                      scale: 0.65,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      scale: 1,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      delay: stepDelay,
+                      type: "spring",
+                      stiffness: 120,
+                      damping: 12,
+                    }}
                     whileHover={{
-                      scale: 1.08,
+                      scale: 1.1,
                       rotate: -4,
+                      boxShadow:
+                        "0 0 28px rgba(214,154,43,0.25)",
                     }}
                     className="
                       relative
-                      z-10
+                      z-20
                       flex
-                      h-[74px]
-                      w-[74px]
+                      h-[78px]
+                      w-[78px]
                       shrink-0
                       items-center
                       justify-center
@@ -158,66 +231,230 @@ export default function GlobalOpportunities() {
                       border
                       border-[#A97528]
                       bg-[#071522]
-                      shadow-[0_0_20px_rgba(214,154,43,0.07)]
+                      shadow-[0_0_20px_rgba(214,154,43,0.10)]
                     "
                   >
+                    {/* Subtle icon pulse */}
+                    <motion.span
+                      animate={{
+                        scale: [1, 1.18, 1],
+                        opacity: [0.2, 0, 0.2],
+                      }}
+                      transition={{
+                        duration: 2.4,
+                        repeat: Infinity,
+                        delay: index * 0.2,
+                      }}
+                      className="
+                        absolute
+                        inset-[5px]
+                        rounded-full
+                        border
+                        border-[#D69A2B]/40
+                      "
+                    />
+
                     <Icon
-                      size={36}
+                      size={37}
                       strokeWidth={1.5}
                       className="
+                        relative
+                        z-10
                         text-[#D69A2B]
                         transition-all
                         duration-300
+
                         group-hover:text-[#E8AC43]
                       "
                     />
                   </motion.div>
 
-                  {/* Desktop Connecting Arrow */}
+                  {/* =================================================
+                      DESKTOP CONNECTING LINE
+                  ================================================= */}
                   {index !== opportunities.length - 1 && (
                     <div
                       className="
                         absolute
-                        left-[calc(50%+47px)]
+                        left-[calc(50%+48px)]
                         top-1/2
                         hidden
-                        w-[calc(100%-55px)]
+                        h-[24px]
+                        w-[calc(100%-58px)]
                         -translate-y-1/2
                         items-center
+
                         2xl:flex
                       "
                     >
-                      {/* Dotted golden line */}
                       <div
                         className="
-                          flex-1
-                          border-t-2
-                          border-dotted
-                          border-[#A97528]
+                          relative
+                          h-full
+                          w-full
                         "
-                      />
+                      >
+                        {/* =========================================
+                            BACKGROUND FAINT DOTTED LINE
+                        ========================================== */}
+                        <div
+                          className="
+                            absolute
+                            left-0
+                            top-1/2
+                            h-[4px]
+                            w-full
+                            -translate-y-1/2
+                            opacity-30
+                          "
+                          style={{
+                            backgroundImage:
+                              "radial-gradient(circle, #D69A2B 2.2px, transparent 2.5px)",
+                            backgroundSize: "11px 4px",
+                            backgroundRepeat: "repeat-x",
+                          }}
+                        />
 
-                      <ArrowRight
-                        size={21}
-                        strokeWidth={2.2}
-                        className="
-                          -ml-[2px]
-                          shrink-0
-                          text-[#D69A2B]
-                        "
-                      />
+                        {/* =========================================
+                            ANIMATED DOTTED LINE
+                        ========================================== */}
+                        <motion.div
+                          initial={{
+                            scaleX: 0,
+                          }}
+                          whileInView={{
+                            scaleX: 1,
+                          }}
+                          viewport={{
+                            once: true,
+                            amount: 0.7,
+                          }}
+                          transition={{
+                            duration: 0.9,
+                            delay: 0.35 + stepDelay,
+                            ease: "easeInOut",
+                          }}
+                          className="
+                            absolute
+                            left-0
+                            top-1/2
+                            h-[5px]
+                            w-full
+                            origin-left
+                            -translate-y-1/2
+                          "
+                          style={{
+                            backgroundImage:
+                              "radial-gradient(circle, #E5A83A 2.4px, transparent 2.8px)",
+                            backgroundSize: "11px 5px",
+                            backgroundRepeat: "repeat-x",
+                            filter:
+                              "drop-shadow(0 0 5px rgba(214,154,43,0.35))",
+                          }}
+                        />
+
+                        {/* =========================================
+                            GLOWING MOVING DOT
+                        ========================================== */}
+                        <motion.span
+                          initial={{
+                            left: "0%",
+                            opacity: 0,
+                          }}
+                          whileInView={{
+                            left: "calc(100% - 9px)",
+                            opacity: [0, 1, 1, 0],
+                          }}
+                          viewport={{
+                            once: true,
+                          }}
+                          transition={{
+                            duration: 0.95,
+                            delay: 0.35 + stepDelay,
+                            ease: "easeInOut",
+                          }}
+                          className="
+                            absolute
+                            top-1/2
+                            z-20
+                            h-[11px]
+                            w-[11px]
+                            -translate-y-1/2
+                            rounded-full
+                            bg-[#FFD379]
+                            shadow-[0_0_14px_rgba(255,211,121,0.95)]
+                          "
+                        />
+
+                        {/* =========================================
+                            ARROW AT END
+                        ========================================== */}
+                        <motion.div
+                          initial={{
+                            opacity: 0,
+                            scale: 0.6,
+                            x: -8,
+                          }}
+                          whileInView={{
+                            opacity: 1,
+                            scale: 1,
+                            x: 0,
+                          }}
+                          viewport={{
+                            once: true,
+                          }}
+                          transition={{
+                            duration: 0.35,
+                            delay: 1.15 + stepDelay,
+                          }}
+                          className="
+                            absolute
+                            -right-[8px]
+                            top-1/2
+                            z-30
+                            -translate-y-1/2
+                          "
+                        >
+                          <ArrowRight
+                            size={23}
+                            strokeWidth={2.8}
+                            className="
+                              text-[#E1A336]
+                              drop-shadow-[0_0_7px_rgba(214,154,43,0.55)]
+                            "
+                          />
+                        </motion.div>
+                      </div>
                     </div>
                   )}
                 </div>
 
-                {/* ================= TITLE ================= */}
-                <h3
+                {/* =================================================
+                    TITLE
+                ================================================= */}
+                <motion.h3
+                  initial={{
+                    opacity: 0,
+                    y: 12,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: 0.15 + stepDelay,
+                  }}
                   className="
-                    mt-4
+                    mt-5
                     text-[15px]
                     font-semibold
                     leading-[1.35]
                     text-[#F3F4F5]
+
                     sm:text-[16px]
                     lg:text-[17px]
                     2xl:text-[18px]
@@ -226,54 +463,179 @@ export default function GlobalOpportunities() {
                   {item.title}
                   <br />
                   {item.title2}
-                </h3>
+                </motion.h3>
 
-                {/* ================= DESCRIPTION ================= */}
-                <p
+                {/* =================================================
+                    DESCRIPTION
+                ================================================= */}
+                <motion.p
+                  initial={{
+                    opacity: 0,
+                    y: 12,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                  }}
+                  transition={{
+                    duration: 0.45,
+                    delay: 0.23 + stepDelay,
+                  }}
                   className="
                     mt-3
-                    max-w-[210px]
+                    max-w-[220px]
                     text-[13px]
                     font-normal
                     leading-[1.65]
                     text-[#C8CFD6]
+
                     sm:text-[14px]
                     lg:text-[15px]
                   "
                 >
                   {item.description}
-                </p>
+                </motion.p>
 
-                {/* Mobile / Tablet Bottom Arrow */}
+                {/* =================================================
+                    MOBILE / TABLET ANIMATED CONNECTION
+                ================================================= */}
                 {index !== opportunities.length - 1 && (
                   <div
                     className="
-                      mt-5
+                      mt-6
                       flex
+                      h-[24px]
+                      w-[90px]
                       items-center
                       justify-center
-                      text-[#D69A2B]
+
                       2xl:hidden
                     "
                   >
-                    <div
-                      className="
-                        mr-1
-                        w-[45px]
-                        border-t-2
-                        border-dotted
-                        border-[#A97528]
-                      "
-                    />
+                    <div className="relative h-full w-full">
+                      {/* Base dotted line */}
+                      <div
+                        className="
+                          absolute
+                          left-0
+                          top-1/2
+                          h-[4px]
+                          w-[70px]
+                          -translate-y-1/2
+                          opacity-30
+                        "
+                        style={{
+                          backgroundImage:
+                            "radial-gradient(circle, #D69A2B 2px, transparent 2.5px)",
+                          backgroundSize: "10px 4px",
+                          backgroundRepeat: "repeat-x",
+                        }}
+                      />
 
-                    <ArrowRight size={18} strokeWidth={2} />
+                      {/* Animated dotted line */}
+                      <motion.div
+                        initial={{
+                          scaleX: 0,
+                        }}
+                        whileInView={{
+                          scaleX: 1,
+                        }}
+                        viewport={{
+                          once: true,
+                        }}
+                        transition={{
+                          duration: 0.7,
+                          delay: 0.25 + stepDelay,
+                          ease: "easeInOut",
+                        }}
+                        className="
+                          absolute
+                          left-0
+                          top-1/2
+                          h-[5px]
+                          w-[70px]
+                          origin-left
+                          -translate-y-1/2
+                        "
+                        style={{
+                          backgroundImage:
+                            "radial-gradient(circle, #E1A336 2.3px, transparent 2.7px)",
+                          backgroundSize: "10px 5px",
+                          backgroundRepeat: "repeat-x",
+                        }}
+                      />
+
+                      {/* Moving glow */}
+                      <motion.span
+                        initial={{
+                          left: "0px",
+                          opacity: 0,
+                        }}
+                        whileInView={{
+                          left: "61px",
+                          opacity: [0, 1, 1, 0],
+                        }}
+                        viewport={{
+                          once: true,
+                        }}
+                        transition={{
+                          duration: 0.75,
+                          delay: 0.25 + stepDelay,
+                          ease: "easeInOut",
+                        }}
+                        className="
+                          absolute
+                          top-1/2
+                          h-[9px]
+                          w-[9px]
+                          -translate-y-1/2
+                          rounded-full
+                          bg-[#FFD379]
+                          shadow-[0_0_12px_rgba(255,211,121,0.9)]
+                        "
+                      />
+
+                      {/* Arrow */}
+                      <motion.div
+                        initial={{
+                          opacity: 0,
+                          x: -6,
+                        }}
+                        whileInView={{
+                          opacity: 1,
+                          x: 0,
+                        }}
+                        viewport={{
+                          once: true,
+                        }}
+                        transition={{
+                          duration: 0.3,
+                          delay: 0.9 + stepDelay,
+                        }}
+                        className="
+                          absolute
+                          right-0
+                          top-1/2
+                          -translate-y-1/2
+                        "
+                      >
+                        <ArrowRight
+                          size={21}
+                          strokeWidth={2.6}
+                          className="text-[#D69A2B]"
+                        />
+                      </motion.div>
+                    </div>
                   </div>
                 )}
               </motion.div>
             );
           })}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

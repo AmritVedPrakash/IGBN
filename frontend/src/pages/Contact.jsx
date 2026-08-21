@@ -230,7 +230,7 @@ export default function Contact() {
                 tracking-[0.03em]
                 text-[#F1F3F5]
                 sm:text-[22px]
-                lg:text-[24px]
+                lg:text-[30px]
               "
             >
               We Are Everywhere.
