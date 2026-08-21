@@ -1,8 +1,15 @@
+import usaFlag from "../assets/flag/usa.png";
+import ukFlag from "../assets/flag/uk.png";
+import germanyFlag from "../assets/flag/germany.png";
+import uaeFlag from "../assets/flag/uae.png";
+import indiaFlag from "../assets/flag/india.png";
+import chinaFlag from "../assets/flag/china.png";
+import australiaFlag from "../assets/flag/australia.png";
 export const countriesData = {
   usa: {
     id: "usa",
     name: "USA",
-    flag: "/src/assets/flag/usa.png",
+    flag: usaFlag,
 
     position: {
       top: "20%",
@@ -37,7 +44,7 @@ export const countriesData = {
   uk: {
     id: "uk",
     name: "United Kingdom",
-    flag: "/src/assets/flag/uk.png",
+    flag: ukFlag,
 
     position: {
       top: "13%",
@@ -72,7 +79,7 @@ export const countriesData = {
   germany: {
     id: "germany",
     name: "Germany",
-    flag: "/src/assets/flag/germany.png",
+    flag: germanyFlag,
 
     position: {
       top: "31%",
@@ -107,7 +114,7 @@ export const countriesData = {
   uae: {
     id: "uae",
     name: "UAE",
-    flag: "/src/assets/flag/uae.png",
+    flag: uaeFlag,
 
     position: {
       top: "39%",
@@ -142,7 +149,7 @@ export const countriesData = {
   china: {
     id: "china",
     name: "China",
-    flag: "/src/assets/flag/china.png",
+    flag: chinaFlag,
 
     position: {
       top: "43%",
@@ -177,7 +184,7 @@ export const countriesData = {
   india: {
     id: "india",
     name: "India",
-    flag: "/src/assets/flag/india.png",
+    flag: indiaFlag,
 
     position: {
       top: "57%",
@@ -212,7 +219,7 @@ export const countriesData = {
   australia: {
     id: "australia",
     name: "Australia",
-    flag: "/src/assets/flag/australia.png",
+    flag: australiaFlag,
 
     position: {
       top: "70%",
