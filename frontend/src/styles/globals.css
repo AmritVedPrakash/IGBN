@@ -1,63 +1,40 @@
 @import "tailwindcss";
 
-
 :root {
-
-  --background:#050505;
-  --foreground:#ffffff;
-
+  --background: #050505;
+  --foreground: #ffffff;
 }
 
-
-html{
-scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-
-body{
-
-background:
-radial-gradient(
-circle at top,
-#111827,
-#050505 50%
-);
-
-color:white;
-
-overflow-x:hidden;
-
+/* Temporary: test website at 75% scale */
+@media (min-width: 1024px) {
+  html {
+    zoom: 75%;
+  }
 }
 
+body {
+  background: radial-gradient(circle at top, #111827, #050505 50%);
 
-
-.gradient-text{
-
-background:
-linear-gradient(
-90deg,
-#8b5cf6,
-#06b6d4
-);
-
--webkit-background-clip:text;
-background-clip:text;
-
-color:transparent;
-
+  color: white;
+  overflow-x: hidden;
 }
 
+.gradient-text {
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
 
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 
-.glass{
+.glass {
+  background: rgba(255, 255, 255, 0.06);
 
-background:
-rgba(255,255,255,0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-border:
-1px solid rgba(255,255,255,0.12);
-
-backdrop-filter:
-blur(20px);
-
+  backdrop-filter: blur(20px);
 }

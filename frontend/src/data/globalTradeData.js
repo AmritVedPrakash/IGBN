@@ -152,8 +152,8 @@ export const countriesData = {
     flag: chinaFlag,
 
     position: {
-      top: "43%",
-      left: "76%",
+      top: "42%",
+      left: "72%",
     },
 
     exportValue: "$16.4B",

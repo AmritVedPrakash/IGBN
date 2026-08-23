@@ -71,9 +71,9 @@ export default function WhyBusinessChoose() {
               uppercase
               tracking-[0.04em]
               text-white
-              sm:text-[18px]
-              md:text-[20px]
-              lg:text-[22px]
+              sm:text-[20px]
+              md:text-[25px]
+              lg:text-[28px]
             "
           >
             Why Businesses Choose IGBN
@@ -179,7 +179,7 @@ export default function WhyBusinessChoose() {
                         font-semibold
                         leading-[1.5]
                         text-[#f6f7f8]
-                        xl:text-[16px]
+                        xl:text-[18px]
                       "
                     >
                       {item.title}
@@ -194,7 +194,7 @@ export default function WhyBusinessChoose() {
                       font-normal
                       leading-[1.75]
                       text-[#c8ced5]
-                      xl:text-[14px]
+                      xl:text-[16px]
                     "
                   >
                     {item.description}

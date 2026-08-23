@@ -7,3 +7,11 @@ html, body, #root {
   width: 100%;
   max-width: 100vw;
 }
+
+/* for cursor */
+@media (hover: hover) and (pointer: fine) {
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
+}

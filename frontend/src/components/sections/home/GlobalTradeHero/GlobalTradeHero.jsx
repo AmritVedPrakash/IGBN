@@ -352,7 +352,7 @@ export default function GlobalTradeHero() {
             h-full
             w-full
             object-contain
-            scale-[1.3]
+            scale-[1.0100]
             -translate-x-[80px]
           "
         />

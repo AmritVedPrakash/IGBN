@@ -103,7 +103,7 @@ export default function OurImpact() {
 
               sm:text-[18px]
               md:text-[20px]
-              lg:text-[22px]
+              lg:text-[28px]
             "
           >
             Our Impact Across The Globe
@@ -269,7 +269,7 @@ export default function OurImpact() {
                         text-[#d6dce2]
 
                         sm:text-[13px]
-                        lg:text-[14px]
+                        lg:text-[16px]
                       "
                     >
                       {item.text}

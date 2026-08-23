@@ -20,7 +20,7 @@ import Laptopsec from "../components/sections/services/Laptopsec";
 import OurImpact from "../components/sections/services/OurImpact";
 import WhyBusinessChoose from "../components/sections/services/WhyBusinessChoose";
 import MadeInIndia from "../components/sections/services/MadeInIndia";
-
+import InteractiveExportCommandCenter from "../components/sections/services/InteractiveExportCommandCenter";
 export default function Services() {
   const scrollToDivisions = () => {
     const section = document.getElementById("our-divisions");
@@ -796,6 +796,7 @@ export default function Services() {
       <div id="our-divisions">
         <OurServiceDividions />
       </div>
+      <InteractiveExportCommandCenter />
 
       <Laptopsec />
 
