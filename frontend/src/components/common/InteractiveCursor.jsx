@@ -209,7 +209,7 @@ export default function InteractiveCursor() {
           width: isHovering ? 7 : 6,
           height: isHovering ? 7 : 6,
 
-          scale: isClicking ? 1.8 : 1,
+          scale: isClicking ? 1.8 : 1.5,
 
           opacity: isVisible ? 1 : 0,
         }}

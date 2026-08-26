@@ -48,7 +48,7 @@ export const countriesData = {
 
     position: {
       top: "13%",
-      left: "66%",
+      left: "60%",
     },
 
     exportValue: "$12.9B",

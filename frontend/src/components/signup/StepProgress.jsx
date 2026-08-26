@@ -11,33 +11,37 @@ export default function StepProgress({ currentStep = 1 }) {
     { id: 5, title: "Verification" },
   ];
 
-  const ACTIVE = "#f7931e"; // orange/golden accent (completed steps + connecting line)
-  const CURRENT = "#172343"; // navy (current step)
+  const ACTIVE = "#f7931e";
+  const CURRENT = "#172343";
   const PENDING_BORDER = "#d5d9e2";
   const PENDING_TEXT = "#98a2b3";
-  const TRACK_LINE = "#e4e7ec"; // base gray line
+  const TRACK_LINE = "#e4e7ec";
 
   const completedCount = Math.max(0, currentStep - 1);
+
   const progressPercent =
     steps.length > 1 ? (completedCount / (steps.length - 1)) * 100 : 0;
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto px-5 py-8 bg-white">
-      <div className="flex items-center justify-between relative">
-        {/* Base track line - halka gray, connects every point */}
+    <div className="w-full max-w-[1100px] mx-auto px-5 py-9 bg-[#f8f9fc]">
+      <div className="flex items-start justify-between relative">
+        {/* Base Track Line */}
         <div
-          className="absolute top-[23px] left-[23px] right-[23px] h-[2px] z-0"
+          className="absolute top-[25px] left-[25px] right-[25px] h-[3px] z-0 rounded-full"
           style={{ backgroundColor: TRACK_LINE }}
         />
 
-        {/* Animated golden/orange progress line */}
-        <div className="absolute top-[23px] left-[23px] right-[23px] h-[2px] z-0 overflow-hidden">
+        {/* Animated Progress Line */}
+        <div className="absolute top-[25px] left-[25px] right-[25px] h-[3px] z-0 overflow-hidden rounded-full">
           <motion.div
-            className="h-full"
+            className="h-full rounded-full"
             style={{ backgroundColor: ACTIVE }}
             initial={{ width: "0%" }}
             animate={{ width: `${progressPercent}%` }}
-            transition={{ duration: 0.7, ease: "easeInOut" }}
+            transition={{
+              duration: 0.7,
+              ease: "easeInOut",
+            }}
           />
         </div>
 
@@ -48,15 +52,18 @@ export default function StepProgress({ currentStep = 1 }) {
           return (
             <div
               key={step.id}
-              className="flex flex-col items-center relative z-10 bg-white px-2"
+              className="flex flex-col items-center relative z-10 px-2"
             >
               {/* Circle */}
               <motion.div
-                initial={{ scale: 0.7, opacity: 0 }}
+                initial={{
+                  scale: 0.7,
+                  opacity: 0,
+                }}
                 animate={{
                   scale: 1,
                   opacity: 1,
-                  backgroundColor: active ? CURRENT : "#ffffff",
+                  backgroundColor: active ? CURRENT : "#f8f9fc",
                   borderColor: active
                     ? CURRENT
                     : completed
@@ -70,15 +77,21 @@ export default function StepProgress({ currentStep = 1 }) {
                   stiffness: 260,
                   damping: 20,
                 }}
-                className="h-[46px] w-[46px] rounded-full flex items-center justify-center border-2 font-semibold text-sm relative"
+                className="h-[50px] w-[50px] rounded-full flex items-center justify-center border-2 font-semibold text-base relative shadow-sm"
                 style={{
                   color: active ? "#ffffff" : completed ? ACTIVE : PENDING_TEXT,
                 }}
               >
                 {completed ? (
                   <motion.div
-                    initial={{ scale: 0, rotate: -45 }}
-                    animate={{ scale: 1, rotate: 0 }}
+                    initial={{
+                      scale: 0,
+                      rotate: -45,
+                    }}
+                    animate={{
+                      scale: 1,
+                      rotate: 0,
+                    }}
                     transition={{
                       delay: index * 0.08 + 0.15,
                       type: "spring",
@@ -86,12 +99,14 @@ export default function StepProgress({ currentStep = 1 }) {
                       damping: 15,
                     }}
                   >
-                    <Check size={20} strokeWidth={3} />
+                    <Check size={21} strokeWidth={3} />
                   </motion.div>
                 ) : active ? (
                   <motion.span
                     initial={{ scale: 0 }}
-                    animate={{ scale: [1, 1.15, 1] }}
+                    animate={{
+                      scale: [1, 1.12, 1],
+                    }}
                     transition={{
                       duration: 1.6,
                       repeat: Infinity,
@@ -104,11 +119,13 @@ export default function StepProgress({ currentStep = 1 }) {
                   step.id
                 )}
 
-                {/* Pulsing ring on active step */}
+                {/* Active Pulsing Ring */}
                 {active && (
                   <motion.span
                     className="absolute inset-0 rounded-full"
-                    style={{ border: `2px solid ${CURRENT}` }}
+                    style={{
+                      border: `2px solid ${CURRENT}`,
+                    }}
                     animate={{
                       scale: [1, 1.35],
                       opacity: [0.5, 0],
@@ -122,7 +139,7 @@ export default function StepProgress({ currentStep = 1 }) {
                 )}
               </motion.div>
 
-              {/* Title */}
+              {/* Step Title */}
               <motion.p
                 animate={{
                   color: active
@@ -131,8 +148,18 @@ export default function StepProgress({ currentStep = 1 }) {
                       ? "#344054"
                       : PENDING_TEXT,
                 }}
-                transition={{ delay: index * 0.08 }}
-                className="mt-3 text-[11px] md:text-xs font-medium text-center max-w-[110px]"
+                transition={{
+                  delay: index * 0.08,
+                }}
+                className="
+                  mt-4
+                  text-sm
+                  md:text-[14px]
+                  font-semibold
+                  text-center
+                  leading-5
+                  max-w-[140px]
+                "
               >
                 {step.title}
               </motion.p>
