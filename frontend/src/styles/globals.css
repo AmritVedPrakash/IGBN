@@ -15,7 +15,17 @@ html {
     zoom: 75%;
   }
 }
+@media (min-width: 1366px) {
+  html {
+    zoom: 75%;
+  }
+}
 
+@media (min-width: 1440px) {
+  html {
+    zoom: 75%;
+  }
+}
 body {
   background: radial-gradient(circle at top, #111827, #050505 50%);
 
