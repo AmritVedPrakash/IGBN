@@ -15,7 +15,26 @@ html {
     zoom: 75%;
   }
 } */
+/* 1024px - 1365px */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  html {
+    zoom: 75%;
+  }
+}
 
+/* 1366px - 1919px */
+@media (min-width: 1366px) and (max-width: 1919px) {
+  html {
+    zoom: 75%;
+  }
+}
+
+/* 1920px and above */
+@media (min-width: 1920px) {
+  html {
+    zoom: 75%;
+  }
+}
 
 body {
   background: radial-gradient(circle at top, #111827, #050505 50%);
