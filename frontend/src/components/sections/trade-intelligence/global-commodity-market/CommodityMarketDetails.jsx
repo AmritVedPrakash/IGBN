@@ -14,7 +14,7 @@ import CommodityLatestNews from "./CommodityLatestNews";
 
 import { getCommodityDetails } from "../../../../data/commodityData";
 
-import TradeOutlookAndIGBN from "./TradeOutlookAndIGBN";
+
 export default function CommodityMarketDetails() {
     
   const { commodityId } = useParams();
@@ -222,9 +222,7 @@ export default function CommodityMarketDetails() {
           </button>
         </div>
       </div>
-      {/* <div>
-      <TradeOutlookAndIGBN/>
-    </div> */}
+      
     </section>
     
     </>
