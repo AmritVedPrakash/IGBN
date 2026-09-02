@@ -31,6 +31,11 @@ import Refund from "../pages/legal/Refund";
 import Cookie from "../pages/legal/Cookie";
 
 import OurTeam from "../components/sections/OurTeam";
+import TradeIntelligence from "../pages/TradeIntelligence";
+import CurrencyMarketIntelligence from "../components/sections/trade-intelligence/marketIntelligence/CurrencyMarketIntelligence";
+import CommodityMarketDetails from "../components/sections/trade-intelligence/global-commodity-market/CommodityMarketDetails";
+import CountryIntelligence from "../components/sections/trade-intelligence/explore-by-country/CountryIntelligence";
+import StateIntelligence from "../components/sections/trade-intelligence/explore-by-country/explore-by-state/StateIntelligence";
 
 export default function Router() {
   const location = useLocation();
@@ -82,15 +87,59 @@ export default function Router() {
             </PageTransition>
           }
         />
-
         <Route
-          path="/portfolio"
+          path="/trade-intelligence"
           element={
             <PageTransition>
-              <Portfolio />
+              <TradeIntelligence/>
             </PageTransition>
           }
         />
+        <Route
+            path="/trade-intelligence/currency/:code"
+          element={
+            <PageTransition>
+              <CurrencyMarketIntelligence />
+            </PageTransition>
+          }
+        />
+
+        <Route
+            path="/commodity-market/:commodityId"
+          element={
+            <PageTransition>
+              <CommodityMarketDetails />
+            </PageTransition>
+          }
+        />
+        <Route
+           path="/trade-intelligence/country/:id"
+          element={
+            <PageTransition>
+              <CountryIntelligence />
+            </PageTransition>
+          }
+        />
+
+        {/* <Route
+            path="/explore-by-country/:code/states"
+          element={
+            <PageTransition>
+              <StateIntelligence />
+            </PageTransition>
+          }
+        /> */}
+        {/* OR */}
+        {/* <Route
+            path="/explore-by-country/:code/states/:stateCode"
+          element={
+            <PageTransition>
+              <StateIntelligence />
+            </PageTransition>
+          }
+        /> */}
+
+        
 
         {/* <Route
           path="/clients"

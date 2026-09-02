@@ -10,11 +10,11 @@ html {
 }
 
 /* Temporary: test website at 75% scale */
-/* @media (min-width: 1024px) {
+@media (min-width: 1024px) {
   html {
     zoom: 75%;
   }
-} */
+}
 
 
 body {
