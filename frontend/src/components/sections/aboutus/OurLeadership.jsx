@@ -466,7 +466,7 @@ export default function OurLeadership() {
             </div>
 
             {/* ================= SLIDER DOTS ================= */}
-            <div className="mt-6 flex items-center justify-center gap-4">
+            {/* <div className="mt-6 flex items-center justify-center gap-4">
               <span
                 className="
                   h-[12px]
@@ -481,7 +481,7 @@ export default function OurLeadership() {
               <span className="h-[11px] w-[11px] rounded-full bg-[#5B6671]" />
               <span className="h-[11px] w-[11px] rounded-full bg-[#5B6671]" />
               <span className="h-[11px] w-[11px] rounded-full bg-[#5B6671]" />
-            </div>
+            </div> */}
           </motion.div>
         </div>
       </div>

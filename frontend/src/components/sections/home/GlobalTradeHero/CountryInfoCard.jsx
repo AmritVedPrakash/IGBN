@@ -2,7 +2,7 @@ import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 
-export default function CountryInfoCard({ country }) {
+export default function CountryInfoCard({ country, onClose }) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -28,16 +28,24 @@ export default function CountryInfoCard({ country }) {
         className="
           absolute
           bottom-[5%]
-          left-[8%]
+          left-[6%]
           z-40
-          w-[285px]
+          w-[250px]
           rounded-[10px]
           border
           border-[#735123]
           bg-[#03111F]/95
-          p-5
+          p-4
           shadow-[0_18px_40px_rgba(0,0,0,.5)]
           backdrop-blur-lg
+
+          xl:left-[7%]
+          xl:w-[265px]
+          xl:p-4.5
+
+          2xl:left-[8%]
+          2xl:w-[285px]
+          2xl:p-5
         "
       >
         {/* ================= COUNTRY ================= */}
@@ -46,39 +54,65 @@ export default function CountryInfoCard({ country }) {
             src={country.flag}
             alt={country.name}
             className="
-              h-[36px]
-              w-[36px]
+              h-[32px]
+              w-[32px]
               rounded-full
               object-cover
+
+              2xl:h-[36px]
+              2xl:w-[36px]
             "
           />
 
           <h3
             className="
-              text-[21px]
+              text-[18px]
               font-semibold
               text-[#F4F5F6]
+
+              2xl:text-[21px]
             "
           >
             {country.name}
           </h3>
 
-          <X
-            size={19}
+          {/* FIX: close button now actually closes the card
+              via the onClose handler passed down from
+              GlobalTradeHero (setActiveCountry(null)). */}
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label={`Close ${country.name} details`}
             className="
               ml-auto
+              flex
+              h-[26px]
+              w-[26px]
+              shrink-0
+              items-center
+              justify-center
+              rounded-full
               text-[#9AA3AB]
+              transition-colors
+              duration-200
+
+              hover:bg-[#122232]
+              hover:text-[#E4E8EB]
             "
-          />
+          >
+            <X size={17} />
+          </button>
         </div>
 
         {/* ================= EXPORT ================= */}
-        <div className="mt-5">
+        <div className="mt-4 2xl:mt-5">
           <p
             className="
-              text-[14px]
+              text-[13px]
               font-medium
               text-[#AAB2BA]
+
+              2xl:text-[14px]
             "
           >
             India Export (2023-24)
@@ -87,9 +121,11 @@ export default function CountryInfoCard({ country }) {
           <div className="mt-2 flex items-center gap-3">
             <span
               className="
-                text-[22px]
+                text-[19px]
                 font-semibold
                 text-[#F4F5F6]
+
+                2xl:text-[22px]
               "
             >
               {country.exportValue}
@@ -97,9 +133,11 @@ export default function CountryInfoCard({ country }) {
 
             <span
               className="
-                text-[15px]
+                text-[14px]
                 font-semibold
                 text-[#75AD4A]
+
+                2xl:text-[15px]
               "
             >
               ↑ {country.exportGrowth}
@@ -108,12 +146,14 @@ export default function CountryInfoCard({ country }) {
         </div>
 
         {/* ================= IMPORT ================= */}
-        <div className="mt-5">
+        <div className="mt-4 2xl:mt-5">
           <p
             className="
-              text-[14px]
+              text-[13px]
               font-medium
               text-[#AAB2BA]
+
+              2xl:text-[14px]
             "
           >
             India Import (2023-24)
@@ -122,9 +162,11 @@ export default function CountryInfoCard({ country }) {
           <div className="mt-2 flex items-center gap-3">
             <span
               className="
-                text-[22px]
+                text-[19px]
                 font-semibold
                 text-[#F4F5F6]
+
+                2xl:text-[22px]
               "
             >
               {country.importValue}
@@ -132,9 +174,11 @@ export default function CountryInfoCard({ country }) {
 
             <span
               className="
-                text-[15px]
+                text-[14px]
                 font-semibold
                 text-[#75AD4A]
+
+                2xl:text-[15px]
               "
             >
               ↑ {country.importGrowth}
@@ -143,12 +187,14 @@ export default function CountryInfoCard({ country }) {
         </div>
 
         {/* ================= TRADE BALANCE ================= */}
-        <div className="mt-5">
+        <div className="mt-4 2xl:mt-5">
           <p
             className="
-              text-[14px]
+              text-[13px]
               font-medium
               text-[#AAB2BA]
+
+              2xl:text-[14px]
             "
           >
             Trade Balance
@@ -157,9 +203,11 @@ export default function CountryInfoCard({ country }) {
           <p
             className="
               mt-2
-              text-[22px]
+              text-[19px]
               font-semibold
               text-[#F4F5F6]
+
+              2xl:text-[22px]
             "
           >
             {country.tradeBalance}
@@ -167,12 +215,14 @@ export default function CountryInfoCard({ country }) {
         </div>
 
         {/* ================= PRODUCTS ================= */}
-        <div className="mt-5">
+        <div className="mt-4 2xl:mt-5">
           <p
             className="
-              text-[14px]
+              text-[13px]
               font-medium
               text-[#AAB2BA]
+
+              2xl:text-[14px]
             "
           >
             Top Export Products
@@ -187,11 +237,14 @@ export default function CountryInfoCard({ country }) {
                   border
                   border-[#374858]
                   bg-[#071522]
-                  px-3
+                  px-2.5
                   py-1.5
-                  text-[12px]
+                  text-[11px]
                   font-medium
                   text-[#D6DBDF]
+
+                  2xl:px-3
+                  2xl:text-[12px]
                 "
               >
                 {product}
@@ -204,9 +257,9 @@ export default function CountryInfoCard({ country }) {
         <button
           className="
             group
-            mt-6
+            mt-5
             flex
-            min-h-[48px]
+            min-h-[44px]
             w-full
             items-center
             justify-center
@@ -216,21 +269,28 @@ export default function CountryInfoCard({ country }) {
             from-[#E0AA48]
             via-[#D99B2B]
             to-[#C98A24]
-            text-[15px]
+            text-[14px]
             font-semibold
             text-[#07111B]
             transition-all
             duration-300
             hover:shadow-[0_8px_22px_rgba(214,154,43,0.25)]
+
+            2xl:mt-6
+            2xl:min-h-[48px]
+            2xl:text-[15px]
           "
         >
           View Opportunities
           <ArrowRight
-            size={19}
+            size={18}
             className="
               transition-transform
               duration-300
               group-hover:translate-x-1
+
+              2xl:h-[19px]
+              2xl:w-[19px]
             "
           />
         </button>

@@ -34,7 +34,7 @@ export default function StateFilters({
         {/* State */}
 
         <div>
-          <label className="mb-1.5 block text-[11px] text-[#7F909F]">
+          <label className="mb-1.5 block text-[16px] text-[#7F909F]">
             Select a State
           </label>
 
@@ -49,7 +49,7 @@ export default function StateFilters({
               border-[#284056]
               bg-[#071522]
               px-3
-              text-[12px]
+              text-[16px]
               text-[#DDE3E7]
               outline-none
               focus:border-[#D69A2B]
@@ -66,7 +66,7 @@ export default function StateFilters({
         {/* Product */}
 
         <div>
-          <label className="mb-1.5 block text-[11px] text-[#7F909F]">
+          <label className="mb-1.5 block text-[16px] text-[#7F909F]">
             Select a Product
           </label>
 
@@ -81,7 +81,7 @@ export default function StateFilters({
               border-[#284056]
               bg-[#071522]
               px-3
-              text-[12px]
+              text-[16px]
               text-[#DDE3E7]
               outline-none
               focus:border-[#D69A2B]
@@ -98,7 +98,7 @@ export default function StateFilters({
         {/* Region */}
 
         <div>
-          <label className="mb-1.5 block text-[11px] text-[#7F909F]">
+          <label className="mb-1.5 block text-[16px] text-[#7F909F]">
             Region
           </label>
 
@@ -112,7 +112,7 @@ export default function StateFilters({
               border-[#284056]
               bg-[#071522]
               px-3
-              text-[12px]
+              text-[16px]
               text-[#DDE3E7]
             "
           >
@@ -140,7 +140,7 @@ export default function StateFilters({
               border
               border-[#284056]
               bg-[#071522]
-              text-[11px]
+              text-[16px]
               font-medium
               text-[#8998A5]
               transition
@@ -148,7 +148,7 @@ export default function StateFilters({
               hover:text-[#D69A2B]
             "
           >
-            <RotateCcw size={13} />
+            <RotateCcw size={15} />
             Reset Filters
           </button>
         </div>

@@ -39,11 +39,11 @@ export default function CurrentSeasonProgress({ data }) {
       "
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-[16px] font-semibold text-[#E9ECEF] sm:text-[18px]">
+        <h2 className="text-[16px] font-semibold text-[#E9ECEF] sm:text-[20px]">
           CURRENT SEASON PROGRESS
         </h2>
 
-        <span className="text-[9px] text-[#748795]">Latest Week</span>
+        <span className="text-[11px] text-[#748795]">Latest Week</span>
       </div>
 
       <div className="mt-5 grid grid-cols-2 gap-3">
@@ -64,13 +64,13 @@ export default function CurrentSeasonProgress({ data }) {
               p-3
             "
           >
-            <p className="text-[10px] text-[#7C8E9C]">{item.label}</p>
+            <p className="text-[14px] text-[#7C8E9C]">{item.label}</p>
 
             <p className="mt-2 text-[20px] font-semibold text-[#DCE2E6]">
               {item.value}
             </p>
 
-            <p className="mt-1 text-[9px] text-[#82A83D]">{item.sub}</p>
+            <p className="mt-1 text-[14px] text-[#82A83D]">{item.sub}</p>
           </motion.div>
         ))}
       </div>

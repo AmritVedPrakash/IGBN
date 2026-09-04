@@ -5,16 +5,15 @@ import uaeFlag from "../assets/flag/uae.png";
 import indiaFlag from "../assets/flag/india.png";
 import chinaFlag from "../assets/flag/china.png";
 import australiaFlag from "../assets/flag/australia.png";
+
 export const countriesData = {
   usa: {
     id: "usa",
     name: "USA",
     flag: usaFlag,
 
-    position: {
-      top: "20%",
-      left: "24%",
-    },
+    latitude: 37.0902,
+    longitude: -95.7129,
 
     exportValue: "$78.5B",
     exportGrowth: "+11.2%",
@@ -46,10 +45,8 @@ export const countriesData = {
     name: "United Kingdom",
     flag: ukFlag,
 
-    position: {
-      top: "13%",
-      left: "60%",
-    },
+    latitude: 55.3781,
+    longitude: -3.436,
 
     exportValue: "$12.9B",
     exportGrowth: "+6.9%",
@@ -81,10 +78,8 @@ export const countriesData = {
     name: "Germany",
     flag: germanyFlag,
 
-    position: {
-      top: "31%",
-      left: "44%",
-    },
+    latitude: 51.1657,
+    longitude: 10.4515,
 
     exportValue: "$14.2B",
     exportGrowth: "+8.4%",
@@ -116,10 +111,8 @@ export const countriesData = {
     name: "UAE",
     flag: uaeFlag,
 
-    position: {
-      top: "39%",
-      left: "55%",
-    },
+    latitude: 23.4241,
+    longitude: 53.8478,
 
     exportValue: "$31.6B",
     exportGrowth: "+9.7%",
@@ -151,10 +144,8 @@ export const countriesData = {
     name: "China",
     flag: chinaFlag,
 
-    position: {
-      top: "42%",
-      left: "72%",
-    },
+    latitude: 35.8617,
+    longitude: 104.1954,
 
     exportValue: "$16.4B",
     exportGrowth: "+5.8%",
@@ -186,10 +177,8 @@ export const countriesData = {
     name: "India",
     flag: indiaFlag,
 
-    position: {
-      top: "57%",
-      left: "54%",
-    },
+    latitude: 20.5937,
+    longitude: 78.9629,
 
     exportValue: "$451B",
     exportGrowth: "+7.3%",
@@ -221,10 +210,8 @@ export const countriesData = {
     name: "Australia",
     flag: australiaFlag,
 
-    position: {
-      top: "70%",
-      left: "64%",
-    },
+    latitude: -25.2744,
+    longitude: 133.7751,
 
     exportValue: "$8.9B",
     exportGrowth: "+7.1%",

@@ -20,13 +20,13 @@ import SuppliersAvForm from "../components/sections/connectwithbuyers/suppliersA
 import InternationalRFQ from "../components/sections/InternationalRFQ";
 import AnalyzeCompany from "../components/sections/AnalyzeCompany";
 import OurFourDivision from "../components/sections/OurFourDivision";
-import KeyMetrics from "../components/sections/KeyMetrics";
+// import KeyMetrics from "../components/sections/KeyMetrics";
 import HowItWorks from "../components/sections/HowItWorks";
 import LatestInsights from "../components/sections/LatestInsights";
 import KeyMetrics2 from "../components/sections/KeyMetrics2";
 import GlobalTradeHero from "../components/sections/home/GlobalTradeHero/GlobalTradeHero";
 // import InternationalRFQ from "../components/sections/InternationalRFQ.jsx";
-
+import ConnectMultiIndustry from "../components/sections/contact/ConnectMultiIndustry";
 export default function Home() {
   return (
     <>
@@ -38,7 +38,9 @@ export default function Home() {
      
       <ServicesPreview /> */}
       {/* <HowItsWork/> */}
-      <KeyMetrics/>
+      <KeyMetrics2/>
+      <ConnectMultiIndustry/>
+      {/* <KeyMetrics/> */}
       
       <InternationalRFQ/>
       {/* <BuyersSuppliersConnect/> */}
@@ -47,7 +49,7 @@ export default function Home() {
       {/* <OurSectorsWeDeal/> */}
       <OurFourDivision/>
       <LatestInsights/>
-      <KeyMetrics2/>
+      
       {/* <CaseStudies />
       <Stats /> */}
 

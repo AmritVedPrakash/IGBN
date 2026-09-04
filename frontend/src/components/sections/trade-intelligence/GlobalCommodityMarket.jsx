@@ -554,6 +554,12 @@ export default function GlobalCommodityMarket() {
 
           {/* =========================================
               COMMODITY CARDS
+              FIX: 6-column layout used to only turn on at 2xl
+              (>=1536px). 1366x768 falls in the xl range
+              (1280-1535px), so it fell back to xl:grid-cols-4 —
+              a 4+2 grid instead of a single 6-item row. Moving
+              the 6-column breakpoint to xl (>=1280px) matches
+              the first-image layout at 1366x768 too.
           ========================================== */}
 
           <motion.div
@@ -566,8 +572,7 @@ export default function GlobalCommodityMarket() {
 
               sm:grid-cols-2
               lg:grid-cols-3
-              xl:grid-cols-4
-              2xl:grid-cols-6
+              xl:grid-cols-6
             "
           >
             <AnimatePresence mode="popLayout">

@@ -63,8 +63,8 @@ export default function GlobeCountryPin({
           group
           relative
           flex
-          h-[54px]
-          w-[54px]
+          h-[45px]
+          w-[45px]
           items-center
           justify-center
           rounded-full
@@ -85,7 +85,7 @@ export default function GlobeCountryPin({
             ${
               active
                 ? `
-                  scale-[1.25]
+                  scale-[1]
                   border-[#F1B747]/80
                   bg-[#D69A2B]/20
                   shadow-[0_0_30px_rgba(214,154,43,.75)]
@@ -105,8 +105,8 @@ export default function GlobeCountryPin({
             relative
             z-10
             flex
-            h-[45px]
-            w-[45px]
+            h-[30px]
+            w-[30px]
             items-center
             justify-center
             rounded-full
@@ -137,8 +137,8 @@ export default function GlobeCountryPin({
             alt={country.name}
             draggable={false}
             className="
-              h-[27px]
-              w-[27px]
+              h-[15px]
+              w-[15px]
               rounded-full
               object-cover
             "
@@ -147,13 +147,13 @@ export default function GlobeCountryPin({
 
         {/* MAP PIN TIP */}
         <MapPin
-          size={20}
+          size={18}
           strokeWidth={1.8}
           fill="#D69A2B"
           className="
             pointer-events-none
             absolute
-            -bottom-[9px]
+            -bottom-[2px]
             left-1/2
             z-0
             -translate-x-1/2

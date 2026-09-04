@@ -1,10 +1,6 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 // ================= FLAGS =================
 import usaFlag from "../../assets/flag/usa.png";
@@ -209,7 +205,6 @@ export default function InternationalRFQ() {
             "
           >
             View All RFQs
-
             <ArrowRight
               size={21}
               strokeWidth={2}
@@ -308,15 +303,17 @@ export default function InternationalRFQ() {
                   overflow-hidden
                   rounded-[10px]
                   border
-                  border-[#D7D7D7]
-                  bg-[#F5F5F3]
+                  border-[#735123]
+                  bg-[#03111F]/95
                   px-5
                   py-6
-                  shadow-[0_7px_22px_rgba(0,0,0,0.18)]
+                  shadow-[0_7px_22px_rgba(0,0,0,0.30)]
+                  backdrop-blur-lg
                   transition-all
                   duration-300
 
-                  hover:shadow-[0_15px_30px_rgba(0,0,0,0.28)]
+                  hover:border-[#D69A2B]/60
+                  hover:shadow-[0_15px_30px_rgba(0,0,0,0.45)]
 
                   sm:w-[300px]
                   lg:w-[315px]
@@ -336,7 +333,7 @@ export default function InternationalRFQ() {
                       overflow-hidden
                       rounded-[4px]
                       border
-                      border-black/10
+                      border-[#374858]
                       bg-white
                     "
                   >
@@ -356,7 +353,7 @@ export default function InternationalRFQ() {
                     className="
                       text-[16px]
                       font-semibold
-                      text-[#252525]
+                      text-[#F4F5F6]
 
                       sm:text-[17px]
                       lg:text-[22px]
@@ -366,7 +363,7 @@ export default function InternationalRFQ() {
                   </p>
                 </div>
 
-                {/* ================= TITLE ================= */}
+                {/* ================= TITLE (golden) ================= */}
                 <h3
                   className="
                     mt-6
@@ -374,11 +371,11 @@ export default function InternationalRFQ() {
                     text-[18px]
                     font-semibold
                     leading-[1.45]
-                    text-[#1B1B1B]
+                    text-[#D69A2B]
                     transition-colors
                     duration-300
 
-                    group-hover:text-[#A96F16]
+                    group-hover:text-[#F0C168]
 
                     sm:text-[19px]
                     lg:text-[20px]
@@ -401,7 +398,7 @@ export default function InternationalRFQ() {
                       text-[14px]
                       font-medium
                       leading-[1.55]
-                      text-[#5D5D5D]
+                      text-[#AAB2BA]
 
                       sm:text-[15px]
                       lg:text-[16px]
@@ -415,7 +412,7 @@ export default function InternationalRFQ() {
                     className="
                       text-[14px]
                       leading-[1.55]
-                      text-[#707070]
+                      text-[#9AA3AB]
 
                       sm:text-[15px]
                       lg:text-[16px]
@@ -425,7 +422,7 @@ export default function InternationalRFQ() {
                     <span
                       className="
                         font-semibold
-                        text-[#424242]
+                        text-[#E4E8EB]
                       "
                     >
                       {rfq.quantity}
@@ -438,7 +435,7 @@ export default function InternationalRFQ() {
                       text-[14px]
                       font-medium
                       leading-[1.55]
-                      text-[#707070]
+                      text-[#9AA3AB]
 
                       sm:text-[15px]
                       lg:text-[16px]
@@ -461,12 +458,14 @@ export default function InternationalRFQ() {
                     justify-center
                     gap-2.5
                     rounded-[6px]
-                    bg-[#E4E9E3]
+                    border
+                    border-[#2C5A3B]
+                    bg-[#0E2818]
                     px-3
                     py-2
                     text-[15px]
                     font-semibold
-                    text-[#397346]
+                    text-[#75AD4A]
 
                     sm:text-[16px]
                   "
@@ -476,7 +475,7 @@ export default function InternationalRFQ() {
                       h-[8px]
                       w-[8px]
                       rounded-full
-                      bg-[#4C9458]
+                      bg-[#75AD4A]
                     "
                   />
 

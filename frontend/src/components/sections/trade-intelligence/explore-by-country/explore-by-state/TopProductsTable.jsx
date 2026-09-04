@@ -17,11 +17,11 @@ export default function TopProductsTable({ data }) {
     >
       <div className="flex items-center justify-between border-b border-[#193249] px-4 py-3">
         <div>
-          <h2 className="text-[16px] font-semibold text-[#E9ECEF] sm:text-[18px]">
+          <h2 className="text-[16px] font-semibold text-[#E9ECEF] sm:text-[20px]">
             TOP PRODUCTS BY STATE & CROP CALENDAR
           </h2>
 
-          <p className="mt-1 text-[10px] text-[#748795]">
+          <p className="mt-1 text-[14px] text-[#748795]">
             Crop production and market readiness overview
           </p>
         </div>
@@ -48,11 +48,11 @@ export default function TopProductsTable({ data }) {
                   key={heading}
                   className="
                     px-4
-                    py-3
+                    py-8
                     text-[10px]
                     font-medium
                     text-[#748694]
-                    sm:text-[11px]
+                    sm:text-[16px]
                   "
                 >
                   {heading}
@@ -82,27 +82,27 @@ export default function TopProductsTable({ data }) {
                   last:border-b-0
                 "
               >
-                <td className="px-4 py-3 text-[11px] text-[#D8E0E5]">
+                <td className="px-4 py-3 text-[16px] text-[#D8E0E5]">
                   {item.state}
                 </td>
 
-                <td className="px-4 py-3 text-[11px] font-semibold text-[#DCE2E6]">
+                <td className="px-4 py-3 text-[16px] font-semibold text-[#DCE2E6]">
                   {item.product}
                 </td>
 
-                <td className="px-4 py-3 text-[10px] text-[#8999A6]">
+                <td className="px-4 py-3 text-[16px] text-[#8999A6]">
                   {item.sowing}
                 </td>
 
-                <td className="px-4 py-3 text-[10px] text-[#8999A6]">
+                <td className="px-4 py-3 text-[16px] text-[#8999A6]">
                   {item.growing}
                 </td>
 
-                <td className="px-4 py-3 text-[10px] text-[#8999A6]">
+                <td className="px-4 py-3 text-[16px] text-[#8999A6]">
                   {item.harvest}
                 </td>
 
-                <td className="px-4 py-3 text-[10px] text-[#8999A6]">
+                <td className="px-4 py-3 text-[16px] text-[#8999A6]">
                   {item.ready}
                 </td>
 
@@ -114,7 +114,7 @@ export default function TopProductsTable({ data }) {
                       border
                       px-2
                       py-1
-                      text-[9px]
+                      text-[14px]
                       ${
                         item.impact === "High"
                           ? "border-[#673632] bg-[#251514] text-[#D65353]"

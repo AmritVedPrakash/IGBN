@@ -351,7 +351,7 @@ export default function About() {
               }}
               className="
                 absolute
-                bottom-[17%]
+                bottom-[0%]
                 left-[8%]
                 w-[285px]
                 rounded-[10px]
@@ -363,7 +363,7 @@ export default function About() {
                 shadow-[0_15px_40px_rgba(0,0,0,0.42)]
                 backdrop-blur-[6px]
 
-                xl:left-[10%]
+                xl:left-[20%]
                 xl:w-[310px]
               "
             >

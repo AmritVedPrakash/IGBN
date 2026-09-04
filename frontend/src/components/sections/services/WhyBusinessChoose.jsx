@@ -48,42 +48,102 @@ export default function WhyBusinessChoose() {
   ];
 
   return (
-    <section className="w-full bg-[#020c16] px-4 py-8 md:px-6 lg:px-8">
-      <div className="mx-auto max-w-[1650px]">
+    <section className="w-full bg-[#020c16] px-4 py-8 md:px-6 lg:px-8 xl:px-10">
+      <div className="mx-auto w-full max-w-[1650px]">
         {/* ================= HEADING ================= */}
-        <div className="relative z-10 mb-[-10px] flex items-center justify-center gap-4 px-5">
-          {/* Left Golden Line */}
-          <div className="flex w-full max-w-[470px] items-center">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-[#8c5c15] to-[#d2952c]" />
+        <div
+          className="
+            relative
+            z-10
+            mb-[-10px]
+            flex
+            w-full
+            items-center
+            justify-center
+            gap-3
+            px-2
 
-            <span className="ml-[-1px] h-[5px] w-[5px] rotate-45 bg-[#d2952c]" />
+            sm:gap-4
+            sm:px-5
+          "
+        >
+          {/* LEFT GOLDEN LINE */}
+          <div className="flex min-w-0 flex-1 items-center justify-end">
+            <div
+              className="
+                h-[1px]
+                w-full
+                max-w-[470px]
+                bg-gradient-to-r
+                from-transparent
+                via-[#8c5c15]
+                to-[#d2952c]
+              "
+            />
+
+            <span
+              className="
+                ml-[-1px]
+                h-[5px]
+                w-[5px]
+                shrink-0
+                rotate-45
+                bg-[#d2952c]
+              "
+            />
           </div>
 
-          {/* Heading */}
+          {/* HEADING */}
           <h2
             className="
+              shrink-0
               whitespace-nowrap
               bg-[#020c16]
-              px-4
+              px-3
               text-center
-              text-[16px]
+              text-[14px]
               font-semibold
               uppercase
               tracking-[0.04em]
               text-white
-              sm:text-[20px]
-              md:text-[25px]
-              lg:text-[28px]
+
+              sm:text-[18px]
+              md:text-[22px]
+              lg:text-[24px]
+
+              xl:text-[24px]
+
+              2xl:px-4
+              2xl:text-[28px]
             "
           >
             Why Businesses Choose IGBN
           </h2>
 
-          {/* Right Golden Line */}
-          <div className="flex w-full max-w-[470px] items-center">
-            <span className="mr-[-1px] h-[5px] w-[5px] rotate-45 bg-[#d2952c]" />
+          {/* RIGHT GOLDEN LINE */}
+          <div className="flex min-w-0 flex-1 items-center">
+            <span
+              className="
+                mr-[-1px]
+                h-[5px]
+                w-[5px]
+                shrink-0
+                rotate-45
+                bg-[#d2952c]
+              "
+            />
 
-            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent via-[#8c5c15] to-[#d2952c]" />
+            <div
+              className="
+                h-[1px]
+                w-full
+                max-w-[470px]
+                bg-gradient-to-l
+                from-transparent
+                via-[#8c5c15]
+                to-[#d2952c]
+              "
+            />
           </div>
         </div>
 
@@ -94,14 +154,25 @@ export default function WhyBusinessChoose() {
             border
             border-[#17314a]
             bg-[#03101d]
+
             px-4
             pb-5
             pt-9
+
             shadow-[0_10px_35px_rgba(0,0,0,0.25)]
+
             sm:px-5
+
             md:px-6
             md:pb-6
+
             lg:px-7
+
+            xl:px-5
+            xl:pb-5
+
+            2xl:px-7
+            2xl:pb-6
           "
         >
           {/* ================= CARDS ================= */}
@@ -110,9 +181,15 @@ export default function WhyBusinessChoose() {
               grid
               grid-cols-1
               gap-4
+
               sm:grid-cols-2
+
               lg:grid-cols-3
-              2xl:grid-cols-6
+
+              xl:grid-cols-6
+              xl:gap-3
+
+              2xl:gap-4
             "
           >
             {data.map((item, index) => {
@@ -123,15 +200,23 @@ export default function WhyBusinessChoose() {
                   key={index}
                   className="
                     group
+
                     flex
-                    min-h-[200px]
+                    min-w-0
                     flex-col
+
                     rounded-[9px]
+
                     border
                     border-[#263c50]
+
                     bg-[#041321]
+
                     px-5
                     py-6
+
+                    min-h-[200px]
+
                     transition-all
                     duration-300
 
@@ -139,62 +224,104 @@ export default function WhyBusinessChoose() {
                     hover:border-[#a77225]
                     hover:bg-[#071827]
                     hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]
+
+                    xl:min-h-[190px]
+                    xl:px-3
+                    xl:py-5
+
+                    2xl:min-h-[220px]
+                    2xl:px-5
+                    2xl:py-6
                   "
                 >
-                  {/* ICON + TITLE */}
-                  <div className="flex items-start gap-4">
-                    {/* Icon Wrapper */}
+                  {/* ================= ICON + TITLE ================= */}
+                  <div
+                    className="
+                      flex
+                      min-w-0
+                      items-start
+                      gap-3
+
+                      2xl:gap-4
+                    "
+                  >
+                    {/* ICON */}
                     <div
                       className="
                         flex
-                        h-[52px]
-                        w-[52px]
+                        h-[44px]
+                        w-[44px]
                         shrink-0
                         items-center
                         justify-center
                         rounded-md
+
                         transition-all
                         duration-300
+
+                        2xl:h-[52px]
+                        2xl:w-[52px]
                       "
                     >
                       <Icon
                         strokeWidth={1.5}
                         className="
-                          h-[42px]
-                          w-[42px]
+                          h-[32px]
+                          w-[32px]
+                          shrink-0
+
                           text-[#c98b25]
+
                           transition-all
                           duration-300
+
                           group-hover:scale-110
                           group-hover:text-[#e3a23b]
+
+                          2xl:h-[42px]
+                          2xl:w-[42px]
                         "
                       />
                     </div>
 
-                    {/* Title */}
+                    {/* TITLE */}
                     <h3
                       className="
+                        min-w-0
                         pt-[2px]
-                        text-[15px]
+
+                        text-[13px]
                         font-semibold
                         leading-[1.5]
+
                         text-[#f6f7f8]
-                        xl:text-[18px]
+
+                        xl:text-[13px]
+
+                        2xl:text-[18px]
                       "
                     >
                       {item.title}
                     </h3>
                   </div>
 
-                  {/* Description */}
+                  {/* ================= DESCRIPTION ================= */}
                   <p
                     className="
-                      mt-5
-                      text-[13px]
+                      mt-4
+
+                      text-[12px]
                       font-normal
-                      leading-[1.75]
+                      leading-[1.7]
+
                       text-[#c8ced5]
-                      xl:text-[16px]
+
+                      xl:text-[12px]
+                      xl:leading-[1.7]
+
+                      2xl:mt-5
+                      2xl:text-[16px]
+                      2xl:leading-[1.75]
                     "
                   >
                     {item.description}

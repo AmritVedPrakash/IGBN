@@ -30,7 +30,7 @@ export default function QuickStateView({ data, selectedProduct }) {
             {data.name.toUpperCase()}
           </h2>
 
-          <p className="mt-1 text-[11px] text-[#778A99]">
+          <p className="mt-1 text-[15px] text-[#778A99]">
             Top Product:{" "}
             <span className="text-[#DCE2E6]">{selectedProduct}</span>
           </p>
@@ -44,7 +44,7 @@ export default function QuickStateView({ data, selectedProduct }) {
             bg-[#2B2111]
             px-2.5
             py-1
-            text-[10px]
+            text-[15px]
             text-[#D69A2B]
           "
         >
@@ -83,7 +83,7 @@ export default function QuickStateView({ data, selectedProduct }) {
       </div>
 
       <div className="mt-4 border-t border-[#193249] pt-4">
-        <p className="text-[11px] text-[#788B9A]">OVERALL WEATHER IMPACT</p>
+        <p className="text-[15px] text-[#788B9A]">OVERALL WEATHER IMPACT</p>
 
         <div className="mt-2 flex items-center gap-2">
           <span className="h-3 w-3 rounded-full bg-[#D5A52F]" />
@@ -95,11 +95,11 @@ export default function QuickStateView({ data, selectedProduct }) {
       </div>
 
       <div className="mt-4 rounded-[6px] border border-[#263E51] bg-[#071522] p-3">
-        <p className="text-[12px] font-semibold text-[#D69A2B]">
+        <p className="text-[14px] font-semibold text-[#D69A2B]">
           {data.tradeImplication.title}
         </p>
 
-        <p className="mt-1.5 text-[11px] leading-5 text-[#9DAAB4]">
+        <p className="mt-1.5 text-[14px] leading-5 text-[#9DAAB4]">
           {data.tradeImplication.description}
         </p>
       </div>
@@ -123,10 +123,10 @@ function WeatherBox({ icon, title, value, status }) {
       <div className="flex items-center gap-2 text-[#6C9BC1]">
         {icon}
 
-        <span className="text-[10px] text-[#A9B4BC]">{title}</span>
+        <span className="text-[15px] text-[#A9B4BC]">{title}</span>
       </div>
 
-      <p className="mt-2 text-[12px] font-medium leading-4 text-[#DCE2E6]">
+      <p className="mt-2 text-[15px] font-medium leading-4 text-[#DCE2E6]">
         {value}
       </p>
 

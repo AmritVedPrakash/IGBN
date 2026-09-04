@@ -34,7 +34,7 @@ export default function StateWeatherParameters({ data }) {
         p-4
       "
     >
-      <h2 className="text-[16px] font-semibold text-[#E9ECEF]">
+      <h2 className="text-[20px] font-semibold text-[#E9ECEF]">
         WEATHER PARAMETERS
       </h2>
 
@@ -53,9 +53,9 @@ export default function StateWeatherParameters({ data }) {
               last:border-0
             "
           >
-            <span className="text-[11px] text-[#8495A2]">{item.label}</span>
+            <span className="text-[14px] text-[#8495A2]">{item.label}</span>
 
-            <span className="text-right text-[11px] font-medium text-[#DCE2E6]">
+            <span className="text-right text-[14px] font-medium text-[#DCE2E6]">
               {item.value}
             </span>
           </div>

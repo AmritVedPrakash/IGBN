@@ -34,11 +34,11 @@ export default function MarketReadiness({ data }) {
         p-4
       "
     >
-      <h2 className="text-[16px] font-semibold text-[#E9ECEF]">
+      <h2 className="text-[20px] font-semibold text-[#E9ECEF]">
         MARKET READINESS
       </h2>
 
-      <p className="mt-1 text-[10px] text-[#748795]">
+      <p className="mt-1 text-[14px] text-[#748795]">
         {data.name} market conditions
       </p>
 
@@ -53,9 +53,9 @@ export default function MarketReadiness({ data }) {
               last:border-b-0
             "
           >
-            <p className="text-[10px] text-[#748795]">{item.label}</p>
+            <p className="text-[14px] text-[#748795]">{item.label}</p>
 
-            <p className="mt-1 text-[13px] font-semibold text-[#DCE2E6]">
+            <p className="mt-1 text-[16px] font-semibold text-[#DCE2E6]">
               {item.value}
             </p>
           </div>

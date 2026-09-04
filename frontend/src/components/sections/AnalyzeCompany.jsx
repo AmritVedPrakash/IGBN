@@ -36,6 +36,7 @@ export default function AnalyzeCompany() {
   // =======================================================
   // CATEGORY DATA
   // =======================================================
+
   const categories = [
     {
       name: "Agro & Foods",
@@ -69,6 +70,7 @@ export default function AnalyzeCompany() {
   // =======================================================
   // FORM CHANGE
   // =======================================================
+
   const handleChange = (e) => {
     const { name, value, checked, type, files } = e.target;
 
@@ -78,8 +80,8 @@ export default function AnalyzeCompany() {
         type === "checkbox"
           ? checked
           : type === "file"
-          ? files?.[0] || null
-          : value,
+            ? files?.[0] || null
+            : value,
     }));
   };
 
@@ -102,7 +104,10 @@ export default function AnalyzeCompany() {
         lg:px-8
       "
     >
-      {/* Background Glow */}
+      {/* =====================================================
+          BACKGROUND GLOW
+      ====================================================== */}
+
       <div
         className="
           pointer-events-none
@@ -122,20 +127,30 @@ export default function AnalyzeCompany() {
       <div className="relative z-10 mx-auto max-w-[1650px]">
         {/* =====================================================
             MAIN GRID
+
+            IMPORTANT:
+            xl = 1280px
+
+            So at 1366px:
+            Card 1 | Card 2 | Card 3
         ====================================================== */}
+
         <div
           className="
             grid
             grid-cols-1
             gap-5
+
             lg:grid-cols-2
-            2xl:grid-cols-[1.05fr_0.9fr_0.9fr]
+
+            xl:grid-cols-[1.05fr_0.9fr_0.9fr]
           "
         >
           {/* =====================================================
               CARD 1
               GLOBAL DEMAND HEATMAP
           ====================================================== */}
+
           <motion.div
             initial={{
               opacity: 0,
@@ -168,10 +183,11 @@ export default function AnalyzeCompany() {
               hover:border-[#A9782D]
 
               sm:px-6
-              2xl:min-h-[580px]
+              xl:min-h-[540px]
             "
           >
             {/* Heading */}
+
             <h2
               className="
                 text-[22px]
@@ -189,6 +205,7 @@ export default function AnalyzeCompany() {
             {/* =================================================
                 CATEGORY TABS
             ================================================== */}
+
             <div
               className="
                 mt-5
@@ -243,6 +260,7 @@ export default function AnalyzeCompany() {
             {/* =================================================
                 CHANGING MAP
             ================================================== */}
+
             <div
               className="
                 relative
@@ -286,18 +304,21 @@ export default function AnalyzeCompany() {
             {/* =================================================
                 DEMAND LEGEND + BUTTON
             ================================================== */}
+
             <div
               className="
                 mt-3
                 flex
                 flex-col
                 gap-5
+
                 sm:flex-row
                 sm:items-end
                 sm:justify-between
               "
             >
               {/* Legend */}
+
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
                   <span className="h-[13px] w-[13px] bg-[#D8533F]" />
@@ -325,6 +346,7 @@ export default function AnalyzeCompany() {
               </div>
 
               {/* Button */}
+
               <motion.button
                 whileHover={{
                   x: 3,
@@ -354,7 +376,6 @@ export default function AnalyzeCompany() {
                 "
               >
                 View Full Market Insights
-
                 <ArrowRight
                   size={19}
                   className="
@@ -371,6 +392,7 @@ export default function AnalyzeCompany() {
               CARD 2
               ANALYZE COMPANY FORM
           ====================================================== */}
+
           <motion.div
             initial={{
               opacity: 0,
@@ -398,10 +420,11 @@ export default function AnalyzeCompany() {
               shadow-[0_10px_35px_rgba(0,0,0,0.30)]
 
               sm:px-6
-              2xl:min-h-[580px]
+              xl:min-h-[540px]
             "
           >
             {/* Heading */}
+
             <h2
               className="
                 text-[22px]
@@ -418,6 +441,7 @@ export default function AnalyzeCompany() {
             </h2>
 
             {/* Intro */}
+
             <div
               className="
                 mt-5
@@ -427,6 +451,7 @@ export default function AnalyzeCompany() {
               "
             >
               {/* Icon */}
+
               <motion.div
                 animate={{
                   y: [0, -5, 0],
@@ -453,6 +478,7 @@ export default function AnalyzeCompany() {
               </motion.div>
 
               {/* Description */}
+
               <p
                 className="
                   text-[14px]
@@ -463,21 +489,19 @@ export default function AnalyzeCompany() {
                   lg:text-[16px]
                 "
               >
-                Discover the best countries with buyers for your products.
-                Get a free analysis of your business and discover which
-                countries have the right buyers and the best opportunities
-                for you to expand.
+                Discover the best countries with buyers for your products. Get a
+                free analysis of your business and discover which countries have
+                the right buyers and the best opportunities for you to expand.
               </p>
             </div>
 
             {/* =================================================
                 FORM
             ================================================== */}
-            <form
-              onSubmit={handleSubmit}
-              className="mt-6"
-            >
+
+            <form onSubmit={handleSubmit} className="mt-6">
               {/* Company + Email */}
+
               <div
                 className="
                   grid
@@ -538,6 +562,7 @@ export default function AnalyzeCompany() {
               </div>
 
               {/* File Upload */}
+
               <label
                 className="
                   mt-3
@@ -582,11 +607,7 @@ export default function AnalyzeCompany() {
                   "
                 >
                   Choose File
-
-                  <Upload
-                    size={18}
-                    className="text-[#D69A2B]"
-                  />
+                  <Upload size={18} className="text-[#D69A2B]" />
                 </div>
 
                 <input
@@ -598,6 +619,7 @@ export default function AnalyzeCompany() {
               </label>
 
               {/* Country */}
+
               <input
                 type="text"
                 name="country"
@@ -626,6 +648,7 @@ export default function AnalyzeCompany() {
               />
 
               {/* Export / Import */}
+
               <div
                 className="
                   mt-3
@@ -674,7 +697,6 @@ export default function AnalyzeCompany() {
                       accent-[#D69A2B]
                     "
                   />
-
                   Export
                 </label>
 
@@ -700,12 +722,12 @@ export default function AnalyzeCompany() {
                       accent-[#D69A2B]
                     "
                   />
-
                   Import
                 </label>
               </div>
 
               {/* Submit */}
+
               <motion.button
                 type="submit"
                 whileHover={{
@@ -739,7 +761,6 @@ export default function AnalyzeCompany() {
                 "
               >
                 Analyze Now
-
                 <ArrowRight
                   size={21}
                   className="
@@ -755,6 +776,7 @@ export default function AnalyzeCompany() {
               CARD 3
               ADVERTISE WITH US
           ====================================================== */}
+
           <motion.div
             initial={{
               opacity: 0,
@@ -785,13 +807,11 @@ export default function AnalyzeCompany() {
 
               sm:px-6
 
-              lg:col-span-2
-
-              2xl:col-span-1
-              2xl:min-h-[580px]
+              xl:min-h-[540px]
             "
           >
             {/* Heading */}
+
             <h2
               className="
                 text-[22px]
@@ -807,6 +827,7 @@ export default function AnalyzeCompany() {
             </h2>
 
             {/* Description */}
+
             <p
               className="
                 mt-5
@@ -819,13 +840,14 @@ export default function AnalyzeCompany() {
                 lg:text-[16px]
               "
             >
-              Promote your brand, products and services to a global audience
-              of verified buyers and importers.
+              Promote your brand, products and services to a global audience of
+              verified buyers and importers.
             </p>
 
             {/* =================================================
                 BENEFITS
             ================================================== */}
+
             <div className="relative z-10 mt-8 space-y-5">
               {[
                 "Banner & Display Advertising",
@@ -884,6 +906,7 @@ export default function AnalyzeCompany() {
             {/* =================================================
                 MEGAPHONE GRAPHIC
             ================================================== */}
+
             <div
               className="
                 pointer-events-none
@@ -938,7 +961,8 @@ export default function AnalyzeCompany() {
                 "
               />
 
-              {/* Decorative Points */}
+              {/* Decorative Point */}
+
               <motion.span
                 animate={{
                   opacity: [0.4, 1, 0.4],
@@ -973,6 +997,7 @@ export default function AnalyzeCompany() {
             </div>
 
             {/* Button */}
+
             <motion.button
               whileHover={{
                 y: -2,
@@ -1007,7 +1032,6 @@ export default function AnalyzeCompany() {
               "
             >
               Advertise Now
-
               <ArrowRight
                 size={21}
                 className="

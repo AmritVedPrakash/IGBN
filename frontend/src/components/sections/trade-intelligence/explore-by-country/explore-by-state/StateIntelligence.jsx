@@ -3,16 +3,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft } from "lucide-react";
 
-
 import stateData, { states } from "../../../../../data/stateData";
 
 import StateHeader from "./StateHeader";
 import StateFilters from "./StateFilters";
+
 import WeatherImpactOverview from "./WeatherImpactOverview";
 import QuickStateView from "./QuickStateView";
+
 import TopProductsTable from "./TopProductsTable";
+
 import StateDataSources from "./StateDataSources";
 import StateWeatherParameters from "./StateWeatherParameters";
+
 import CropCalendar from "./CropCalendar";
 import CurrentSeasonProgress from "./CurrentSeasonProgress";
 import StateForecast from "./StateForecast";
@@ -24,34 +27,44 @@ export default function StateIntelligence() {
 
   const { code, stateCode } = useParams();
 
+  // ============================================
+  // INITIAL STATE
+  // ============================================
+
   const initialState = stateCode?.toUpperCase() || "CA";
 
   const [selectedState, setSelectedState] = useState(initialState);
 
-  const defaultData = stateData[selectedState] || stateData.CA;
+  const [selectedProduct, setSelectedProduct] = useState("");
 
-  const [selectedProduct, setSelectedProduct] = useState(
-    defaultData.selectedProduct,
-  );
+  // ============================================
+  // CURRENT STATE DATA
+  // ============================================
 
   const data = useMemo(() => {
     return stateData[selectedState] || stateData.CA;
   }, [selectedState]);
 
+  // ============================================
+  // SET DEFAULT PRODUCT
+  // ============================================
+
   useEffect(() => {
-    setSelectedProduct(data.selectedProduct);
+    if (data?.selectedProduct) {
+      setSelectedProduct(data.selectedProduct);
+    }
   }, [data]);
+
+  // ============================================
+  // STATE CHANGE
+  // ============================================
 
   const handleStateChange = (newState) => {
     const nextData = stateData[newState] || stateData.CA;
 
     setSelectedState(newState);
-    setSelectedProduct(nextData.selectedProduct);
 
-    /*
-      URL:
-      /explore-by-country/US/states/CA
-    */
+    setSelectedProduct(nextData.selectedProduct || "");
 
     navigate(
       `/explore-by-country/${code || "US"}/states/${newState.toLowerCase()}`,
@@ -61,9 +74,17 @@ export default function StateIntelligence() {
     );
   };
 
+  // ============================================
+  // PRODUCT CHANGE
+  // ============================================
+
   const handleProductChange = (product) => {
     setSelectedProduct(product);
   };
+
+  // ============================================
+  // PAGE
+  // ============================================
 
   return (
     <section
@@ -74,11 +95,15 @@ export default function StateIntelligence() {
         text-white
       "
     >
-      {/* =====================================
-          HEADER
-      ===================================== */}
+      {/* =====================================================
+          STATE HEADER
+      ===================================================== */}
 
       <StateHeader data={data} />
+
+      {/* =====================================================
+          MAIN CONTENT
+      ===================================================== */}
 
       <main
         className="
@@ -91,7 +116,9 @@ export default function StateIntelligence() {
           lg:px-6
         "
       >
-        {/* BACK */}
+        {/* =====================================================
+            BACK BUTTON
+        ===================================================== */}
 
         <motion.button
           initial={{
@@ -101,6 +128,9 @@ export default function StateIntelligence() {
           animate={{
             opacity: 1,
             x: 0,
+          }}
+          transition={{
+            duration: 0.4,
           }}
           type="button"
           onClick={() => navigate(-1)}
@@ -112,7 +142,8 @@ export default function StateIntelligence() {
             text-[12px]
             font-medium
             text-[#7C8F9E]
-            transition
+            transition-all
+            duration-200
             hover:text-[#D69A2B]
           "
         >
@@ -120,9 +151,10 @@ export default function StateIntelligence() {
           Back to Countries
         </motion.button>
 
-        {/* =====================================
+        {/* =====================================================
             FILTERS
-        ===================================== */}
+            FULL WIDTH
+        ===================================================== */}
 
         <StateFilters
           selectedState={selectedState}
@@ -131,9 +163,12 @@ export default function StateIntelligence() {
           onProductChange={handleProductChange}
         />
 
-        {/* =====================================
-            MAP + QUICK VIEW
-        ===================================== */}
+        {/* =====================================================
+            MAIN DASHBOARD
+           
+            LEFT  = MAIN DATA
+            RIGHT = STATE DETAILS
+        ===================================================== */}
 
         <div
           className="
@@ -141,91 +176,123 @@ export default function StateIntelligence() {
             grid
             grid-cols-1
             gap-3
-            xl:grid-cols-[1.75fr_0.75fr]
+            xl:grid-cols-[2fr_1fr]
+            items-start
           "
         >
-          <WeatherImpactOverview
-            data={data}
-            selectedState={selectedState}
-            onStateChange={handleStateChange}
-          />
+          {/* =================================================
+              LEFT COLUMN
+          ================================================= */}
 
-          <QuickStateView data={data} selectedProduct={selectedProduct} />
-        </div>
+          <div
+            className="
+              min-w-0
+              space-y-3
+            "
+          >
+            {/* ---------------------------------------------
+                WEATHER MAP
+            --------------------------------------------- */}
 
-        {/* =====================================
-            TOP PRODUCTS
-        ===================================== */}
+            <WeatherImpactOverview
+              data={data}
+              selectedState={selectedState}
+              onStateChange={handleStateChange}
+            />
 
-        <div className="mt-3">
-          <TopProductsTable data={data} />
-        </div>
+            {/* ---------------------------------------------
+                TOP PRODUCTS
+            --------------------------------------------- */}
 
-        {/* =====================================
-            SOURCES / PARAMETERS / GUIDE
-        ===================================== */}
+            <TopProductsTable data={data} />
 
-        <div
-          className="
-            mt-3
-            grid
-            grid-cols-1
-            gap-3
-            lg:grid-cols-3
-          "
-        >
-          <StateDataSources data={data} />
+            {/* ---------------------------------------------
+                BOTTOM INFORMATION
+            --------------------------------------------- */}
 
-          <StateWeatherParameters data={data} />
+            <div
+              className="
+                grid
+                grid-cols-1
+                gap-3
+                md:grid-cols-3
+              "
+            >
+              <StateDataSources data={data} />
 
-          <ImpactLevelGuide />
-        </div>
+              <StateWeatherParameters data={data} />
 
-        {/* =====================================
-            CALENDAR + SEASON
-        ===================================== */}
+              <ImpactLevelGuide />
+            </div>
+          </div>
 
-        <div
-          className="
-            mt-3
-            grid
-            grid-cols-1
-            gap-3
-            xl:grid-cols-[1.35fr_0.65fr]
-          "
-        >
-          <CropCalendar data={data} product={selectedProduct} />
+          {/* =================================================
+              RIGHT COLUMN
+          ================================================= */}
 
-          <CurrentSeasonProgress data={data} />
-        </div>
+          <aside
+            className="
+              min-w-0
+              space-y-3
+            "
+          >
+            {/* ---------------------------------------------
+                STATE DETAIL / CALIFORNIA
+            --------------------------------------------- */}
 
-        {/* =====================================
-            FORECAST / MARKET / HIGHLIGHTS
-        ===================================== */}
+            <QuickStateView data={data} selectedProduct={selectedProduct} />
 
-        <div
-          className="
-            mt-3
-            grid
-            grid-cols-1
-            gap-3
-            lg:grid-cols-3
-          "
-        >
-          <StateForecast data={data} />
+            {/* ---------------------------------------------
+                CROP CALENDAR
+            --------------------------------------------- */}
 
-          <MarketReadiness data={data} />
+            <CropCalendar data={data} product={selectedProduct} />
 
-          <RecentHighlights data={data} />
+            {/* ---------------------------------------------
+                SEASON PROGRESS + FORECAST
+            --------------------------------------------- */}
+
+            <div
+              className="
+                grid
+                grid-cols-1
+                gap-3
+                sm:grid-cols-2
+                xl:grid-cols-2
+              "
+            >
+              <CurrentSeasonProgress data={data} />
+
+              <StateForecast data={data} />
+            </div>
+
+            {/* ---------------------------------------------
+                MARKET READINESS + RECENT HIGHLIGHTS
+            --------------------------------------------- */}
+
+            <div
+              className="
+                grid
+                grid-cols-1
+                gap-3
+                sm:grid-cols-2
+                xl:grid-cols-2
+              "
+            >
+              <MarketReadiness data={data} />
+
+              <RecentHighlights data={data} />
+            </div>
+          </aside>
         </div>
       </main>
     </section>
   );
 }
 
-// =============================================
+// =============================================================
 // IMPACT LEVEL GUIDE
-// =============================================
+// =============================================================
 
 function ImpactLevelGuide() {
   const items = [
@@ -234,21 +301,25 @@ function ImpactLevelGuide() {
       title: "Low / Minimal",
       description: "No significant impact",
     },
+
     {
       color: "#D5A52F",
       title: "Moderate",
       description: "Some impact on yield / quality",
     },
+
     {
       color: "#D9782B",
       title: "High",
       description: "Likely impact on production",
     },
+
     {
       color: "#C94E4E",
       title: "Severe",
       description: "Major production impact",
     },
+
     {
       color: "#8A949D",
       title: "No Data",
@@ -276,32 +347,73 @@ function ImpactLevelGuide() {
         border-[#193249]
         bg-[#03111F]
         p-4
+        shadow-[0_8px_25px_rgba(0,0,0,0.18)]
       "
     >
-      <h2 className="text-[16px] font-semibold text-[#E9ECEF]">
+      {/* TITLE */}
+
+      <h2
+        className="
+          text-[16px]
+          font-semibold
+          text-[#E9ECEF]
+        "
+      >
         IMPACT LEVEL GUIDE
       </h2>
 
-      <p className="mt-1 text-[10px] text-[#748795]">
+      <p
+        className="
+          mt-1
+          text-[10px]
+          text-[#748795]
+        "
+      >
         Weather and production impact classification
       </p>
 
+      {/* ITEMS */}
+
       <div className="mt-4 space-y-3">
         {items.map((item) => (
-          <div key={item.title} className="flex items-center gap-3">
+          <div
+            key={item.title}
+            className="
+              flex
+              items-center
+              gap-3
+            "
+          >
             <span
-              className="h-3 w-3 shrink-0 rounded-full"
+              className="
+                h-3
+                w-3
+                shrink-0
+                rounded-full
+              "
               style={{
                 backgroundColor: item.color,
               }}
             />
 
-            <div>
-              <p className="text-[11px] font-semibold text-[#DCE2E6]">
+            <div className="min-w-0">
+              <p
+                className="
+                  text-[11px]
+                  font-semibold
+                  text-[#DCE2E6]
+                "
+              >
                 {item.title}
               </p>
 
-              <p className="mt-0.5 text-[9px] text-[#718493]">
+              <p
+                className="
+                  mt-0.5
+                  text-[9px]
+                  text-[#718493]
+                "
+              >
                 {item.description}
               </p>
             </div>

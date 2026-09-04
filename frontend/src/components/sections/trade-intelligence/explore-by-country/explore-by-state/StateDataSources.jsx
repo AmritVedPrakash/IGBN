@@ -34,9 +34,9 @@ export default function StateDataSources({ data }) {
         p-4
       "
     >
-      <h2 className="text-[16px] font-semibold text-[#E9ECEF]">DATA SOURCES</h2>
+      <h2 className="text-[20px] font-semibold text-[#E9ECEF]">DATA SOURCES</h2>
 
-      <p className="mt-1 text-[10px] text-[#718493]">
+      <p className="mt-1 text-[14px] text-[#718493]">
         Sources powering {data.name} intelligence
       </p>
 
@@ -59,15 +59,15 @@ export default function StateDataSources({ data }) {
               "
             >
               <div className="flex h-8 w-8 items-center justify-center rounded-[5px] bg-[#102A42] text-[#D69A2B]">
-                <Icon size={16} />
+                <Icon size={18} />
               </div>
 
               <div>
-                <p className="text-[12px] font-semibold text-[#DCE2E6]">
+                <p className="text-[16px] font-semibold text-[#DCE2E6]">
                   {source.name}
                 </p>
 
-                <p className="mt-0.5 text-[10px] text-[#718493]">
+                <p className="mt-0.5 text-[14px] text-[#718493]">
                   {source.description}
                 </p>
               </div>

@@ -60,18 +60,18 @@ export default function WeatherImpactOverview({
               text-[16px]
               font-semibold
               text-[#E9ECEF]
-              sm:text-[18px]
+              sm:text-[20px]
             "
           >
             WEATHER IMPACT OVERVIEW
           </h2>
 
-          <p className="mt-0.5 text-[10px] text-[#758797]">
+          <p className="mt-0.5 text-[14px] text-[#758797]">
             Click a state to view detailed intelligence
           </p>
         </div>
 
-        <span className="text-[10px] text-[#718391]">May – Jul 2026</span>
+        <span className="text-[14px] text-[#718391]">May – Jul 2026</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_180px]">
@@ -109,9 +109,9 @@ export default function WeatherImpactOverview({
           />
 
           <div className="absolute left-5 top-5">
-            <p className="text-[11px] text-[#7D8E9B]">United States</p>
+            <p className="text-[16px] text-[#7D8E9B]">United States</p>
 
-            <p className="mt-1 text-[13px] font-semibold text-[#DDE3E7]">
+            <p className="mt-1 text-[15px] font-semibold text-[#DDE3E7]">
               State Weather Monitor
             </p>
           </div>
@@ -155,7 +155,7 @@ export default function WeatherImpactOverview({
                 >
                   <span
                     className={`
-                      text-[11px]
+                      text-[14px]
                       font-bold
                       ${active ? "text-[#D69A2B]" : "text-[#DCE2E6]"}
                     `}
@@ -163,7 +163,7 @@ export default function WeatherImpactOverview({
                     {state.code}
                   </span>
 
-                  <span className="mt-0.5 text-[8px] text-[#81909B]">
+                  <span className="mt-0.5 text-[11px] text-[#81909B]">
                     {state.name}
                   </span>
                 </div>
@@ -189,9 +189,9 @@ export default function WeatherImpactOverview({
               py-2
             "
           >
-            <p className="text-[10px] text-[#81909B]">Selected State</p>
+            <p className="text-[14px] text-[#81909B]">Selected State</p>
 
-            <p className="mt-0.5 text-[14px] font-semibold text-[#DCE2E6]">
+            <p className="mt-0.5 text-[15px] font-semibold text-[#DCE2E6]">
               {data.name}
             </p>
           </motion.div>
@@ -200,11 +200,11 @@ export default function WeatherImpactOverview({
         {/* LEGEND */}
 
         <div className="p-4">
-          <h3 className="text-[14px] font-semibold text-[#DCE2E6]">
+          <h3 className="text-[16px] font-semibold text-[#DCE2E6]">
             IMPACT LEVEL
           </h3>
 
-          <div className="mt-4 space-y-3">
+          <div className="mt-5 space-y-3">
             <Legend color="#82A83D" label="Low / Minimal" />
 
             <Legend color="#D5A52F" label="Moderate" />
@@ -217,7 +217,7 @@ export default function WeatherImpactOverview({
           </div>
 
           <div className="mt-6 border-t border-[#193249] pt-4">
-            <p className="text-[10px] text-[#738593]">Current State</p>
+            <p className="text-[14px] text-[#738593]">Current State</p>
 
             <p className="mt-1 text-[18px] font-semibold text-[#DCE2E6]">
               {data.name}
@@ -233,7 +233,7 @@ export default function WeatherImpactOverview({
                 bg-[#2A2111]
                 px-2.5
                 py-1
-                text-[10px]
+                text-[12px]
                 text-[#D69A2B]
               "
             >
@@ -293,10 +293,10 @@ function WeatherMini({ icon, title, value }) {
       <div className="flex items-center gap-2 text-[#D69A2B]">
         {icon}
 
-        <span className="text-[11px] font-medium text-[#B9C3CA]">{title}</span>
+        <span className="text-[14px] font-medium text-[#B9C3CA]">{title}</span>
       </div>
 
-      <p className="mt-2 text-[14px] font-semibold text-[#E6EBEE]">{value}</p>
+      <p className="mt-2 text-[16px] font-semibold text-[#E6EBEE]">{value}</p>
     </div>
   );
 }

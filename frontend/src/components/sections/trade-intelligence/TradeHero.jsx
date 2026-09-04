@@ -83,7 +83,7 @@ export default function TradeHero() {
             w-full
             object-contain
             scale-[1.01]
-            -translate-x-[80px]
+            -translate-x-[70px]
           "
         />
       </div>
@@ -98,7 +98,7 @@ export default function TradeHero() {
           absolute
           inset-0
           z-[1]
-          bg-gradient-to-r
+         
           from-[#020D18]/95
           via-[#020D18]/70
           to-transparent

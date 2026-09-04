@@ -103,7 +103,7 @@ export default function Services() {
             absolute
             inset-0
             z-[1]
-            bg-gradient-to-r
+            
             from-[#020D18]
             via-[#020D18]/90
             to-[#020D18]/20
@@ -463,9 +463,11 @@ export default function Services() {
               }}
               className="
                 relative
-                left-[150px]
+                left-[0px]
+                
                 mr-1
                 translate-y-35
+                translate-x-[-600px]
                 w-[285px]
                 overflow-hidden
                 rounded-[15px]
@@ -477,7 +479,7 @@ export default function Services() {
                 shadow-[0_15px_45px_rgba(0,0,0,0.45)]
                 backdrop-blur-md
 
-                xl:w-[310px]
+                xl:w-[250px]
               "
             >
               {/* Card Glow */}

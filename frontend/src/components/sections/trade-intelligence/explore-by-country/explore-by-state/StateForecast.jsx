@@ -39,9 +39,9 @@ export default function StateForecast({ data }) {
         p-4
       "
     >
-      <h2 className="text-[16px] font-semibold text-[#E9ECEF]">FORECAST</h2>
+      <h2 className="text-[20px] font-semibold text-[#E9ECEF]">FORECAST</h2>
 
-      <p className="mt-1 text-[10px] text-[#748795]">
+      <p className="mt-1 text-[13px] text-[#748795]">
         Expected conditions for upcoming period
       </p>
 
@@ -68,7 +68,7 @@ export default function StateForecast({ data }) {
               </div>
 
               <div className="min-w-0 flex-1">
-                <p className="text-[10px] text-[#758896]">{item.label}</p>
+                <p className="text-[14px] text-[#758896]">{item.label}</p>
 
                 <p className="mt-1 text-[12px] font-medium text-[#DCE2E6]">
                   {item.value}

@@ -132,6 +132,14 @@ export default function GlobalOpportunities() {
 
         {/* =====================================================
             PROCESS
+            FIX: the single-row, 7-column layout (with the
+            connecting line) used to only turn on at 2xl
+            (>=1536px). 1366x768 falls in the xl range
+            (1280-1535px), so it was stuck on the lg:grid-cols-4
+            fallback with the mobile-style connectors, which
+            looked broken. Moving the switch to xl (>=1280px)
+            makes 1366x768 render the same single-row layout as
+            larger screens.
         ====================================================== */}
         <div
           className="
@@ -142,7 +150,10 @@ export default function GlobalOpportunities() {
 
             sm:grid-cols-2
             lg:grid-cols-4
-            2xl:grid-cols-7
+            xl:grid-cols-7
+            xl:gap-4
+
+            2xl:gap-5
           "
         >
           {opportunities.map((item, index) => {
@@ -178,6 +189,8 @@ export default function GlobalOpportunities() {
                   items-center
                   px-3
                   text-center
+
+                  xl:px-2
                 "
               >
                 {/* =================================================
@@ -222,8 +235,8 @@ export default function GlobalOpportunities() {
                       relative
                       z-20
                       flex
-                      h-[78px]
-                      w-[78px]
+                      h-[64px]
+                      w-[64px]
                       shrink-0
                       items-center
                       justify-center
@@ -232,6 +245,12 @@ export default function GlobalOpportunities() {
                       border-[#A97528]
                       bg-[#071522]
                       shadow-[0_0_20px_rgba(214,154,43,0.10)]
+
+                      xl:h-[64px]
+                      xl:w-[64px]
+
+                      2xl:h-[78px]
+                      2xl:w-[78px]
                     "
                   >
                     {/* Subtle icon pulse */}
@@ -255,7 +274,7 @@ export default function GlobalOpportunities() {
                     />
 
                     <Icon
-                      size={37}
+                      size={30}
                       strokeWidth={1.5}
                       className="
                         relative
@@ -265,26 +284,46 @@ export default function GlobalOpportunities() {
                         duration-300
 
                         group-hover:text-[#E8AC43]
+
+                        xl:hidden
+                      "
+                    />
+                    <Icon
+                      size={37}
+                      strokeWidth={1.5}
+                      className="
+                        relative
+                        z-10
+                        hidden
+                        text-[#D69A2B]
+                        transition-all
+                        duration-300
+
+                        group-hover:text-[#E8AC43]
+
+                        xl:block
                       "
                     />
                   </motion.div>
 
                   {/* =================================================
                       DESKTOP CONNECTING LINE
+                      Now shows from xl (1280px) up, same tier
+                      that switches the grid to 7 columns.
                   ================================================= */}
                   {index !== opportunities.length - 1 && (
                     <div
                       className="
                         absolute
-                        left-[calc(50%+48px)]
+                        left-[calc(50%+40px)]
                         top-1/2
                         hidden
                         h-[24px]
-                        w-[calc(100%-58px)]
+                        w-[calc(100%-50px)]
                         -translate-y-1/2
                         items-center
 
-                        2xl:flex
+                        xl:flex
                       "
                     >
                       <div
@@ -457,6 +496,7 @@ export default function GlobalOpportunities() {
 
                     sm:text-[16px]
                     lg:text-[17px]
+                    xl:text-[14px]
                     2xl:text-[18px]
                   "
                 >
@@ -494,6 +534,10 @@ export default function GlobalOpportunities() {
 
                     sm:text-[14px]
                     lg:text-[15px]
+                    xl:max-w-[175px]
+                    xl:text-[12px]
+                    2xl:max-w-[220px]
+                    2xl:text-[15px]
                   "
                 >
                   {item.description}
@@ -501,6 +545,8 @@ export default function GlobalOpportunities() {
 
                 {/* =================================================
                     MOBILE / TABLET ANIMATED CONNECTION
+                    Now hidden from xl (1280px) up, matching the
+                    tier that switches on the desktop connector.
                 ================================================= */}
                 {index !== opportunities.length - 1 && (
                   <div
@@ -512,7 +558,7 @@ export default function GlobalOpportunities() {
                       items-center
                       justify-center
 
-                      2xl:hidden
+                      xl:hidden
                     "
                   >
                     <div className="relative h-full w-full">

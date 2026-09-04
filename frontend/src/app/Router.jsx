@@ -121,23 +121,23 @@ export default function Router() {
           }
         />
 
-        {/* <Route
+        <Route
             path="/explore-by-country/:code/states"
           element={
             <PageTransition>
               <StateIntelligence />
             </PageTransition>
           }
-        /> */}
+        />
         {/* OR */}
-        {/* <Route
+        <Route
             path="/explore-by-country/:code/states/:stateCode"
           element={
             <PageTransition>
               <StateIntelligence />
             </PageTransition>
           }
-        /> */}
+        />
 
         
 

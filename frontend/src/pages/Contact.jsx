@@ -626,7 +626,7 @@ export default function Contact() {
         <GetInTouch />
       </div>
       <OurGlobalPresence />
-      <ConnectMultiIndustry/>
+      {/* <ConnectMultiIndustry/> */}
       <KeyMetrics/>
       <FrequentlyAskedQuestions/>
       {/* <OurGlobalOffice /> */}

@@ -16,11 +16,11 @@ export default function RecentHighlights({ data }) {
         p-4
       "
     >
-      <h2 className="text-[16px] font-semibold text-[#E9ECEF]">
+      <h2 className="text-[20px] font-semibold text-[#E9ECEF]">
         RECENT HIGHLIGHTS
       </h2>
 
-      <p className="mt-1 text-[10px] text-[#748795]">
+      <p className="mt-1 text-[14px] text-[#748795]">
         Key intelligence signals
       </p>
 
@@ -59,11 +59,11 @@ export default function RecentHighlights({ data }) {
             />
 
             <div className="min-w-0 flex-1">
-              <p className="text-[11px] leading-5 text-[#C7D0D6]">
+              <p className="text-[14px] leading-5 text-[#C7D0D6]">
                 {item.title}
               </p>
 
-              <span className="mt-2 inline-block text-[9px] text-[#D69A2B]">
+              <span className="mt-2 inline-block text-[14px] text-[#D69A2B]">
                 Confidence: {item.confidence}
               </span>
             </div>
