@@ -130,14 +130,14 @@ export default function Router() {
           }
         />
         {/* OR */}
-        <Route
-            path="/explore-by-country/:code/states/:stateCode"
-          element={
-            <PageTransition>
-              <StateIntelligence />
-            </PageTransition>
-          }
-        />
+       <Route
+  path="/explore-by-country/:code/states/:stateCode?"
+  element={
+    <PageTransition>
+      <StateIntelligence />
+    </PageTransition>
+  }
+/>
 
         
 

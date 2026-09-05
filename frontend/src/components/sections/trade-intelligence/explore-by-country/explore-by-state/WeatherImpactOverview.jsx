@@ -2,49 +2,123 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Thermometer, CloudRain, TriangleAlert, Sprout } from "lucide-react";
 
-const mapStates = [
+import CountryStateMap from "./CountryStateMap";
+
+/*
+=========================================================
+DEFAULT STATES
+
+Abhi fallback ke liye tumhare existing US states rakhe hain.
+
+Later StateIntelligence.jsx se dynamic states pass honge:
+states={availableStates}
+=========================================================
+*/
+
+const defaultStates = [
   {
     code: "WA",
     name: "Washington",
-    x: "17%",
-    y: "20%",
   },
   {
     code: "CA",
     name: "California",
-    x: "16%",
-    y: "60%",
   },
   {
     code: "TX",
     name: "Texas",
-    x: "48%",
-    y: "70%",
   },
   {
     code: "IA",
     name: "Iowa",
-    x: "59%",
-    y: "42%",
   },
   {
     code: "FL",
     name: "Florida",
-    x: "78%",
-    y: "78%",
   },
 ];
+
+/*
+=========================================================
+WEATHER IMPACT OVERVIEW
+=========================================================
+*/
 
 export default function WeatherImpactOverview({
   data,
   selectedState,
   onStateChange,
+
+  /*
+  Dynamic country props
+
+  USA
+  IND
+  CAN
+  AUS
+  etc.
+  */
+
+  countryIso3 = "USA",
+  countryName = "United States",
+
+  /*
+  States available in your stateData
+
+  [
+    {
+      code: "CA",
+      name: "California"
+    }
+  ]
+  */
+
+  states = defaultStates,
 }) {
+  /*
+  =======================================================
+  SAFETY
+  =======================================================
+  */
+
+  if (!data) {
+    return null;
+  }
+
+  /*
+  =======================================================
+  WEATHER VALUES
+  =======================================================
+  */
+
+  const temperatureStatus = data?.weather?.temperature?.status || "No Data";
+
+  const rainfallStatus = data?.weather?.rainfall?.status || "No Data";
+
+  const extremeWeatherStatus =
+    data?.weather?.extremeWeather?.status || "No Data";
+
+  const cropResponseStatus = data?.weather?.cropResponse?.status || "No Data";
+
+  /*
+  =======================================================
+  PAGE
+  =======================================================
+  */
+
   return (
     <motion.div
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.55 }}
+      initial={{
+        opacity: 0,
+        x: -20,
+      }}
+      animate={{
+        opacity: 1,
+        x: 0,
+      }}
+      transition={{
+        duration: 0.55,
+      }}
       className="
         overflow-hidden
         rounded-[8px]
@@ -53,7 +127,22 @@ export default function WeatherImpactOverview({
         bg-[#03111F]
       "
     >
-      <div className="flex items-center justify-between border-b border-[#193249] px-4 py-3">
+      {/* =================================================
+          HEADER
+      ================================================= */}
+
+      <div
+        className="
+          flex
+          items-center
+          justify-between
+          gap-4
+          border-b
+          border-[#193249]
+          px-4
+          py-3
+        "
+      >
         <div>
           <h2
             className="
@@ -66,141 +155,206 @@ export default function WeatherImpactOverview({
             WEATHER IMPACT OVERVIEW
           </h2>
 
-          <p className="mt-0.5 text-[14px] text-[#758797]">
+          <p
+            className="
+              mt-0.5
+              text-[12px]
+              text-[#758797]
+              sm:text-[14px]
+            "
+          >
             Click a state to view detailed intelligence
           </p>
         </div>
 
-        <span className="text-[14px] text-[#718391]">May – Jul 2026</span>
+        <span
+          className="
+            shrink-0
+            text-[11px]
+            text-[#718391]
+            sm:text-[14px]
+          "
+        >
+          May – Jul 2026
+        </span>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_180px]">
-        {/* MAP */}
+      {/* =================================================
+          MAP + LEGEND
+      ================================================= */}
 
-        <div className="relative min-h-[360px] overflow-hidden border-b border-[#193249] bg-[#041522] lg:border-b-0 lg:border-r">
-          {/* decorative USA shape */}
+      <div
+        className="
+          grid
+          grid-cols-1
+          lg:grid-cols-[1fr_180px]
+        "
+      >
+        {/* =================================================
+            REAL COUNTRY MAP
+        ================================================= */}
+
+        <div
+          className="
+            relative
+            min-h-[420px]
+            overflow-hidden
+            border-b
+            border-[#193249]
+            bg-[#041522]
+            lg:border-b-0
+            lg:border-r
+          "
+        >
+          {/* ===============================================
+              BACKGROUND GRID
+          =============================================== */}
 
           <div
             className="
-              absolute
-              left-[8%]
-              top-[11%]
-              h-[74%]
-              w-[82%]
-              rounded-[45%_35%_40%_30%]
-              border
-              border-[#5E7A8D]
-              bg-[#122B3C]
-              opacity-70
-              [clip-path:polygon(4%_18%,12%_8%,26%_13%,39%_8%,51%_15%,65%_9%,78%_19%,91%_24%,96%_42%,91%_55%,84%_59%,89%_72%,78%_80%,68%_74%,58%_88%,45%_79%,35%_84%,27%_72%,16%_75%,9%_61%,3%_48%)]
-            "
-          />
-
-          {/* Map grid */}
-
-          <div
-            className="
+              pointer-events-none
               absolute
               inset-0
+              z-0
               opacity-20
               [background-image:linear-gradient(#31506A_1px,transparent_1px),linear-gradient(90deg,#31506A_1px,transparent_1px)]
               [background-size:50px_50px]
             "
           />
 
-          <div className="absolute left-5 top-5">
-            <p className="text-[16px] text-[#7D8E9B]">United States</p>
+          {/* ===============================================
+              MAP HEADER
+          =============================================== */}
 
-            <p className="mt-1 text-[15px] font-semibold text-[#DDE3E7]">
+          <div
+            className="
+              pointer-events-none
+              absolute
+              left-5
+              top-5
+              z-20
+            "
+          >
+            <p
+              className="
+                text-[14px]
+                text-[#7D8E9B]
+                sm:text-[16px]
+              "
+            >
+              {countryName}
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-[13px]
+                font-semibold
+                text-[#DDE3E7]
+                sm:text-[15px]
+              "
+            >
               State Weather Monitor
             </p>
           </div>
 
-          {/* Clickable states */}
+          {/* ===============================================
+              REAL GEOJSON MAP
+          =============================================== */}
 
-          {mapStates.map((state) => {
-            const active = state.code === selectedState;
-
-            return (
-              <motion.button
-                key={state.code}
-                type="button"
-                onClick={() => onStateChange(state.code)}
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.96 }}
-                className="absolute z-10"
-                style={{
-                  left: state.x,
-                  top: state.y,
-                }}
-              >
-                <div
-                  className={`
-                    flex
-                    min-w-[58px]
-                    flex-col
-                    items-center
-                    rounded-[5px]
-                    border
-                    px-2
-                    py-1.5
-                    shadow-[0_4px_15px_rgba(0,0,0,0.25)]
-                    transition
-                    ${
-                      active
-                        ? "border-[#D69A2B] bg-[#382B12]"
-                        : "border-[#37536A] bg-[#0A1D2D] hover:border-[#7795A9]"
-                    }
-                  `}
-                >
-                  <span
-                    className={`
-                      text-[14px]
-                      font-bold
-                      ${active ? "text-[#D69A2B]" : "text-[#DCE2E6]"}
-                    `}
-                  >
-                    {state.code}
-                  </span>
-
-                  <span className="mt-0.5 text-[11px] text-[#81909B]">
-                    {state.name}
-                  </span>
-                </div>
-              </motion.button>
-            );
-          })}
-
-          {/* Selected state label */}
-
-          <motion.div
-            key={data.code}
-            initial={{ opacity: 0, y: 5 }}
-            animate={{ opacity: 1, y: 0 }}
+          <div
             className="
               absolute
-              bottom-5
-              left-5
+              inset-x-2
+              bottom-2
+              top-[55px]
+              z-10
+              sm:inset-x-4
+              sm:bottom-4
+            "
+          >
+            <CountryStateMap
+              countryIso3={countryIso3}
+              countryName={countryName}
+              selectedState={selectedState}
+              onStateChange={onStateChange}
+              states={states}
+            />
+          </div>
+
+          {/* ===============================================
+              SELECTED STATE
+
+              CountryStateMap already shows a selected
+              badge, but ye tumhare original UI ko bhi
+              maintain karta hai.
+          =============================================== */}
+
+          <motion.div
+            key={data?.code || selectedState}
+            initial={{
+              opacity: 0,
+              y: 5,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.25,
+            }}
+            className="
+              pointer-events-none
+              absolute
+              bottom-4
+              left-4
+              z-30
               rounded-[6px]
               border
               border-[#354D61]
-              bg-[#061623]
+              bg-[#061623]/95
               px-3
               py-2
+              shadow-[0_5px_20px_rgba(0,0,0,0.25)]
+              backdrop-blur
             "
           >
-            <p className="text-[14px] text-[#81909B]">Selected State</p>
+            <p
+              className="
+                text-[10px]
+                text-[#81909B]
+                sm:text-[12px]
+              "
+            >
+              Selected State
+            </p>
 
-            <p className="mt-0.5 text-[15px] font-semibold text-[#DCE2E6]">
-              {data.name}
+            <p
+              className="
+                mt-0.5
+                text-[13px]
+                font-semibold
+                text-[#DCE2E6]
+                sm:text-[15px]
+              "
+            >
+              {data?.name || selectedState}
             </p>
           </motion.div>
         </div>
 
-        {/* LEGEND */}
+        {/* =================================================
+            LEGEND
+        ================================================= */}
 
         <div className="p-4">
-          <h3 className="text-[16px] font-semibold text-[#DCE2E6]">
+          <h3
+            className="
+              text-[16px]
+              font-semibold
+              text-[#DCE2E6]
+            "
+          >
             IMPACT LEVEL
           </h3>
 
@@ -216,87 +370,253 @@ export default function WeatherImpactOverview({
             <Legend color="#8B969F" label="No Data" />
           </div>
 
-          <div className="mt-6 border-t border-[#193249] pt-4">
-            <p className="text-[14px] text-[#738593]">Current State</p>
+          {/* ===============================================
+              CURRENT STATE
+          =============================================== */}
 
-            <p className="mt-1 text-[18px] font-semibold text-[#DCE2E6]">
-              {data.name}
-            </p>
-
-            <span
+          <div
+            className="
+              mt-6
+              border-t
+              border-[#193249]
+              pt-4
+            "
+          >
+            <p
               className="
-                mt-2
-                inline-flex
-                rounded-full
-                border
-                border-[#765322]
-                bg-[#2A2111]
-                px-2.5
-                py-1
                 text-[12px]
-                text-[#D69A2B]
+                text-[#738593]
+                sm:text-[14px]
               "
             >
-              {data.impact} Impact
-            </span>
+              Current State
+            </p>
+
+            <p
+              className="
+                mt-1
+                text-[16px]
+                font-semibold
+                text-[#DCE2E6]
+                sm:text-[18px]
+              "
+            >
+              {data?.name || "No State Selected"}
+            </p>
+
+            <ImpactBadge impact={data?.impact} />
+          </div>
+
+          {/* ===============================================
+              MAP INFORMATION
+          =============================================== */}
+
+          <div
+            className="
+              mt-5
+              border-t
+              border-[#193249]
+              pt-4
+            "
+          >
+            <p
+              className="
+                text-[10px]
+                leading-5
+                text-[#617685]
+              "
+            >
+              Select an available state directly from the map to update weather
+              and trade intelligence.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* WEATHER CARDS */}
+      {/* =================================================
+          WEATHER CARDS
+      ================================================= */}
 
-      <div className="grid grid-cols-2 border-t border-[#193249] md:grid-cols-4">
+      <div
+        className="
+          grid
+          grid-cols-2
+          border-t
+          border-[#193249]
+          md:grid-cols-4
+        "
+      >
         <WeatherMini
           icon={<Thermometer size={17} />}
           title="Temperature"
-          value={data.weather.temperature.status}
+          value={temperatureStatus}
         />
 
         <WeatherMini
           icon={<CloudRain size={17} />}
           title="Rainfall"
-          value={data.weather.rainfall.status}
+          value={rainfallStatus}
         />
 
         <WeatherMini
           icon={<TriangleAlert size={17} />}
           title="Extreme Weather"
-          value={data.weather.extremeWeather.status}
+          value={extremeWeatherStatus}
         />
 
         <WeatherMini
           icon={<Sprout size={17} />}
           title="Crop Response"
-          value={data.weather.cropResponse.status}
+          value={cropResponseStatus}
         />
       </div>
     </motion.div>
   );
 }
 
+/*
+=========================================================
+IMPACT BADGE
+=========================================================
+*/
+
+function ImpactBadge({ impact = "No Data" }) {
+  /*
+  Different impact levels ke hisaab se styling
+  */
+
+  const normalizedImpact = String(impact).toLowerCase();
+
+  let classes = "border-[#59636B] bg-[#1A2025] text-[#9CA6AD]";
+
+  if (
+    normalizedImpact.includes("low") ||
+    normalizedImpact.includes("minimal")
+  ) {
+    classes = "border-[#4D6629] bg-[#17200D] text-[#82A83D]";
+  }
+
+  if (normalizedImpact.includes("moderate")) {
+    classes = "border-[#765322] bg-[#2A2111] text-[#D69A2B]";
+  }
+
+  if (normalizedImpact.includes("high")) {
+    classes = "border-[#81471F] bg-[#29180E] text-[#D9782B]";
+  }
+
+  if (normalizedImpact.includes("severe")) {
+    classes = "border-[#753232] bg-[#281111] text-[#D85B5B]";
+  }
+
+  return (
+    <span
+      className={`
+        mt-2
+        inline-flex
+        rounded-full
+        border
+        px-2.5
+        py-1
+        text-[12px]
+        ${classes}
+      `}
+    >
+      {impact} Impact
+    </span>
+  );
+}
+
+/*
+=========================================================
+LEGEND
+=========================================================
+*/
+
 function Legend({ color, label }) {
   return (
-    <div className="flex items-center gap-2">
+    <div
+      className="
+        flex
+        items-center
+        gap-2
+      "
+    >
       <span
-        className="h-3 w-3 rounded-full"
-        style={{ backgroundColor: color }}
+        className="
+          h-3
+          w-3
+          shrink-0
+          rounded-full
+        "
+        style={{
+          backgroundColor: color,
+        }}
       />
 
-      <span className="text-[11px] text-[#AAB5BD]">{label}</span>
+      <span
+        className="
+          text-[11px]
+          text-[#AAB5BD]
+        "
+      >
+        {label}
+      </span>
     </div>
   );
 }
 
+/*
+=========================================================
+WEATHER MINI CARD
+=========================================================
+*/
+
 function WeatherMini({ icon, title, value }) {
   return (
-    <div className="border-r border-[#193249] p-3 last:border-r-0">
-      <div className="flex items-center gap-2 text-[#D69A2B]">
-        {icon}
+    <div
+      className="
+        min-w-0
+        border-r
+        border-[#193249]
+        p-3
+        last:border-r-0
+      "
+    >
+      <div
+        className="
+          flex
+          items-center
+          gap-2
+          text-[#D69A2B]
+        "
+      >
+        <span className="shrink-0">{icon}</span>
 
-        <span className="text-[14px] font-medium text-[#B9C3CA]">{title}</span>
+        <span
+          className="
+            truncate
+            text-[11px]
+            font-medium
+            text-[#B9C3CA]
+            sm:text-[14px]
+          "
+        >
+          {title}
+        </span>
       </div>
 
-      <p className="mt-2 text-[16px] font-semibold text-[#E6EBEE]">{value}</p>
+      <p
+        className="
+          mt-2
+          truncate
+          text-[14px]
+          font-semibold
+          text-[#E6EBEE]
+          sm:text-[16px]
+        "
+      >
+        {value || "No Data"}
+      </p>
     </div>
   );
 }

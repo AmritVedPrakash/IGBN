@@ -187,9 +187,9 @@ export default function CountryIntelligence() {
           COUNTRY HEADER
       ================================================= */}
 
-     <div className="w-full border-b border-[#14283A] bg-[#020C17]">
+      <div className="w-full border-b border-[#14283A] bg-[#020C17]">
         <div className="mx-auto w-full max-w-[1700px]">
-          <CountryHeader data={data} />
+          <CountryHeader data={data} countryCode={countryCode} />
         </div>
       </div>
 
@@ -270,7 +270,6 @@ export default function CountryIntelligence() {
             <TradePartners
               data={{
                 ...data,
-                
               }}
             />
           </div>
@@ -315,9 +314,8 @@ export default function CountryIntelligence() {
         </div>
       </div>
       <div>
-        <QuickInsights/>
+        <QuickInsights />
       </div>
     </section>
-
   );
 }
