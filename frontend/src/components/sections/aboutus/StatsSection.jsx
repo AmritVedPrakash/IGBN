@@ -84,6 +84,16 @@ export default function StatsSection() {
             shadow-[0_8px_30px_rgba(0,0,0,0.30)]
           "
         >
+          {/* =================================================
+              FIX: the single-row, 7-column layout (with the
+              vertical dividers and no bottom border) used to
+              only turn on at 2xl (>=1536px). 1366x768 falls in
+              the xl range (1280-1535px), so it fell back to
+              lg:grid-cols-4 — a 4+3 grid with horizontal
+              dividers instead of one row. Moving the switch to
+              xl (>=1280px) matches the first-image layout at
+              1366x768 too.
+          ================================================== */}
           <div
             className="
               grid
@@ -91,7 +101,7 @@ export default function StatsSection() {
               sm:grid-cols-2
               md:grid-cols-3
               lg:grid-cols-4
-              2xl:grid-cols-7
+              xl:grid-cols-7
             "
           >
             {stats.map((item, index) => {
@@ -135,7 +145,7 @@ export default function StatsSection() {
 
                     hover:bg-[#071725]
 
-                    2xl:border-b-0
+                    xl:border-b-0
                   "
                 >
                   {/* ================= VERTICAL DIVIDER ================= */}
@@ -152,7 +162,7 @@ export default function StatsSection() {
                         from-transparent
                         via-[#7B5720]/70
                         to-transparent
-                        2xl:block
+                        xl:block
                       "
                     />
                   )}
