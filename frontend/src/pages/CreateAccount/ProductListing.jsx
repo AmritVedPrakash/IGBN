@@ -89,7 +89,7 @@ export default function ProductListing({ next, back, updateData, data }) {
   ];
 
   return (
-    <section className="min-h-screen bg-[#fafbff] py-10">
+    <section className="create-account-shell min-h-screen py-10">
       <div className="max-w-[1400px] mx-auto px-5">
         {/* HEADER */}
         <motion.div

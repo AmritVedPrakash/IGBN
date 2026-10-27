@@ -59,9 +59,9 @@ export default function BusinessType({ next, updateData, data }) {
   return (
     <section
       className="
+      create-account-shell
       w-full
       min-h-[600px]
-      bg-[#ffffff]
       py-10
     "
     >

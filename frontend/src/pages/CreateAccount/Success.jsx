@@ -38,8 +38,8 @@ export default function Success() {
   return (
     <section
       className="
+create-account-shell
 min-h-screen
-bg-[#fafbff]
 flex
 items-center
 justify-center

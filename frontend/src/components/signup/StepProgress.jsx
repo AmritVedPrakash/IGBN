@@ -11,11 +11,11 @@ export default function StepProgress({ currentStep = 1 }) {
     { id: 5, title: "Verification" },
   ];
 
-  const ACTIVE = "#f7931e";
-  const CURRENT = "#172343";
-  const PENDING_BORDER = "#d5d9e2";
-  const PENDING_TEXT = "#98a2b3";
-  const TRACK_LINE = "#e4e7ec";
+  const ACTIVE = "#D69A2B";
+  const CURRENT = "#D69A2B";
+  const PENDING_BORDER = "rgba(148, 163, 184, 0.35)";
+  const PENDING_TEXT = "#94a3b8";
+  const TRACK_LINE = "rgba(214, 154, 43, 0.2)";
 
   const completedCount = Math.max(0, currentStep - 1);
 
@@ -23,7 +23,7 @@ export default function StepProgress({ currentStep = 1 }) {
     steps.length > 1 ? (completedCount / (steps.length - 1)) * 100 : 0;
 
   return (
-    <div className="w-full max-w-[1100px] mx-auto px-5 py-9 bg-[#f8f9fc]">
+    <div className="create-account-progress w-full max-w-[1100px] mx-auto px-5 py-9 bg-[#f8f9fc]">
       <div className="flex items-start justify-between relative">
         {/* Base Track Line */}
         <div
@@ -63,7 +63,7 @@ export default function StepProgress({ currentStep = 1 }) {
                 animate={{
                   scale: 1,
                   opacity: 1,
-                  backgroundColor: active ? CURRENT : "#f8f9fc",
+                  backgroundColor: "#03111F",
                   borderColor: active
                     ? CURRENT
                     : completed
@@ -145,7 +145,7 @@ export default function StepProgress({ currentStep = 1 }) {
                   color: active
                     ? CURRENT
                     : completed
-                      ? "#344054"
+                      ? "#E2E5E8"
                       : PENDING_TEXT,
                 }}
                 transition={{

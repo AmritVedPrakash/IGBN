@@ -8,6 +8,7 @@ import {
   Megaphone,
   Globe2,
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 // =======================================================
 // MAP IMAGES
@@ -22,6 +23,7 @@ import machineryMap from "../../assets/homebg/machinery-map.png";
 import pharmaMap from "../../assets/homebg/pharma-map.png";
 
 export default function AnalyzeCompany() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("Agro & Foods");
 
   const [formData, setFormData] = useState({
@@ -88,7 +90,18 @@ export default function AnalyzeCompany() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Analyze Company Data:", formData);
+    navigate("/company-analysis", {
+      state: {
+        companyAnalysis: {
+          companyName: formData.companyName,
+          email: formData.email,
+          country: formData.country,
+          export: formData.export,
+          import: formData.import,
+          fileName: formData.file?.name || "",
+        },
+      },
+    });
   };
 
   return (
@@ -513,6 +526,7 @@ export default function AnalyzeCompany() {
                 <input
                   type="text"
                   name="companyName"
+                  required
                   value={formData.companyName}
                   onChange={handleChange}
                   placeholder="Company Name"
@@ -538,6 +552,7 @@ export default function AnalyzeCompany() {
                 <input
                   type="email"
                   name="email"
+                  required
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Your Email"

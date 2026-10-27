@@ -11,6 +11,7 @@ import IndustryBuyer from "./IndustryBuyer";
 import ProductListing from "./ProductListing";
 import Plans from "./Plans";
 import Success from "./Success";
+import "./CreateAccount.css";
 
 export default function CreateAccount() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -121,8 +122,8 @@ export default function CreateAccount() {
   return (
     <div
       className="
+      create-account-shell
       min-h-screen
-      bg-[#f8f9fc]
       py-8
     "
     >

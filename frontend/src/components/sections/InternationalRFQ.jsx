@@ -1,80 +1,10 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
-
-// ================= FLAGS =================
-import usaFlag from "../../assets/flag/usa.png";
-import germanyFlag from "../../assets/flag/germany.png";
-import uaeFlag from "../../assets/flag/uae.png";
-import saudiFlag from "../../assets/flag/saudi-arabia.png";
-import indonesiaFlag from "../../assets/flag/indonesia.png";
-import ukFlag from "../../assets/flag/uk.png";
+import { internationalRFQData } from "../../data/internationalRFQData";
 
 export default function InternationalRFQ() {
   const sliderRef = useRef(null);
-
-  const rfqData = [
-    {
-      id: 1,
-      country: "USA",
-      flag: usaFlag,
-      title: "Cotton Fabric Supply",
-      category: "Textiles & Fabrics",
-      quantity: "50,000 Meters",
-      date: "21 May 2024",
-      status: "Active",
-    },
-    {
-      id: 2,
-      country: "Germany",
-      flag: germanyFlag,
-      title: "Industrial Valves",
-      category: "Machinery",
-      quantity: "2,000 Units",
-      date: "20 May 2024",
-      status: "Active",
-    },
-    {
-      id: 3,
-      country: "UAE",
-      flag: uaeFlag,
-      title: "Dates (Various Types)",
-      category: "Food & Beverages",
-      quantity: "10 Tons",
-      date: "19 May 2024",
-      status: "Active",
-    },
-    {
-      id: 4,
-      country: "Saudi Arabia",
-      flag: saudiFlag,
-      title: "Basmati Rice",
-      category: "Food & Beverages",
-      quantity: "25 Tons",
-      date: "18 May 2024",
-      status: "Active",
-    },
-    {
-      id: 5,
-      country: "Indonesia",
-      flag: indonesiaFlag,
-      title: "Palm Oil",
-      category: "Agro & Food",
-      quantity: "30 Tons",
-      date: "18 May 2024",
-      status: "Active",
-    },
-    {
-      id: 6,
-      country: "UK",
-      flag: ukFlag,
-      title: "Packaging Materials",
-      category: "Packaging",
-      quantity: "15,000 Units",
-      date: "17 May 2024",
-      status: "Active",
-    },
-  ];
 
   const scrollLeft = () => {
     sliderRef.current?.scrollBy({
@@ -92,6 +22,7 @@ export default function InternationalRFQ() {
 
   return (
     <section
+      id="international-rfq"
       className="
         relative
         w-full
@@ -271,9 +202,11 @@ export default function InternationalRFQ() {
               [scrollbar-width:none]
             "
           >
-            {rfqData.map((rfq, index) => (
-              <motion.div
+            {internationalRFQData.map((rfq, index) => (
+              <motion.a
                 key={rfq.id}
+                href={`/rfq/${rfq.id}`}
+                aria-label={`View details for ${rfq.title} from ${rfq.country}`}
                 initial={{
                   opacity: 0,
                   y: 25,
@@ -300,6 +233,7 @@ export default function InternationalRFQ() {
                   shrink-0
                   snap-start
                   flex-col
+                  text-left
                   overflow-hidden
                   rounded-[10px]
                   border
@@ -481,7 +415,7 @@ export default function InternationalRFQ() {
 
                   {rfq.status}
                 </motion.div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
 

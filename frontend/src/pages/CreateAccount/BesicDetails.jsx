@@ -39,8 +39,8 @@ transition
   return (
     <section
       className="
+create-account-shell
 min-h-screen
-bg-[#fafbff]
 py-10
 "
     >

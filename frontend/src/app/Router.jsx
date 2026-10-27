@@ -36,6 +36,8 @@ import CurrencyMarketIntelligence from "../components/sections/trade-intelligenc
 import CommodityMarketDetails from "../components/sections/trade-intelligence/global-commodity-market/CommodityMarketDetails";
 import CountryIntelligence from "../components/sections/trade-intelligence/explore-by-country/CountryIntelligence";
 import StateIntelligence from "../components/sections/trade-intelligence/explore-by-country/explore-by-state/StateIntelligence";
+import RFQDetailPage from "../components/sections/home/InternationalRFQ/RFQDetailPage";
+import CompanyAnalysisDashboard from "../components/sections/home/AnalyzeCompany/CompanyAnalysisDashboard";
 
 export default function Router() {
   const location = useLocation();
@@ -48,6 +50,24 @@ export default function Router() {
           element={
             <PageTransition>
               <Home />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/rfq/:id"
+          element={
+            <PageTransition>
+              <RFQDetailPage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/company-analysis"
+          element={
+            <PageTransition>
+              <CompanyAnalysisDashboard />
             </PageTransition>
           }
         />

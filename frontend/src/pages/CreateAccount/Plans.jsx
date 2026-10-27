@@ -130,7 +130,7 @@ export default function Plans({ next, back, updateData, data }) {
   const activePlan = plans[selected];
 
   return (
-    <section className="bg-[#fafbff] min-h-screen py-10">
+    <section className="create-account-shell min-h-screen py-10">
       <div className="max-w-[1400px] mx-auto px-5">
         {/* Header */}
         <motion.div

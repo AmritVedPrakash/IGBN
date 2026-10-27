@@ -1,0 +1,200 @@
+.create-account-shell {
+  --signup-bg: #020d18;
+  --signup-panel: #03111f;
+  --signup-panel-raised: #0a1b2a;
+  --signup-border: rgba(214, 154, 43, 0.3);
+  --signup-text: #e2e5e8;
+  --signup-muted: #aab4be;
+  --signup-gold: #d69a2b;
+
+  position: relative;
+  isolation: isolate;
+  color: var(--signup-text);
+  background:
+    radial-gradient(ellipse at 12% 4%, rgba(214, 154, 43, 0.08), transparent 32rem),
+    radial-gradient(ellipse at 92% 24%, rgba(214, 154, 43, 0.05), transparent 30rem),
+    linear-gradient(180deg, #020d18, #03111f 55%);
+}
+
+.create-account-shell::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: radial-gradient(rgba(214, 154, 43, 0.2) 0.7px, transparent 0.7px);
+  background-size: 24px 24px;
+  content: "";
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.create-account-shell section {
+  min-height: auto;
+  background: transparent;
+}
+
+.create-account-shell > .create-account-progress {
+  margin-top: 0.5rem;
+  border: 1px solid var(--signup-border);
+  border-radius: 1rem;
+  background: rgba(3, 17, 31, 0.92);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(16px);
+}
+
+.create-account-shell [class~="bg-white"],
+.create-account-shell [class~="bg-[#ffffff]"],
+.create-account-shell [class~="bg-[#f8f9fc]"],
+.create-account-shell [class~="bg-[#fafbff]"],
+.create-account-shell [class~="bg-gray-50"] {
+  background-color: var(--signup-panel) !important;
+}
+
+.create-account-shell [class~="bg-green-50"],
+.create-account-shell [class~="bg-green-500"],
+.create-account-shell [class~="bg-blue-50"],
+.create-account-shell [class~="bg-blue-600"],
+.create-account-shell [class~="bg-blue-700"],
+.create-account-shell [class~="bg-[#2563eb]"] {
+  background-color: var(--signup-panel-raised) !important;
+}
+
+.create-account-shell [class~="bg-[#fffaf0]"],
+.create-account-shell [class~="bg-[#fff3d8]"],
+.create-account-shell [class~="bg-[#fff8eb]"],
+.create-account-shell [class~="bg-[#fff8e8]"],
+.create-account-shell [class~="bg-[#eef4ff]"],
+.create-account-shell [class~="bg-[#eef5ff]"],
+.create-account-shell [class~="bg-[#eefaf6]"] {
+  background-color: var(--signup-panel-raised) !important;
+}
+
+.create-account-shell [class~="text-[#172343]"],
+.create-account-shell [class~="text-[#344054]"],
+.create-account-shell [class~="text-[#475467]"] {
+  color: var(--signup-text) !important;
+}
+
+.create-account-shell [class~="text-[#667085]"],
+.create-account-shell [class~="text-gray-500"],
+.create-account-shell [class~="text-gray-600"],
+.create-account-shell [class~="text-gray-400"],
+.create-account-shell [class~="text-[#98a2b3]"] {
+  color: var(--signup-muted) !important;
+}
+
+.create-account-shell [class~="text-[#dfa62f]"],
+.create-account-shell [class~="text-[#d89b18]"],
+.create-account-shell [class~="text-[#d89d22]"],
+.create-account-shell [class~="text-[#b3841f]"],
+.create-account-shell [class~="text-[#8a6d1f]"],
+.create-account-shell [class~="text-yellow-600"],
+.create-account-shell [class~="text-yellow-500"],
+.create-account-shell [class~="text-[#d99b2b]"] {
+  color: var(--signup-gold) !important;
+}
+
+.create-account-shell [class~="text-blue-600"],
+.create-account-shell [class~="text-blue-700"],
+.create-account-shell [class~="text-blue-500"],
+.create-account-shell [class~="text-blue-400"],
+.create-account-shell [class~="text-teal-600"],
+.create-account-shell [class~="text-green-600"],
+.create-account-shell [class~="text-green-500"],
+.create-account-shell [class~="text-green-400"] {
+  color: var(--signup-gold) !important;
+}
+
+.create-account-shell [class*="border-"] {
+  border-color: var(--signup-border) !important;
+}
+
+.create-account-shell [class~="border-[#dfa62f]"],
+.create-account-shell [class~="border-[#f3cd85]"],
+.create-account-shell [class~="border-blue-200"],
+.create-account-shell [class~="border-blue-500"],
+.create-account-shell [class~="border-green-400"],
+.create-account-shell [class~="border-yellow-200"] {
+  border-color: var(--signup-gold) !important;
+}
+
+.create-account-shell input,
+.create-account-shell textarea,
+.create-account-shell select {
+  border-color: var(--signup-border);
+  background-color: #020d18;
+  color: var(--signup-text);
+}
+
+.create-account-shell input::placeholder,
+.create-account-shell textarea::placeholder {
+  color: #64748b;
+}
+
+.create-account-shell input:focus,
+.create-account-shell textarea:focus,
+.create-account-shell select:focus {
+  border-color: var(--signup-gold);
+  outline: 2px solid rgba(214, 154, 43, 0.16);
+  outline-offset: 1px;
+}
+
+.create-account-shell option {
+  background: #03111f;
+  color: var(--signup-text);
+}
+
+.create-account-shell [class~="bg-[#071a3a]"],
+.create-account-shell [class~="bg-blue-600"],
+.create-account-shell [class~="bg-[#2563eb]"] {
+  background: linear-gradient(110deg, #e0aa48, #d69a2b, #c98a24) !important;
+  color: #07111b !important;
+}
+
+.create-account-shell [class~="bg-[#d89b18]"],
+.create-account-shell [class~="bg-[#dfa62f]"] {
+  background: linear-gradient(110deg, #e0aa48, #d69a2b, #c98a24) !important;
+  color: #07111b !important;
+}
+
+.create-account-shell button {
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.create-account-shell button:focus-visible,
+.create-account-shell [role="button"]:focus-visible {
+  outline: 2px solid var(--signup-gold);
+  outline-offset: 3px;
+}
+
+.create-account-shell button:hover {
+  box-shadow: 0 8px 28px rgba(214, 154, 43, 0.2);
+}
+
+.create-account-shell [class~="ring-white"] {
+  --tw-ring-color: #03111f;
+}
+
+@media (max-width: 640px) {
+  .create-account-shell > .create-account-progress {
+    overflow-x: auto;
+  }
+
+  .create-account-shell > .create-account-progress > div {
+    min-width: 560px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .create-account-shell *,
+  .create-account-shell *::before,
+  .create-account-shell *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

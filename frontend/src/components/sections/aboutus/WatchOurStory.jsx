@@ -72,15 +72,14 @@ export default function WatchOurStory() {
           backdrop-blur-sm
           transition-all
           duration-300
-
           hover:border-[#D79A2B]
           hover:bg-[#091A28]
-
           sm:text-[15px]
           lg:text-[16px]
         "
       >
         Watch Our Story
+
         <motion.span
           whileHover={{
             scale: 1.12,
@@ -96,7 +95,11 @@ export default function WatchOurStory() {
             border-[#DCE0E3]
           "
         >
-          <Play size={11} fill="currentColor" className="ml-[2px]" />
+          <Play
+            size={11}
+            fill="currentColor"
+            className="ml-[2px]"
+          />
         </motion.span>
       </motion.button>
 
@@ -130,7 +133,6 @@ export default function WatchOurStory() {
               px-3
               py-5
               backdrop-blur-[7px]
-
               sm:px-6
               lg:px-10
             "
@@ -182,7 +184,7 @@ export default function WatchOurStory() {
                 top-[55px]
                 z-10
                 w-full
-                max-w-[1110px]
+                max-w-[1100px]
                 overflow-hidden
                 rounded-[14px]
                 border
@@ -205,7 +207,6 @@ export default function WatchOurStory() {
                   border-[#725021]/70
                   bg-[#041421]
                   px-4
-
                   sm:px-6
                 "
               >
@@ -241,7 +242,6 @@ export default function WatchOurStory() {
                         text-[17px]
                         font-semibold
                         text-[#F4F5F6]
-
                         sm:text-[19px]
                         lg:text-[21px]
                       "
@@ -255,7 +255,6 @@ export default function WatchOurStory() {
                         hidden
                         text-[12px]
                         text-[#AEB7BE]
-
                         sm:block
                         sm:text-[13px]
                       "
@@ -291,7 +290,6 @@ export default function WatchOurStory() {
                     text-[#D69A2B]
                     transition-all
                     duration-300
-
                     hover:border-[#D69A2B]
                     hover:bg-[#D69A2B]/10
                   "
@@ -307,6 +305,7 @@ export default function WatchOurStory() {
                 className="
                   relative
                   w-full
+                  overflow-hidden
                   bg-black
                 "
               >
@@ -318,11 +317,9 @@ export default function WatchOurStory() {
                   playsInline
                   preload="metadata"
                   className="
-                    aspect-video
-                    max-h-[72vh]
+                    block
+                    h-auto
                     w-full
-                    bg-black
-                    object-contain
                   "
                 >
                   Your browser does not support the video tag.
@@ -339,7 +336,6 @@ export default function WatchOurStory() {
                   bg-[#041421]
                   px-4
                   py-4
-
                   sm:px-6
                 "
               >
@@ -350,7 +346,6 @@ export default function WatchOurStory() {
                     font-medium
                     leading-[1.6]
                     text-[#C9D0D6]
-
                     sm:text-[14px]
                     lg:text-[15px]
                   "
