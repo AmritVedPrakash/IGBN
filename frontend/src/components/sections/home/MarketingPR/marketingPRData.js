@@ -1,0 +1,175 @@
+import brandingImage from "../../../../assets/marketing-pr/service-branding.jpg";
+import digitalMarketingImage from "../../../../assets/marketing-pr/service-digital-marketing.jpg";
+import performanceMarketingImage from "../../../../assets/marketing-pr/service-performance-marketing.jpg";
+import contentCommunicationImage from "../../../../assets/marketing-pr/service-content-communication.jpg";
+import publicRelationsImage from "../../../../assets/marketing-pr/service-public-relations.jpg";
+import seoAnalyticsImage from "../../../../assets/marketing-pr/service-seo-analytics.jpg";
+
+export const marketingPRImages = {
+  hero: "/src/assets/marketing-pr/marketing-pr-hero.jpg",
+  branding: "/src/assets/marketing-pr/service-branding.jpg",
+  digital: "/src/assets/marketing-pr/service-digital-marketing.jpg",
+  performance: "/src/assets/marketing-pr/service-performance-marketing.jpg",
+  content: "/src/assets/marketing-pr/service-content-communication.jpg",
+  publicRelations: "/src/assets/marketing-pr/service-public-relations.jpg",
+  seo: "/src/assets/marketing-pr/service-seo-analytics.jpg",
+  industries: "/src/assets/marketing-pr/industries-collage.jpg",
+  storyOne: "/src/assets/marketing-pr/success-story-1.jpg",
+  storyTwo: "/src/assets/marketing-pr/success-story-2.jpg",
+  storyThree: "/src/assets/marketing-pr/success-story-3.jpg",
+  storyRajiv: "/src/assets/marketing-pr/client-rajiv-mehta.jpg",
+  storyNeha: "/src/assets/marketing-pr/client-neha-sharma.jpg",
+  storyMichael: "/src/assets/marketing-pr/client-michael-tan.jpg",
+};
+
+export const marketingPlans = [
+  {
+    number: "01",
+    title: "Brand Foundation Plan",
+    audience: "Best for startups & small businesses",
+    price: "15,000",
+    color: "#1e9a63",
+    items: [
+      "Brand strategy & consultation",
+      "Logo & visual identity",
+      "Social media setup & management",
+      "Content calendar",
+      "Creative design & copywriting",
+      "Basic website SEO setup",
+      "Monthly performance report",
+    ],
+  },
+  {
+    number: "02",
+    title: "Business Growth Plan",
+    audience: "Best for growing businesses",
+    price: "30,000",
+    color: "#2479c9",
+    items: [
+      "All Brand Foundation features",
+      "Performance marketing",
+      "Google Ads, Meta Ads & LinkedIn Ads",
+      "Lead generation campaigns",
+      "Remarketing campaigns",
+      "Social media growth & management",
+      "Email marketing & website visibility",
+    ],
+  },
+  {
+    number: "03",
+    title: "Global Market Expansion Plan",
+    audience: "Best for exporters & international brands",
+    price: "40,000",
+    color: "#e29a32",
+    items: [
+      "All Business Growth Plan features",
+      "International social media promotion",
+      "LinkedIn & Instagram expansion",
+      "Global PR & media outreach",
+      "International digital campaigns",
+      "Export brand positioning",
+      "Content marketing for global markets",
+    ],
+  },
+  {
+    number: "04",
+    title: "Advertising Services",
+    audience: "Marketplace advertising for maximum visibility",
+    price: "13,999",
+    color: "#963cbd",
+    items: [
+      "Homepage banner advertising",
+      "Featured supplier / brand listing",
+      "Sponsored RFQs",
+      "Newsletter promotion",
+      "Buyer search promotion",
+      "Industry category banner",
+      "Product launch promotion",
+    ],
+  },
+  {
+    number: "05",
+    title: "Customised Plan",
+    audience: "Tailored to your business goals",
+    price: "Custom",
+    color: "#e22f38",
+    items: [
+      "Branding & identity",
+      "Social media management",
+      "Performance marketing",
+      "Global PR & media outreach",
+      "Content creation & communication",
+      "Website SEO & analytics",
+      "Custom combination of services",
+    ],
+  },
+];
+
+export const marketingServices = [
+  [
+    "Branding",
+    brandingImage,
+    "Brand strategy",
+    "Brand identity",
+    "Logo & visual identity",
+    "Brand guidelines",
+    "Rebranding",
+  ],
+  [
+    "Digital Marketing",
+    digitalMarketingImage,
+    "Social media management",
+    "LinkedIn marketing",
+    "Instagram & Facebook",
+    "YouTube marketing",
+    "Content strategy",
+  ],
+  [
+    "Performance Marketing",
+    performanceMarketingImage,
+    "Google Ads",
+    "LinkedIn Ads",
+    "Meta advertising",
+    "Lead generation campaigns",
+    "Remarketing",
+  ],
+  [
+    "Content & Communication",
+    contentCommunicationImage,
+    "Content strategy",
+    "Copywriting",
+    "Blog writing",
+    "Email marketing",
+    "Corporate presentations",
+  ],
+  [
+    "Public Relations",
+    publicRelationsImage,
+    "Press releases",
+    "Media relations",
+    "Reputation management",
+    "Crisis communication",
+    "Founder & executive PR",
+  ],
+  [
+    "SEO & Analytics",
+    seoAnalyticsImage,
+    "Website SEO",
+    "International SEO",
+    "Technical SEO",
+    "Analytics & reporting",
+    "Conversion optimization",
+  ],
+];
+
+export const marketingIndustries = [
+  "Manufacturing & Exporters",
+  "Industrial & Engineering Companies",
+  "FMCG Brands",
+  "Food, FMCG & Agri Businesses",
+  "Pharmaceutical & Healthcare Companies",
+  "Real Estate Developers",
+  "Startups & Growing Businesses",
+  "Trade Bodies & Associations",
+  "Educational Institutions",
+];

@@ -38,6 +38,9 @@ import CountryIntelligence from "../components/sections/trade-intelligence/explo
 import StateIntelligence from "../components/sections/trade-intelligence/explore-by-country/explore-by-state/StateIntelligence";
 import RFQDetailPage from "../components/sections/home/InternationalRFQ/RFQDetailPage";
 import CompanyAnalysisDashboard from "../components/sections/home/AnalyzeCompany/CompanyAnalysisDashboard";
+import MarketingPR from "../pages/MarketingPR";
+import Studios from "../pages/Studios";
+import Publishers from "../pages/Publishers";
 
 export default function Router() {
   const location = useLocation();
@@ -86,6 +89,33 @@ export default function Router() {
           element={
             <PageTransition>
               <Services />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/marketing-pr"
+          element={
+            <PageTransition>
+              <MarketingPR />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/studios"
+          element={
+            <PageTransition>
+              <Studios />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers"
+          element={
+            <PageTransition>
+              <Publishers />
             </PageTransition>
           }
         />

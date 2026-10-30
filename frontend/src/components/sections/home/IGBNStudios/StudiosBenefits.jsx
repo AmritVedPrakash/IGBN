@@ -1,0 +1,4 @@
+import { BarChart3, Globe2, Handshake, ShieldCheck, Sparkles, Users } from "lucide-react";
+import { studioBenefits } from "./studiosData";
+const icons = [Globe2, Sparkles, Users, BarChart3, Handshake, ShieldCheck];
+export default function StudiosBenefits() { return <section className="bg-[#020D18] px-4 py-5 sm:px-6 lg:px-10"><div className="mx-auto grid max-w-[1500px] grid-cols-2 gap-2 rounded-xl border border-[#725021]/70 bg-[#03111F] p-3 sm:grid-cols-3 lg:grid-cols-6">{studioBenefits.map(([title, text], index) => { const Icon = icons[index]; return <div key={text} className="border-[#725021]/70 p-3 text-center sm:border-r last:border-0"><Icon className="mx-auto text-[#F0C168]" size={25} /><p className="mt-2 font-bold uppercase text-white">{title}</p><p className="text-[#C7D1D9]">{text}</p></div>; })}</div></section>; }

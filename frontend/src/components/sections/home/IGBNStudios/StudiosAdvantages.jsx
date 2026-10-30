@@ -1,0 +1,5 @@
+import { BarChart3, CheckCircle2, Globe2, Handshake, Lightbulb, Target } from "lucide-react";
+import { studioAdvantages } from "./studiosData";
+const icons = [Globe2, Lightbulb, Target, Handshake, BarChart3];
+export default function StudiosAdvantages() { return <section className="bg-[#020D18] px-4 py-10 sm:px-6 lg:px-10"><div className="mx-auto max-w-[1500px]"><SectionHeading title="What You Get When IGBN Studios Handles Your Digital Production" /><div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">{studioAdvantages.map(([title, text], index) => { const Icon = icons[index]; return <div key={title} className="rounded-xl border border-[#725021]/70 bg-[#03111F] p-4"><Icon className="text-[#F0C168]" size={27} /><h3 className="mt-3 font-bold uppercase text-white">{title}</h3><p className="mt-2 leading-5 text-[#C7D1D9]">{text}</p><CheckCircle2 className="mt-4 text-[#F0C168]" size={18} /></div>; })}</div></div></section>; }
+function SectionHeading({ title }) { return <div className="mb-6 border-b border-[#D69A2B]/60 pb-3"><h2 className="font-bold uppercase text-white">{title}</h2></div>; }

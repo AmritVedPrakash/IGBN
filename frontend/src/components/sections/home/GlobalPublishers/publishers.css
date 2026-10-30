@@ -1,0 +1,24 @@
+.publishers-page h1,
+.publishers-page h2,
+.publishers-page h3,
+.publishers-page h4,
+.publishers-page h5,
+.publishers-page h6 { font-size: 21px !important; line-height: 1.3 !important; }
+.publishers-page h1 span,
+.publishers-page h2 span,
+.publishers-page h3 span { font-size: 21px !important; }
+.publishers-page p,
+.publishers-page li,
+.publishers-page a,
+.publishers-page button,
+.publishers-page strong,
+.publishers-page span { font-size: 16px !important; }
+.publishers-page .publishers-hero-title,
+.publishers-page .publishers-hero-title span { font-size: 28px !important; }
+
+.publishers-page section,
+.publishers-page article,
+.publishers-page [class~="bg-[#03111F]"],
+.publishers-page [class*="bg-[#03111F]"] {
+  background-color: #020D18 !important;
+}

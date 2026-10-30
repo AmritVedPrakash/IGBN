@@ -1,0 +1,4 @@
+import { BookOpen, Globe2, Languages, Users, Award } from "lucide-react";
+import { publisherStats } from "./publishersData";
+const icons = [BookOpen, Users, Languages, BookOpen, Globe2];
+export default function PublishersStats() { return <section className="bg-[#020D18] px-4 py-5 sm:px-6 lg:px-10"><div className="mx-auto grid max-w-[1500px] grid-cols-2 gap-2 rounded-xl border border-[#725021]/70 bg-[#03111F] p-3 sm:grid-cols-3 lg:grid-cols-5">{publisherStats.map(([number, title, text], index) => { const Icon = icons[index]; return <div key={title} className="p-3 text-center lg:border-r lg:border-[#725021]/70 last:border-0"><Icon className="mx-auto text-[#F0C168]" size={26} /><p className="mt-1 font-black text-[#F0C168]">{number}</p><p className="font-bold uppercase text-white">{title}</p><p className="text-[#C7D1D9]">{text}</p></div>; })}</div></section>; }

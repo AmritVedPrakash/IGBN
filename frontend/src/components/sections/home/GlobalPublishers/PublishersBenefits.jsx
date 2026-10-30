@@ -1,0 +1,4 @@
+import { Coins, FileText, Globe2, Languages } from "lucide-react";
+import { publisherBenefits } from "./publishersData";
+const icons = [FileText, Coins, Globe2, Languages];
+export default function PublishersBenefits() { return <section className="bg-[#03111F] px-4 py-5 sm:px-6 lg:px-10"><div className="mx-auto grid max-w-[1500px] grid-cols-2 gap-2 rounded-xl border border-[#725021]/70 bg-[#020D18] p-3 lg:grid-cols-4">{publisherBenefits.map(([title, text], index) => { const Icon = icons[index]; return <div key={title} className="flex gap-3 border-[#725021]/70 p-3 lg:border-r last:border-0"><Icon className="mt-1 shrink-0 text-[#F0C168]" size={28} /><div><h3 className="font-bold uppercase text-white">{title}</h3><p className="mt-1 leading-5 text-[#C7D1D9]">{text}</p></div></div>; })}</div></section>; }

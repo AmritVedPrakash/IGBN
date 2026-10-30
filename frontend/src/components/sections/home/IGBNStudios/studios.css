@@ -1,0 +1,27 @@
+.studios-page h1,
+.studios-page h2,
+.studios-page h3,
+.studios-page h4,
+.studios-page h5,
+.studios-page h6 { font-size: 21px !important; line-height: 1.3 !important; }
+.studios-page h1 span,
+.studios-page h2 span,
+.studios-page h3 span { font-size: 21px !important; }
+.studios-page p,
+.studios-page li,
+.studios-page a,
+.studios-page button,
+.studios-page strong,
+.studios-page span { font-size: 16px !important; }
+.studios-page .studios-hero-title,
+.studios-page .studios-hero-title span { font-size: 28px !important; }
+
+.studios-page [class~="bg-[#03111F]"] {
+  background-color: #020D18 !important;
+}
+
+.studios-page section,
+.studios-page article,
+.studios-page [class*="bg-[#03111F]"] {
+  background-color: #020D18 !important;
+}

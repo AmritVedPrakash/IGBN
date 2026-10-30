@@ -1,0 +1,36 @@
+.marketing-pr-page h1,
+.marketing-pr-page h2,
+.marketing-pr-page h3,
+.marketing-pr-page h4,
+.marketing-pr-page h5,
+.marketing-pr-page h6 {
+  font-size: 21px !important;
+  line-height: 1.3 !important;
+}
+
+.marketing-pr-page h1 span,
+.marketing-pr-page h2 span,
+.marketing-pr-page h3 span,
+.marketing-pr-page h4 span,
+.marketing-pr-page h5 span,
+.marketing-pr-page h6 span {
+  font-size: 21px !important;
+}
+
+.marketing-pr-page p,
+.marketing-pr-page li,
+.marketing-pr-page a,
+.marketing-pr-page button,
+.marketing-pr-page strong,
+.marketing-pr-page span {
+  font-size: 16px !important;
+}
+
+.marketing-pr-page .marketing-plan-price {
+  font-size: 20px !important;
+}
+
+.marketing-pr-page .marketing-hero-title,
+.marketing-pr-page .marketing-hero-title span {
+  font-size: 28px !important;
+}
