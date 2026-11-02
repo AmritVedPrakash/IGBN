@@ -41,6 +41,8 @@ import CompanyAnalysisDashboard from "../components/sections/home/AnalyzeCompany
 import MarketingPR from "../pages/MarketingPR";
 import Studios from "../pages/Studios";
 import Publishers from "../pages/Publishers";
+import FactoryTours from "../pages/FactoryTours";
+import FactoryTourEnquiry from "../pages/FactoryTourEnquiry";
 
 export default function Router() {
   const location = useLocation();
@@ -116,6 +118,24 @@ export default function Router() {
           element={
             <PageTransition>
               <Publishers />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/factory-tours"
+          element={
+            <PageTransition>
+              <FactoryTours />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/factory-tours/enquiry"
+          element={
+            <PageTransition>
+              <FactoryTourEnquiry />
             </PageTransition>
           }
         />

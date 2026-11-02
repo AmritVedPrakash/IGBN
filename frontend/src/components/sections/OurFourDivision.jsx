@@ -46,7 +46,7 @@ const divisions = [
       "Supplier meeting facilitation",
       "Customized industry tours",
     ],
-    href: "/contact",
+    href: "/factory-tours",
   },
   {
     icon: Megaphone,

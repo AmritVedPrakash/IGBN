@@ -1,0 +1,22 @@
+.factory-tours-page h1,
+.factory-tours-page h2,
+.factory-tours-page h3,
+.factory-tours-page h4,
+.factory-tours-page h5,
+.factory-tours-page h6 { font-size: 21px !important; line-height: 1.3 !important; }
+.factory-tours-page h1 span,
+.factory-tours-page h2 span,
+.factory-tours-page h3 span { font-size: 21px !important; }
+.factory-tours-page p,
+.factory-tours-page li,
+.factory-tours-page a,
+.factory-tours-page button,
+.factory-tours-page strong,
+.factory-tours-page span { font-size: 16px !important; }
+.factory-tours-page .factory-hero-title,
+.factory-tours-page .factory-hero-title span { font-size: 28px !important; }
+.factory-tours-page .factory-pricing-amount { font-size: 32px !important; line-height: 1 !important; }
+.factory-tours-page .factory-pricing-operator { color: #F0C168; font-size: 34px !important; font-weight: 900; text-align: center; }
+.factory-tours-page section,
+.factory-tours-page article,
+.factory-tours-page [class*="bg-[#03111F]"] { background-color: #020D18 !important; }
