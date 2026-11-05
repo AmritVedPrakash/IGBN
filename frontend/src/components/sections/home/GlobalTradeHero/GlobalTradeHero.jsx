@@ -15,7 +15,6 @@ import globalMap from "../../../../assets/homebg/global-trade-map.png";
 import GlobeScene from "./GlobeScene";
 import { countriesData } from "../../../../data/globalTradeData";
 
-import CountryPin from "./CountryPin";
 import CountryInfoCard from "./CountryInfoCard";
 import ExportDestinations from "./ExportDestinations";
 
@@ -260,23 +259,11 @@ export default function GlobalTradeHero() {
                   2xl:text-[16px]
                 "
               >
-                Join as a Buyer
+                Join as a 
               </p>
+              <p>Buyer</p>
 
-              <p
-                className="
-                  mt-1.5
-                  truncate
-                  text-[11px]
-                  font-medium
-                  text-[#9AA6AF]
-
-                  2xl:mt-2
-                  2xl:text-[12px]
-                "
-              >
-                Source. Connect. Grow.
-              </p>
+              
             </div>
 
             <ArrowRight
@@ -372,23 +359,11 @@ export default function GlobalTradeHero() {
                   2xl:text-[16px]
                 "
               >
-                Join as a Supplier
+                Join as a
               </p>
+              <p>Supplier</p>
 
-              <p
-                className="
-                  mt-1.5
-                  truncate
-                  text-[11px]
-                  font-medium
-                  text-[#9AA6AF]
-
-                  2xl:mt-2
-                  2xl:text-[12px]
-                "
-              >
-                Showcase. Connect. Export.
-              </p>
+             
             </div>
 
             <ArrowRight

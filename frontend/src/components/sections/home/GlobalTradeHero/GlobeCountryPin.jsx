@@ -1,29 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Html } from "@react-three/drei";
 import { MapPin } from "lucide-react";
-
-function latLngToVector3(lat, lng, radius) {
-  const latitude = THREE.MathUtils.degToRad(lat);
-  const longitude = THREE.MathUtils.degToRad(lng);
-
-  const x =
-    radius *
-    Math.cos(latitude) *
-    Math.sin(longitude);
-
-  const y =
-    radius *
-    Math.sin(latitude);
-
-  const z =
-    radius *
-    Math.cos(latitude) *
-    Math.cos(longitude);
-
-  return [x, y, z];
-}
-
-import * as THREE from "three";
+import { latLngToVector3 } from "./globeCoordinates";
 
 export default function GlobeCountryPin({
   country,
@@ -34,21 +12,25 @@ export default function GlobeCountryPin({
   onLeave,
   onClick,
 }) {
+  const [occluded, setOccluded] = useState(false);
   const position = latLngToVector3(
     country.latitude,
     country.longitude,
-    radius
-  );
+    radius,
+  ).toArray();
 
   return (
     <Html
       position={position}
       center
       occlude={globeRef ? [globeRef] : true}
+      onOcclude={setOccluded}
       distanceFactor={7.2}
       zIndexRange={[40, 0]}
       style={{
-        pointerEvents: "auto",
+        pointerEvents: occluded ? "none" : "auto",
+        opacity: occluded ? 0 : 1,
+        transition: "opacity 120ms ease-out",
       }}
     >
       <button

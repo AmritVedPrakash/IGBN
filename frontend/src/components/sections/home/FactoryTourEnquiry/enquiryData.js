@@ -4,7 +4,8 @@ export const enquirySteps = [
   ["3", "Pay Processing Fee", "(US$ 2)"],
   ["4", "Supplier Search", "by IGBN"],
   ["5", "Receive Meeting", "Offer"],
-  ["6", "Visit, Meet & Source", ""],
+  ["6", "Payment & Booking", "Confirmed"],
+  ["7", "Visit, Meet & Source", ""],
 ];
 
 export const enquirySections = [

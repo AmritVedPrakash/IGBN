@@ -1,6 +1,6 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
-import { OrbitControls, Html, Line } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 import GlobeCountryPin from "./GlobeCountryPin";
@@ -8,47 +8,6 @@ import GlobeCountryPin from "./GlobeCountryPin";
 // apne assets me ye textures rakho
 import earthTexture from "../../../../assets/globe/earth-map.jpg";
 import earthNightTexture from "../../../../assets/globe/earth-night.jpg";
-
-function latLngToVector3(lat, lng, radius = 2) {
-  const phi = THREE.MathUtils.degToRad(90 - lat);
-  const theta = THREE.MathUtils.degToRad(lng + 180);
-
-  return new THREE.Vector3(
-    -radius * Math.sin(phi) * Math.cos(theta),
-    radius * Math.cos(phi),
-    radius * Math.sin(phi) * Math.sin(theta),
-  );
-}
-
-function createArcPoints(start, end, radius = 2.03) {
-  const startVec = latLngToVector3(start.latitude, start.longitude, radius);
-
-  const endVec = latLngToVector3(end.latitude, end.longitude, radius);
-
-  const mid = startVec.clone().add(endVec).multiplyScalar(0.5).normalize();
-
-  const distance = startVec.distanceTo(endVec);
-
-  mid.multiplyScalar(radius + distance * 0.32);
-
-  const curve = new THREE.QuadraticBezierCurve3(startVec, mid, endVec);
-
-  return curve.getPoints(60);
-}
-
-function TradeArc({ start, end }) {
-  const points = useMemo(() => createArcPoints(start, end), [start, end]);
-
-  return (
-    <Line
-      points={points}
-      color="#F4A62A"
-      lineWidth={1}
-      transparent
-      opacity={0.65}
-    />
-  );
-}
 
 function Globe({ countries, activeCountry, onCountryEnter, onCountryClick }) {
   const globeGroup = useRef();
@@ -119,20 +78,6 @@ function Globe({ countries, activeCountry, onCountryEnter, onCountryClick }) {
             side={THREE.BackSide}
           />
         </mesh>
-
-        {/* ================= NETWORK ARCS ================= */}
-
-        <TradeArc start={countries.india} end={countries.usa} />
-
-        <TradeArc start={countries.india} end={countries.uk} />
-
-        <TradeArc start={countries.india} end={countries.germany} />
-
-        <TradeArc start={countries.india} end={countries.uae} />
-
-        <TradeArc start={countries.india} end={countries.china} />
-
-        <TradeArc start={countries.india} end={countries.australia} />
 
         {/* ================= PINS ================= */}
 

@@ -1,0 +1,25 @@
+import { Building2, CalendarDays, CheckCircle2, ChevronRight, Clock3, Globe2, Handshake, MapPin, MessageSquare, Package, Phone, ShieldCheck, Users, WalletCards, XCircle } from "lucide-react";
+
+const products = ["Handbags", "Wallets", "Belts"];
+const checks = ["Leather Bag Manufacturing", "Wallets and Small Leather Goods", "Custom Design and Private Label Production", "Modern Machinery and Quality Control", "Export-ready Packaging"];
+
+export default function SupplierMeetingOffer({ onAccept }) {
+  return (
+    <div className="meeting-offer-layout">
+      <main className="meeting-offer-main">
+        <section className="meeting-supplier-card">
+          <div className="meeting-card-heading"><h2>Supplier Details</h2><span><ShieldCheck size={15} /> Verified Supplier</span></div>
+          <div className="meeting-supplier-top"><Building2 size={30} /><div><h3>ABC Leather Goods Pvt. Ltd.</h3><p>Manufacturer & Exporter</p><span>ABC Leather Goods Pvt. Ltd. is a leading manufacturer and exporter of high-quality leather bags, wallets and accessories. The company has modern manufacturing facilities, skilled craftsmen and a strong focus on international quality standards.</span><small><Globe2 size={15} /> Website &nbsp; <u>www.abcileather.com</u></small></div><div className="meeting-logo-placeholder">ABC LEATHER<small>PREMIUM LEATHER GOODS</small></div></div>
+          <div className="meeting-gallery"><div className="meeting-gallery-image factory" /><div className="meeting-gallery-image workshop" /><div className="meeting-gallery-image leather" /><div className="meeting-gallery-image showroom" /></div>
+          <div className="meeting-products-capabilities"><div><h3><Package size={20} /> Key Products</h3><div className="meeting-products">{products.map((product, index) => <div key={product}><span className={`product-image product-${index + 1}`} /><b>{product}</b></div>)}</div></div><div><h3><SettingsIcon /> Manufacturing Capabilities</h3>{checks.map((check) => <p className="meeting-check" key={check}><CheckCircle2 size={16} />{check}</p>)}</div></div>
+          <div className="meeting-location-verification"><div><h3><MapPin size={22} /> Factory Location</h3><p>Plot No. 125, Leather Industrial Area<br />Noida, Uttar Pradesh – 201305, India</p><button type="button">View on Map <ChevronRight size={16} /></button></div><div><h3><ShieldCheck size={22} /> Verification Details</h3>{["Business Registration Verified", "Export License Verified", "Factory Address Verified", "Manufacturing Capability Reviewed", "Photos and Information Authorized"].map((item) => <p className="meeting-check" key={item}><CheckCircle2 size={16} />{item}</p>)}</div></div>
+        </section>
+        <div className="meeting-offer-actions"><button type="button" className="accept-offer" onClick={onAccept}><WalletCards size={21} /><span>Accept Offer & Pay Balance<strong>(US$ 48)</strong></span><ChevronRight /></button><button type="button"><Handshake size={21} /><span>Request Alternative Supplier<small>Ask for another suitable supplier</small></span><ChevronRight /></button><button type="button"><XCircle size={21} /><span>Decline Offer<small>We will inform you</small></span></button><button type="button"><MessageSquare size={21} /><span>Contact IGBN<small>Need help or have questions?</small></span></button></div>
+      </main>
+      <aside className="meeting-offer-side"><section><div className="meeting-side-heading"><h2>Meeting Details</h2></div><Detail icon={CalendarDays} label="Confirmed Meeting Date" value="28 Nov 2024 (Thursday)" /><Detail icon={Clock3} label="Meeting Time" value="11:00 AM – 1:00 PM (2 hours)" /><Detail icon={SettingsIcon} label="Meeting Type" value="Factory Visit & Business Discussion" /><Detail icon={Building2} label="Number of Meetings in Offer" value="1 Meeting" /><Detail icon={Users} label="Supplier Contact (for visit)" value="Mr. Rajesh Kumar\nExport Manager" /></section><section className="meeting-price-card"><h2>Price Details <b>Transparent & Simple</b></h2><p><span>Total Base Fee (Per Meeting)</span><strong>US$ 50</strong></p><p><span>Processing Fee (Already Paid)</span><strong>– US$ 2</strong></p><div><b>Balance Amount to Pay</b><strong>US$ 48</strong></div><small>Applicable taxes (if any) will be added at checkout.<br />Travel expenses such as hotel, airfare, local transport and personal expenses are charged separately.</small></section><section className="meeting-terms-card"><h2>Offer Terms</h2>{["This meeting offer is valid until 25 Nov 2024.", "The supplier has confirmed the meeting date and time.", "Payment of the balance amount confirms your booking.", "Cancellation and refund are subject to our Refund Policy."].map((term) => <p key={term}><CheckCircle2 size={16} />{term}</p>)}<a href="/terms-and-conditions">Read Full Terms & Conditions <ChevronRight size={15} /></a></section></aside>
+    </div>
+  );
+}
+
+function Detail({ icon: Icon, label, value }) { return <div className="meeting-detail"><Icon size={19} /><span><small>{label}</small><b>{value}</b></span></div>; }
+function SettingsIcon() { return <span className="meeting-settings-icon">⚙</span>; }

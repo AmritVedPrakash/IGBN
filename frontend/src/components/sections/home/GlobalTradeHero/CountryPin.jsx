@@ -1,29 +1,7 @@
 import React from "react";
 import { Html } from "@react-three/drei";
 import { MapPin } from "lucide-react";
-
-function latLngToVector3(lat, lng, radius) {
-  const latitude = THREE.MathUtils.degToRad(lat);
-  const longitude = THREE.MathUtils.degToRad(lng);
-
-  const x =
-    radius *
-    Math.cos(latitude) *
-    Math.sin(longitude);
-
-  const y =
-    radius *
-    Math.sin(latitude);
-
-  const z =
-    radius *
-    Math.cos(latitude) *
-    Math.cos(longitude);
-
-  return [x, y, z];
-}
-
-import * as THREE from "three";
+import { latLngToVector3 } from "./globeCoordinates";
 
 export default function GlobeCountryPin({
   country,
@@ -37,8 +15,8 @@ export default function GlobeCountryPin({
   const position = latLngToVector3(
     country.latitude,
     country.longitude,
-    radius
-  );
+    radius,
+  ).toArray();
 
   return (
     <Html
