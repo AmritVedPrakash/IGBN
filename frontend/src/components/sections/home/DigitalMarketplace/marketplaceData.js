@@ -47,6 +47,7 @@ export const marketplaceProducts = [
     image: digitalWebImage,
     tags: ["Patient portal", "Appointments", "Admin dashboard"],
     featured: true,
+    previewUrl: "https://www.igloo.inc/",
   },
   {
     id: "healthcare-app",
@@ -57,6 +58,8 @@ export const marketplaceProducts = [
       "A friendly mobile experience for patients and healthcare providers.",
     image: homeServiceImage,
     tags: ["iOS & Android", "Patient profiles", "Notifications"],
+    previewUrl:
+      "https://play.google.com/store/apps/details?id=com.sorting.frenzy.goods.master.madness",
   },
   {
     id: "commerce-web",

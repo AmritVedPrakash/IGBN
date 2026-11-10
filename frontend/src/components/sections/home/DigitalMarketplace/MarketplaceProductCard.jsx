@@ -54,9 +54,20 @@ export default function MarketplaceProductCard({ product, index }) {
           <span>
             <Code2 size={15} /> Built around your needs
           </span>
-          <Link to="/contact" aria-label={`Live preview ${product.title}`}>
-            Live Preview <ArrowUpRight size={16} />
-          </Link>
+          {product.previewUrl ? (
+            <a
+              href={product.previewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Live preview ${product.title}`}
+            >
+              Live Preview <ArrowUpRight size={16} />
+            </a>
+          ) : (
+            <Link to="/contact" aria-label={`Live preview ${product.title}`}>
+              Live Preview <ArrowUpRight size={16} />
+            </Link>
+          )}
         </div>
       </div>
     </article>
