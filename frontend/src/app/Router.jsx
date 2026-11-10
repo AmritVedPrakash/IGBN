@@ -43,6 +43,7 @@ import Studios from "../pages/Studios";
 import Publishers from "../pages/Publishers";
 import FactoryTours from "../pages/FactoryTours";
 import FactoryTourEnquiry from "../pages/FactoryTourEnquiry";
+import DigitalMarketplace from "../pages/DigitalMarketplace";
 
 export default function Router() {
   const location = useLocation();
@@ -91,6 +92,15 @@ export default function Router() {
           element={
             <PageTransition>
               <Services />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/digital-solutions"
+          element={
+            <PageTransition>
+              <DigitalMarketplace />
             </PageTransition>
           }
         />

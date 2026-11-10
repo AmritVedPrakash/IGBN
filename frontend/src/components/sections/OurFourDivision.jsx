@@ -88,7 +88,7 @@ const divisions = [
       "Platform development and integrations",
       "Technology consulting and support",
     ],
-    href: "/services",
+    href: "/digital-solutions",
   },
   {
     icon: Bot,
