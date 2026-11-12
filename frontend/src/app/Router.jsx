@@ -44,6 +44,8 @@ import Publishers from "../pages/Publishers";
 import FactoryTours from "../pages/FactoryTours";
 import FactoryTourEnquiry from "../pages/FactoryTourEnquiry";
 import DigitalMarketplace from "../pages/DigitalMarketplace";
+import PublisherSignup from "../components/sections/home/GlobalPublishers/PublisherSignup/PublisherSignup";
+import AuthorDashboard from "../components/sections/home/GlobalPublishers/AuthorDashboard/AuthorDashboard";
 
 export default function Router() {
   const location = useLocation();
@@ -128,6 +130,33 @@ export default function Router() {
           element={
             <PageTransition>
               <Publishers />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/create-account"
+          element={
+            <PageTransition>
+              <PublisherSignup />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/author/dashboard"
+          element={
+            <PageTransition>
+              <AuthorDashboard />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/author/upload-book"
+          element={
+            <PageTransition>
+              <AuthorDashboard initialView="Upload New Book" />
             </PageTransition>
           }
         />
