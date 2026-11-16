@@ -3,7 +3,7 @@ import { authors } from "./publishersData";
 
 export default function PublishersAuthors() {
   return (
-    <section className="bg-[#020D18] px-4 py-10 sm:px-6 lg:px-10">
+    <section id="authors" className="bg-[#020D18] px-4 py-10 sm:px-6 lg:px-10">
       <div className="mx-auto max-w-[1500px]">
         <div className="mb-5 border-b border-[#D69A2B]/60 pb-3">
           <h2 className="font-bold uppercase text-white">Authors Speak</h2>

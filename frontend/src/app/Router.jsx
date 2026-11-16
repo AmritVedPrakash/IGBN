@@ -46,6 +46,14 @@ import FactoryTourEnquiry from "../pages/FactoryTourEnquiry";
 import DigitalMarketplace from "../pages/DigitalMarketplace";
 import PublisherSignup from "../components/sections/home/GlobalPublishers/PublisherSignup/PublisherSignup";
 import AuthorDashboard from "../components/sections/home/GlobalPublishers/AuthorDashboard/AuthorDashboard";
+import ReaderAccountPage from "../components/sections/home/GlobalPublishers/Readers/ReaderAccountPage";
+import ReaderHomePage from "../components/sections/home/GlobalPublishers/Readers/ReaderHomePage";
+import ReaderBookDetailPage from "../components/sections/home/GlobalPublishers/Readers/ReaderBookDetailPage";
+import ReaderCartPage from "../components/sections/home/GlobalPublishers/Readers/ReaderCartPage";
+import ReaderCheckoutPage from "../components/sections/home/GlobalPublishers/Readers/ReaderCheckoutPage";
+import ReaderOrderConfirmationPage from "../components/sections/home/GlobalPublishers/Readers/ReaderOrderConfirmationPage";
+import ReaderLibraryPage from "../components/sections/home/GlobalPublishers/Readers/ReaderLibraryPage";
+import ReaderBookReaderPage from "../components/sections/home/GlobalPublishers/Readers/ReaderBookReaderPage";
 
 export default function Router() {
   const location = useLocation();
@@ -139,6 +147,78 @@ export default function Router() {
           element={
             <PageTransition>
               <PublisherSignup />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers"
+          element={
+            <PageTransition>
+              <ReaderAccountPage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers/home"
+          element={
+            <PageTransition>
+              <ReaderHomePage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers/library"
+          element={
+            <PageTransition>
+              <ReaderLibraryPage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers/read/:bookId"
+          element={
+            <PageTransition>
+              <ReaderBookReaderPage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers/books/:bookId"
+          element={
+            <PageTransition>
+              <ReaderBookDetailPage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers/cart"
+          element={
+            <PageTransition>
+              <ReaderCartPage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers/checkout"
+          element={
+            <PageTransition>
+              <ReaderCheckoutPage />
+            </PageTransition>
+          }
+        />
+
+        <Route
+          path="/publishers/readers/confirmation"
+          element={
+            <PageTransition>
+              <ReaderOrderConfirmationPage />
             </PageTransition>
           }
         />

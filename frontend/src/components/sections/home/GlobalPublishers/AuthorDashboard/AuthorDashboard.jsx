@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import UploadNewBook from "./UploadNewBook";
+import TranslationsWorkspace from "./TranslationsWorkspace";
+import MyBooksWorkspace from "./MyBooksWorkspace";
+import SalesEarningsWorkspace from "./SalesEarningsWorkspace";
+import PaymentsPayoutsWorkspace from "./PaymentsPayoutsWorkspace";
 import {
   ArrowRight,
   Bell,
@@ -167,6 +171,7 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState(null);
   const authorName = profile?.name || "Aditi Sharma";
   const authorPhoto = profile?.photo;
   const initials = authorName
@@ -175,6 +180,10 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
     .join("")
     .slice(0, 2)
     .toUpperCase();
+  const openBookDetails = (book) => {
+    setSelectedBook(book);
+    setActiveNav("My Books");
+  };
 
   return (
     <main className="author-dashboard-page">
@@ -234,7 +243,7 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
         </div>
       </header>
 
-      <div className={`author-dashboard-layout ${activeNav === "Upload New Book" ? "is-uploading" : ""}`}>
+      <div className={`author-dashboard-layout ${activeNav === "Upload New Book" ? "is-uploading" : activeNav === "Translations" ? "is-translating" : activeNav === "My Books" ? "is-books" : activeNav === "Sales & Earnings" ? "is-analytics" : activeNav === "Payments & Payouts" ? "is-payouts" : ""}`}>
         <aside
           className={`author-dashboard-sidebar ${sidebarOpen ? "is-open" : ""}`}
         >
@@ -251,6 +260,7 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
                 key={label}
                 className={activeNav === label ? "is-active" : ""}
                 onClick={() => {
+                  if (label === "My Books") setSelectedBook(null);
                   setActiveNav(label);
                   setSidebarOpen(false);
                 }}
@@ -270,9 +280,40 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
           </div>
         </aside>
 
-        <section className={`author-dashboard-main ${activeNav === "Upload New Book" ? "is-uploading" : ""}`}>
+        <section className={`author-dashboard-main ${activeNav === "Upload New Book" ? "is-uploading" : activeNav === "Translations" ? "is-translating" : activeNav === "My Books" ? "is-books" : activeNav === "Sales & Earnings" ? "is-analytics" : activeNav === "Payments & Payouts" ? "is-payouts" : ""}`}>
           {activeNav === "Upload New Book" ? (
             <UploadNewBook embedded profile={profile} onBack={() => setActiveNav("Dashboard")} />
+          ) : activeNav === "Translations" ? (
+            <TranslationsWorkspace
+              authorName={authorName}
+              book={{ ...(selectedBook || bookCovers[0]), author: authorName, language: "English", subtitle: "A Journey Within", subGenre: "Personal Growth" }}
+              onBack={() => setActiveNav("Dashboard")}
+            />
+          ) : activeNav === "My Books" ? (
+            <MyBooksWorkspace
+              authorName={authorName}
+              books={bookCovers}
+              initialBook={selectedBook}
+              key={selectedBook?.title || "book-library"}
+              onSelectBook={setSelectedBook}
+              onBack={() => setSelectedBook(null)}
+              onUploadBook={() => setActiveNav("Upload New Book")}
+              onManageTranslations={(book) => {
+                setSelectedBook(book);
+                setActiveNav("Translations");
+              }}
+            />
+          ) : activeNav === "Sales & Earnings" ? (
+            <SalesEarningsWorkspace
+              books={bookCovers}
+              onOpenBook={openBookDetails}
+              onOpenMyBooks={() => {
+                setSelectedBook(null);
+                setActiveNav("My Books");
+              }}
+            />
+          ) : activeNav === "Payments & Payouts" ? (
+            <PaymentsPayoutsWorkspace authorName={authorName} books={bookCovers} />
           ) : (
             <>
           <div className="author-dashboard-welcome">
@@ -331,7 +372,7 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
                 <i />
                 My Books
               </h2>
-              <button onClick={() => setActiveNav("My Books")}>
+              <button onClick={() => { setSelectedBook(null); setActiveNav("My Books"); }}>
                 View all books <ArrowRight size={16} />
               </button>
             </div>
@@ -366,19 +407,9 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
                   </div>
                   <button
                     className="author-dashboard-book-button"
-                    onClick={() =>
-                      setActiveNav(
-                        book.status === "Draft"
-                          ? "Upload New Book"
-                          : "My Books",
-                      )
-                    }
+                    onClick={() => openBookDetails(book)}
                   >
-                    {book.status === "Draft"
-                      ? "Continue editing"
-                      : book.status === "Under Review"
-                        ? "View status"
-                        : "View details"}
+                    {book.status === "Under Review" ? "View status" : "View details"}
                   </button>
                 </article>
               ))}
@@ -413,7 +444,7 @@ export default function AuthorDashboard({ initialView = "Dashboard" }) {
           )}
         </section>
 
-        {activeNav !== "Upload New Book" && <aside className="author-dashboard-right">
+        {activeNav !== "Upload New Book" && activeNav !== "Translations" && activeNav !== "My Books" && activeNav !== "Sales & Earnings" && activeNav !== "Payments & Payouts" && <aside className="author-dashboard-right">
           <section className="author-dashboard-reach">
             <div className="author-dashboard-reach-globe">
               <Globe2 size={45} />

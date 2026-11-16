@@ -4,18 +4,21 @@ import useLenis from "../hooks/useLenis";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
 import InteractiveCursor from "../components/common/InteractiveCursor";
+import { ReaderCartProvider } from "../components/sections/home/GlobalPublishers/Readers/ReaderCartProvider";
 export default function App() {
   useLenis();
   const { pathname } = useLocation();
-  const isAuthorPortal = pathname.startsWith("/publishers/author/");
+  const isStandalonePortal = pathname.startsWith("/publishers/author/") || pathname.startsWith("/publishers/readers");
   return (
     <>
     <InteractiveCursor />
-      {!isAuthorPortal && <Navbar />}
+      {!isStandalonePortal && <Navbar />}
 
-      <Router />
+      <ReaderCartProvider>
+        <Router />
+      </ReaderCartProvider>
 
-      {!isAuthorPortal && <Footer />}
+      {!isStandalonePortal && <Footer />}
     </>
   );
 }

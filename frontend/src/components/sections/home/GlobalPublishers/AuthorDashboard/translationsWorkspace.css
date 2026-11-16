@@ -1,0 +1,145 @@
+.author-translations-page { display: grid; min-width: 0; gap: 9px; }
+.author-translations-page :where(p, a, button, label, input, li, strong, small, span, b, em, dt, dd, textarea) { font-size: 16px !important; }
+.author-translations-page :where(h1, h2, h3, h4, h5, h6) * { font-size: inherit !important; }
+.author-translation-book-header { display: grid; gap: 6px; }
+.author-translation-back { display: inline-flex; align-items: center; justify-self: start; gap: 6px; padding: 3px 2px; color: #d8e3ed; border: 0; background: transparent; font: inherit; cursor: pointer; }
+.author-translation-book-summary { display: grid; grid-template-columns: 94px minmax(0,1.25fr) minmax(190px,1fr) minmax(160px,.8fr); gap: 10px; align-items: center; padding: 9px; border: 1px solid var(--ad-line); border-radius: 8px; background: #091d32; }
+.author-translation-cover { position: relative; display: flex; min-height: 104px; overflow: hidden; flex-direction: column; justify-content: flex-end; border: 1px solid #31506a; border-radius: 5px; background: #142c44; }
+.author-translation-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.author-translation-cover span { position: relative; padding: 5px; color: white; background: rgba(0,0,0,.7); font-family: Georgia,serif; line-height: 1.1; text-align: center; }
+.author-translation-book-info { min-width: 0; }
+.author-translation-book-info h1 { overflow: hidden; margin: 0; font-size: 22px; text-overflow: ellipsis; white-space: nowrap; }
+.author-translation-book-info p { margin: 2px 0 5px; color: #becbd6; }
+.author-translation-book-info > span { display: inline-block; padding: 3px 6px; color: #18232c; border-radius: 4px; background: var(--ad-gold); }
+.author-translation-book-info dl { display: grid; gap: 3px; margin: 5px 0 0; }
+.author-translation-book-info dl > div { display: grid; grid-template-columns: minmax(116px,.9fr) minmax(0,1fr); gap: 5px; }
+.author-translation-book-info dt { color: #aebbc8; }
+.author-translation-book-info dd { overflow-wrap: anywhere; margin: 0; color: #e1e8ef; }
+.author-translation-progress, .author-translation-quality { min-width: 0; padding: 8px; border: 1px solid #284866; border-radius: 6px; background: #0b2036; }
+.author-translation-progress h2, .author-translation-quality h2 { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; font-size: 18px; }
+.author-translation-progress-bar { height: 9px; overflow: hidden; border-radius: 99px; background: #334960; }
+.author-translation-progress-bar span { display: block; height: 100%; border-radius: inherit; background: var(--ad-gold); }
+.author-translation-progress > p { margin: 3px 0 5px; color: #d3dde7; text-align: right; }
+.author-translation-progress ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.author-translation-progress li { display: flex; align-items: center; justify-content: space-between; gap: 6px; padding-top: 4px; border-top: 1px solid rgba(73,103,132,.3); }
+.author-translation-progress li small { color: #e9c95f; white-space: nowrap; }
+.author-translation-progress li small.status-spanish { color: #a9d1ff; }
+.author-translation-progress li small.status-french { color: #b5c0cc; }
+.author-translation-quality h2 svg { color: var(--ad-gold); }
+.author-translation-quality ul { display: grid; gap: 5px; margin: 0; padding: 0; list-style: none; }
+.author-translation-quality li { position: relative; padding-left: 13px; color: #d4dee8; line-height: 1.2; }
+.author-translation-quality li::before { position: absolute; left: 0; color: var(--ad-gold); content: "✦"; }
+.author-translation-language-bar { display: flex; align-items: stretch; justify-content: space-between; gap: 7px; min-width: 0; padding: 0 5px; border: 1px solid var(--ad-line); border-radius: 6px; background: #0a1d32; }
+.author-translation-tabs { display: flex; min-width: 0; align-items: stretch; gap: 4px; }
+.author-translation-tabs button { position: relative; display: flex; min-height: 40px; align-items: center; gap: 6px; padding: 5px 10px; color: #c1cdd8; border: 0; background: transparent; font: inherit; cursor: pointer; }
+.author-translation-tabs button.is-active { color: var(--ad-gold); font-weight: 800; }
+.author-translation-tabs button.is-active::after { position: absolute; right: 4px; bottom: -1px; left: 4px; height: 3px; background: var(--ad-gold); content: ""; }
+.author-translation-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 5px; }
+.author-translation-tools button { display: flex; min-height: 30px; align-items: center; justify-content: center; gap: 5px; padding: 4px 7px; color: #e0e8ef; border: 1px solid #536b81; border-radius: 4px; background: #0b2036; font: inherit; white-space: nowrap; cursor: pointer; }
+.author-translation-tools .author-translation-approve-all { color: #18232d; border-color: var(--ad-gold); background: var(--ad-gold); font-weight: 750; }
+.author-translation-workspace { display: grid; grid-template-columns: minmax(135px,.68fr) minmax(0,2.3fr) minmax(155px,.78fr); gap: 8px; align-items: stretch; min-width: 0; }
+.author-translation-chapters, .author-translation-editor, .author-translation-review-actions { min-width: 0; border: 1px solid var(--ad-line); border-radius: 7px; background: #091d32; }
+.author-translation-chapters { padding: 8px 6px; }
+.author-translation-chapters h2 { display: flex; align-items: center; justify-content: space-between; margin: 0 3px 6px; font-size: 18px; }
+.author-translation-chapters ol { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.author-translation-chapters button { display: flex; width: 100%; min-height: 31px; align-items: center; justify-content: space-between; gap: 4px; padding: 4px 5px; overflow: hidden; color: #c6d1dc; border: 1px solid transparent; border-radius: 4px; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+.author-translation-chapters button > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.author-translation-chapters button.is-active { color: var(--ad-gold); border-color: #9b8139; background: #172b3f; font-weight: 750; }
+.author-translation-chapters button svg { flex: 0 0 auto; color: #91a1af; }
+.author-translation-chapters button svg.is-done { color: #69d28e; }
+.author-translation-chapters button svg.is-progress { color: #75aeef; }
+.author-translation-editor { padding: 8px; }
+.author-translation-chapter-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+.author-translation-chapter-heading > div:first-child { display: flex; min-width: 0; align-items: center; flex-wrap: wrap; gap: 7px; }
+.author-translation-chapter-heading h2 { overflow: hidden; margin: 0; font-size: 18px; text-overflow: ellipsis; white-space: nowrap; }
+.author-translation-chapter-heading > div:first-child span { padding: 3px 6px; color: #c2ced9; border-radius: 3px; background: #142b43; white-space: nowrap; }
+.author-translation-chapter-heading > div:last-child { display: flex; flex: 0 0 auto; gap: 4px; }
+.author-translation-chapter-heading button { display: grid; width: 27px; height: 27px; place-items: center; color: #d6e0e8; border: 1px solid #536b81; border-radius: 4px; background: #0b2036; cursor: pointer; }
+.author-translation-chapter-heading button:disabled { opacity: .45; cursor: default; }
+.author-translation-comparison { display: grid; grid-template-columns: minmax(0,1fr) 25px minmax(0,1fr); gap: 5px; align-items: stretch; }
+.author-translation-text-panel { display: flex; min-width: 0; min-height: 280px; flex-direction: column; padding: 8px; border: 1px solid #d5dce4; border-radius: 5px; color: #253342; background: #f3f6fa; }
+.author-translation-text-panel.translated { border-color: #54708c; background: #e9eff6; }
+.author-translation-text-panel > div:first-child { display: flex; align-items: center; justify-content: space-between; gap: 5px; padding-bottom: 6px; border-bottom: 1px solid #c7d0d9; }
+.author-translation-text-panel > div:first-child strong { font-size: 16px; }
+.author-translation-text-panel > div:first-child span { padding: 3px 5px; color: #435263; border-radius: 4px; background: #dce4ec; white-space: nowrap; }
+.author-translation-text-panel.translated > div:first-child span { color: #263240; background: #f2ce66; }
+.author-translation-text-panel > p, .author-translation-text-panel textarea { flex: 1; margin: 7px 0; color: #344353; line-height: 1.42; white-space: pre-wrap; }
+.author-translation-text-panel textarea { min-height: 180px; padding: 6px; border: 1px solid #8697a8; border-radius: 4px; background: white; font: inherit; resize: vertical; }
+.author-translation-text-panel > small { margin-top: auto; color: #667687; }
+.author-translation-swap { z-index: 1; display: grid; width: 24px; height: 24px; place-self: center; place-items: center; color: #233648; border: 1px solid #93a6b8; border-radius: 50%; background: #f4f7fa; font-size: 19px; }
+.author-translation-panel-footer { display: flex; align-items: center; justify-content: space-between; gap: 5px; margin-top: auto; }
+.author-translation-panel-footer > small { color: #667687; }
+.author-translation-panel-footer > button { display: flex; align-items: center; gap: 4px; padding: 4px 6px; color: #263747; border: 1px solid #8194a7; border-radius: 4px; background: white; font: inherit; cursor: pointer; }
+.author-translation-version-compare { margin-top: 7px; padding: 7px; color: #d5e0ea; border: 1px solid #375675; border-radius: 5px; background: #102740; }
+.author-translation-version-compare strong { display: flex; align-items: center; gap: 5px; color: var(--ad-gold); }
+.author-translation-version-compare p { margin: 3px 0 0; color: #becbd7; }
+.author-translation-review-actions { display: flex; flex-direction: column; gap: 6px; padding: 8px; }
+.author-translation-review-actions h2 { margin: 0 0 2px; font-size: 18px; }
+.author-translation-review-actions > button { display: flex; min-height: 42px; align-items: center; gap: 7px; padding: 6px; color: #e1e9f0; border: 1px solid #455f78; border-radius: 5px; background: #0b2036; text-align: left; font: inherit; cursor: pointer; }
+.author-translation-review-actions > button > svg { flex: 0 0 auto; }
+.author-translation-review-actions > button > span { display: grid; gap: 2px; }
+.author-translation-review-actions > button small { color: #acbbc8; line-height: 1.1; }
+.author-translation-review-actions > button.is-approve { color: #1b3125; border-color: #83c495; background: #b9e3c2; }
+.author-translation-review-actions > button.is-approve small { color: #3b5a44; }
+.author-translation-review-actions > button.is-request { color: #18242e; border-color: #d5ae4c; background: var(--ad-gold); }
+.author-translation-review-actions > button.is-request small { color: #39424b; }
+.author-translation-request-input { min-height: 75px; padding: 7px; color: #e6edf3; border: 1px solid #536b81; border-radius: 4px; background: #0b2036; font: inherit; resize: vertical; }
+.author-translation-review-actions > button.author-translation-send-feedback { justify-content: center; min-height: 33px; color: #14212d; background: var(--ad-gold); }
+.author-translation-notice { margin: 0; padding: 6px; color: #a9e6bc; border: 1px solid #32744c; border-radius: 4px; background: #102d25; line-height: 1.2; }
+.author-translation-lower-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.2fr) minmax(0,1fr); gap: 8px; }
+.author-translation-lower-card { min-width: 0; padding: 8px; border: 1px solid var(--ad-line); border-radius: 7px; background: #091d32; }
+.author-translation-lower-card h2 { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; font-size: 18px; }
+.author-translation-lower-card h2 > svg { color: var(--ad-gold); }
+.author-translation-ai p { margin: 0 0 6px; color: #bdcad6; line-height: 1.3; }
+.author-translation-ai > button { display: inline-flex; align-items: center; gap: 4px; padding: 3px 0; color: var(--ad-gold); border: 0; background: transparent; text-decoration: underline; cursor: pointer; }
+.author-translation-author-feedback textarea { width: 100%; min-height: 46px; padding: 6px; color: #e7edf4; border: 1px solid #435f7a; border-radius: 4px; background: #0b2036; font: inherit; resize: vertical; }
+.author-translation-author-feedback > div { display: flex; align-items: center; justify-content: space-between; gap: 6px; margin-top: 5px; }
+.author-translation-author-feedback small { color: #9fafbe; }
+.author-translation-author-feedback button { display: flex; align-items: center; gap: 5px; padding: 5px 7px; color: #17232d; border: 0; border-radius: 4px; background: #d8e1ea; font: inherit; cursor: pointer; }
+.author-translation-history h2 { justify-content: space-between; }
+.author-translation-history h2 button { padding: 2px; color: var(--ad-gold); border: 0; background: transparent; text-decoration: underline; cursor: pointer; }
+.author-translation-history ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.author-translation-history li { display: grid; grid-template-columns: 30px minmax(0,1fr) minmax(0,1fr); gap: 3px 5px; padding-top: 4px; border-top: 1px solid rgba(68,99,128,.35); }
+.author-translation-history li > span:first-child { grid-row: 1 / span 2; color: #c4d0dc; }
+.author-translation-history li > span:nth-child(2) { grid-column: 2 / -1; color: #e0e8ef; }
+.author-translation-history li small { color: #a9b8c6; }
+.author-translation-history li small:last-child { text-align: right; }
+.author-translation-modal { position: fixed; z-index: 35; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(0,7,15,.8); }
+.author-translation-modal > section { position: relative; display: grid; justify-items: center; gap: 9px; width: min(520px,100%); padding: 24px; color: #e8eef4; border: 1px solid var(--ad-line); border-radius: 9px; background: #0a1d32; text-align: center; }
+.author-translation-modal > section > svg { color: var(--ad-gold); }
+.author-translation-modal h2 { margin: 0; font-size: 22px; }
+.author-translation-modal p { margin: 0; color: #c0cbd7; line-height: 1.4; }
+.author-translation-modal-close { position: absolute; top: 8px; right: 8px; display: grid; width: 31px; height: 31px; place-items: center; color: white; border: 0; border-radius: 4px; background: #102a43; cursor: pointer; }
+.author-translation-modal-done { min-width: 90px; min-height: 32px; color: #18232d; border: 0; border-radius: 4px; background: var(--ad-gold); font: inherit; cursor: pointer; }
+@media (max-width: 1120px) {
+  .author-translation-book-summary { grid-template-columns: 82px minmax(0,1fr) minmax(180px,1fr); }
+  .author-translation-quality { grid-column: 2 / -1; }
+  .author-translation-workspace { grid-template-columns: 145px minmax(0,1fr); }
+  .author-translation-review-actions { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); align-items: start; }
+  .author-translation-review-actions h2, .author-translation-notice, .author-translation-request-input { grid-column: 1 / -1; }
+  .author-translation-review-actions > button { min-height: 46px; }
+}
+@media (max-width: 820px) {
+  .author-translation-book-summary { grid-template-columns: 78px minmax(0,1fr); }
+  .author-translation-progress, .author-translation-quality { grid-column: 1 / -1; }
+  .author-translation-language-bar { flex-direction: column; }
+  .author-translation-tabs { overflow-x: auto; }
+  .author-translation-tabs button { white-space: nowrap; }
+  .author-translation-tools { justify-content: stretch; }
+  .author-translation-tools button { flex: 1; }
+  .author-translation-workspace { grid-template-columns: 1fr; }
+  .author-translation-chapters ol { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .author-translation-review-actions { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .author-translation-lower-grid { grid-template-columns: 1fr 1fr; }
+  .author-translation-history { grid-column: 1 / -1; }
+}
+@media (max-width: 560px) {
+  .author-translation-book-summary { grid-template-columns: 70px minmax(0,1fr); }
+  .author-translation-cover { min-height: 90px; }
+  .author-translation-book-info dl > div { grid-template-columns: 105px minmax(0,1fr); }
+  .author-translation-comparison { grid-template-columns: 1fr; }
+  .author-translation-swap { transform: rotate(90deg); }
+  .author-translation-text-panel { min-height: 210px; }
+  .author-translation-review-actions, .author-translation-lower-grid { grid-template-columns: 1fr; }
+  .author-translation-history { grid-column: auto; }
+}

@@ -183,7 +183,35 @@
 .author-dashboard-layout.is-uploading {
   grid-template-columns: 215px minmax(0, 1fr);
 }
+.author-dashboard-layout.is-translating {
+  grid-template-columns: 215px minmax(0, 1fr);
+}
+.author-dashboard-layout.is-books {
+  grid-template-columns: 215px minmax(0, 1fr);
+}
+.author-dashboard-layout.is-analytics {
+  grid-template-columns: 215px minmax(0, 1fr);
+}
+.author-dashboard-layout.is-payouts {
+  grid-template-columns: 215px minmax(0, 1fr);
+}
 .author-dashboard-main.is-uploading {
+  grid-column: 2 / -1;
+  min-width: 0;
+}
+.author-dashboard-main.is-translating {
+  grid-column: 2 / -1;
+  min-width: 0;
+}
+.author-dashboard-main.is-books {
+  grid-column: 2 / -1;
+  min-width: 0;
+}
+.author-dashboard-main.is-analytics {
+  grid-column: 2 / -1;
+  min-width: 0;
+}
+.author-dashboard-main.is-payouts {
   grid-column: 2 / -1;
   min-width: 0;
 }
@@ -848,7 +876,7 @@
   outline-offset: 2px;
 }
 
-.author-dashboard-page :where(p, a, button, label, input, li, strong, small, span, b, em) {
+.author-dashboard-page :where(p, a, button, label, input, li, strong, small, span, b, em, dt, dd) {
   font-size: 16px !important;
 }
 .author-dashboard-page :where(h1, h2, h3, h4, h5, h6) * {
@@ -916,7 +944,31 @@
   .author-dashboard-layout.is-uploading {
     grid-template-columns: 190px minmax(0, 1fr);
   }
+  .author-dashboard-layout.is-translating {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .author-dashboard-layout.is-books {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .author-dashboard-layout.is-analytics {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .author-dashboard-layout.is-payouts {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
   .author-dashboard-main.is-uploading {
+    grid-column: 2;
+  }
+  .author-dashboard-main.is-translating {
+    grid-column: 2;
+  }
+  .author-dashboard-main.is-books {
+    grid-column: 2;
+  }
+  .author-dashboard-main.is-analytics {
+    grid-column: 2;
+  }
+  .author-dashboard-main.is-payouts {
     grid-column: 2;
   }
   .author-dashboard-right {
