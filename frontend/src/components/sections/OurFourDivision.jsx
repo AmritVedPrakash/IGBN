@@ -102,7 +102,7 @@ const divisions = [
       "Work 24/7 with accuracy and consistency",
       "Reduce costs and scale faster",
     ],
-    href: "/services",
+    href: "/ai-coo",
   },
   {
     icon: BookOpen,

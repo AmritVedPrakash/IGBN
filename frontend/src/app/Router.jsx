@@ -54,6 +54,7 @@ import ReaderCheckoutPage from "../components/sections/home/GlobalPublishers/Rea
 import ReaderOrderConfirmationPage from "../components/sections/home/GlobalPublishers/Readers/ReaderOrderConfirmationPage";
 import ReaderLibraryPage from "../components/sections/home/GlobalPublishers/Readers/ReaderLibraryPage";
 import ReaderBookReaderPage from "../components/sections/home/GlobalPublishers/Readers/ReaderBookReaderPage";
+import COORegistration from "../components/sections/home/AICOO/COORegistration";
 
 export default function Router() {
   const location = useLocation();
@@ -61,6 +62,15 @@ export default function Router() {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
+        <Route
+          path="/ai-coo"
+          element={
+            <PageTransition>
+              <COORegistration />
+            </PageTransition>
+          }
+        />
+
         <Route
           path="/"
           element={

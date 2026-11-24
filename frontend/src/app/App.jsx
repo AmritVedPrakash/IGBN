@@ -8,7 +8,8 @@ import { ReaderCartProvider } from "../components/sections/home/GlobalPublishers
 export default function App() {
   useLenis();
   const { pathname } = useLocation();
-  const isStandalonePortal = pathname.startsWith("/publishers/author/") || pathname.startsWith("/publishers/readers");
+  const isStandalonePortal = pathname === "/ai-coo" || pathname.startsWith("/publishers/author/") || pathname.startsWith("/publishers/readers");
+
   return (
     <>
     <InteractiveCursor />
