@@ -86,7 +86,7 @@ export default function COOCompanyDetails({
   return (
     <>
       <header className="coo-progress-header">
-        <div className="coo-step-label">STEP {currentStep} OF 12</div>
+        <div className="coo-step-label">STEP {currentStep} OF 19</div>
         <div
           className="coo-progress-track"
           role="progressbar"
@@ -357,3 +357,4 @@ export default function COOCompanyDetails({
     </>
   );
 }
+

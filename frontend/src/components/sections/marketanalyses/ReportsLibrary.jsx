@@ -14,11 +14,9 @@ export default function ReportsLibrary() {
 
   const tabs = [
     "Market Reports",
-    "Country Reports",
+    
     "Industry Reports",
-    "Import Trends",
-    "Export Trends",
-    "Premium Reports",
+   
   ];
 
   const reports = [

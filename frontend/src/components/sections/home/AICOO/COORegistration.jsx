@@ -17,6 +17,10 @@ import COOMeetEmployees from "./COOMeetEmployees";
 import COOConnectAITeam from "./COOConnectAITeam";
 import COOConnectBusinessTools from "./COOConnectBusinessTools";
 import COOSetPermissionsApprovals from "./COOSetPermissionsApprovals";
+import COODefineAITeamWorks from "./COODefineAITeamWorks";
+import COOTestAIWorkforce from "./COOTestAIWorkforce";
+import COOActivateAIWorkforce from "./COOActivateAIWorkforce";
+import COOAIWorkforceControlCenter from "./COOAIWorkforceControlCenter";
 import "./coo-registration.css";
 
 const createEmptyWorkforce = () => ({
@@ -315,7 +319,7 @@ export default function COORegistration() {
 
       if (
         Object.prototype.hasOwnProperty.call(savedDraft, "currentStep") &&
-        (!Number.isInteger(savedDraft.currentStep) || savedDraft.currentStep < 1 || savedDraft.currentStep > 16)
+        (!Number.isInteger(savedDraft.currentStep) || savedDraft.currentStep < 1 || savedDraft.currentStep > 20)
       ) {
         throw new Error("Saved registration progress has an unexpected value.");
       }
@@ -527,7 +531,7 @@ export default function COORegistration() {
         <div className="coo-registration-workspace">
           <COOCompanyDetails
             companyDetails={companyDetails}
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             onChange={updateCompanyDetails}
             onCompanyTypeToggle={toggleCompanyType}
             onBack={() => setCurrentStep(1)}
@@ -549,7 +553,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOProductsServices
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             currentMarkets={currentMarkets}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(2)}
@@ -581,7 +585,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOCustomersSales
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             customerSales={customerSales}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(3)}
@@ -603,7 +607,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOMarketsInternational
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             marketsData={marketsData}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(4)}
@@ -625,7 +629,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOBusinessModel
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             financialData={financialData}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(5)}
@@ -647,7 +651,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOOperationsSupplyChain
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             operationsData={operationsData}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(6)}
@@ -669,7 +673,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOPeopleOrganization
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             peopleData={peopleData}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(7)}
@@ -691,7 +695,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOCompanyKnowledge
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             knowledgeData={knowledgeData}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(8)}
@@ -713,7 +717,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOSystemsWorkspace
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             systemsData={systemsData}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(9)}
@@ -735,7 +739,7 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOManagementGoals
-            currentStep={currentStep}
+            currentStep={currentStep - 1}
             managementData={managementData}
             draftMessage={draftMessage}
             onBack={() => setCurrentStep(10)}
@@ -757,8 +761,8 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOAIWorkforce
-            currentStep={currentStep}
-            totalSteps={16}
+            currentStep={currentStep - 1}
+            totalSteps={19}
             workforceData={workforceData}
             draftMessage={draftMessage}
             onBack={() => navigateToStep(11)}
@@ -777,8 +781,8 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOMeetEmployees
-            currentStep={13}
-            totalSteps={16}
+            currentStep={12}
+            totalSteps={19}
             draftMessage={draftMessage}
             onBack={() => navigateToStep(12)}
             onSaveProgress={() => saveDraft(13)}
@@ -795,8 +799,8 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOConnectAITeam
-            currentStep={14}
-            totalSteps={16}
+            currentStep={13}
+            totalSteps={19}
             draftMessage={draftMessage}
             onBack={() => navigateToStep(13)}
             onSaveProgress={() => saveDraft(14)}
@@ -813,8 +817,8 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOConnectBusinessTools
-            currentStep={15}
-            totalSteps={16}
+            currentStep={14}
+            totalSteps={19}
             draftMessage={draftMessage}
             onBack={() => navigateToStep(14)}
             onSaveProgress={() => saveDraft(15)}
@@ -831,12 +835,84 @@ export default function COORegistration() {
         <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
         <div className="coo-registration-workspace">
           <COOSetPermissionsApprovals
-            currentStep={16}
-            totalSteps={16}
+            currentStep={15}
+            totalSteps={19}
             draftMessage={draftMessage}
             onBack={() => navigateToStep(15)}
             onSaveProgress={() => saveDraft(16)}
             onNext={() => navigateToStep(17)}
+          />
+        </div>
+      </main>
+    );
+  }
+
+  if (currentStep === 17) {
+    return (
+      <main className="coo-registration">
+        <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
+        <div className="coo-registration-workspace">
+          <COODefineAITeamWorks
+            currentStep={16}
+            totalSteps={19}
+            draftMessage={draftMessage}
+            onBack={() => navigateToStep(16)}
+            onSaveProgress={() => saveDraft(17)}
+            onNext={() => navigateToStep(18)}
+          />
+        </div>
+      </main>
+    );
+  }
+
+  if (currentStep === 18) {
+    return (
+      <main className="coo-registration">
+        <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
+        <div className="coo-registration-workspace">
+          <COOTestAIWorkforce
+            currentStep={17}
+            totalSteps={19}
+            draftMessage={draftMessage}
+            onBack={() => navigateToStep(17)}
+            onSaveProgress={() => saveDraft(18)}
+            onNext={() => navigateToStep(19)}
+          />
+        </div>
+      </main>
+    );
+  }
+
+  if (currentStep === 19) {
+    return (
+      <main className="coo-registration">
+        <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
+        <div className="coo-registration-workspace">
+          <COOActivateAIWorkforce
+            currentStep={18}
+            totalSteps={19}
+            draftMessage={draftMessage}
+            onBack={() => navigateToStep(18)}
+            onSaveProgress={() => saveDraft(19)}
+            onNext={() => navigateToStep(20)}
+          />
+        </div>
+      </main>
+    );
+  }
+
+  if (currentStep === 20) {
+    return (
+      <main className="coo-registration">
+        <COORegistrationSidebar currentStep={currentStep} onStepClick={navigateToStep} />
+        <div className="coo-registration-workspace">
+          <COOAIWorkforceControlCenter
+            currentStep={19}
+            totalSteps={19}
+            draftMessage={draftMessage}
+            onBack={() => navigateToStep(19)}
+            onSaveProgress={() => saveDraft(20)}
+            onNext={() => navigateToStep(21)}
           />
         </div>
       </main>
@@ -849,23 +925,23 @@ export default function COORegistration() {
 
       <div className="coo-registration-workspace">
         <header className="coo-progress-header">
-          <div className="coo-step-label">STEP {currentStep} OF 16</div>
+          <div className="coo-step-label">STEP {currentStep - 1} OF 19</div>
           <div
             className="coo-progress-track"
             role="progressbar"
             aria-label="Registration progress"
             aria-valuemin={1}
-            aria-valuemax={16}
+            aria-valuemax={19}
             aria-valuenow={currentStep}
           >
-            {Array.from({ length: 16 }, (_, index) => (
+            {Array.from({ length: 19 }, (_, index) => (
               <span
                 className={`coo-progress-dot ${index < currentStep - 1 ? "is-complete" : ""} ${index === currentStep - 1 ? "is-current" : ""}`}
                 key={index}
               />
             ))}
           </div>
-          <span className="coo-progress-count">{currentStep} / 16</span>
+          <span className="coo-progress-count">{currentStep} / 19</span>
         </header>
 
         <div className="coo-registration-columns">
@@ -957,3 +1033,6 @@ export default function COORegistration() {
     </main>
   );
 }
+
+
+

@@ -29,7 +29,7 @@ import clientMichaelImage from "../../../../assets/marketing-pr/client-michael-t
 
 export default function COOSetPermissionsApprovals({
   currentStep = 16,
-  totalSteps = 16,
+  totalSteps = 17,
   draftMessage,
   onBack,
   onSaveProgress,

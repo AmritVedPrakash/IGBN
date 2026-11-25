@@ -17,6 +17,10 @@ const registrationSteps = [
   "Connect Your AI Team to COO",
   "Connect Your Business Tools",
   "Set Permissions & Approvals",
+  "Define How Your AI Team Works",
+  "Test Your AI Workforce",
+  "Activate Your AI Workforce",
+  "AI Workforce Control Center",
 ];
 
 export default function COORegistrationSidebar({ currentStep = 1, onStepClick }) {
@@ -32,6 +36,7 @@ export default function COORegistrationSidebar({ currentStep = 1, onStepClick })
         <ol>
           {registrationSteps.map((step, index) => {
             const stepNumber = index + 1;
+            const displayNumber = index === 0 ? null : index; // Welcome has no number; others: 1,2,...19
             const isCompleted = index < currentStep - 1;
             const isClickable = Boolean(onStepClick) && (isCompleted || stepNumber <= currentStep);
 
@@ -47,7 +52,13 @@ export default function COORegistrationSidebar({ currentStep = 1, onStepClick })
                 }}
               >
                 <span className="coo-nav-number">
-                  {index < currentStep - 1 ? <Check aria-label="Completed" size={17} /> : stepNumber}
+                  {isCompleted ? (
+                    <Check aria-label="Completed" size={17} />
+                  ) : displayNumber !== null ? (
+                    displayNumber
+                  ) : (
+                    <span style={{ fontSize: "10px", lineHeight: 1 }}>✦</span>
+                  )}
                 </span>
                 <span className="coo-nav-label">{step}</span>
               </li>

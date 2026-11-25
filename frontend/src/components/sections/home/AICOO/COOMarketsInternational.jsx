@@ -340,7 +340,7 @@ export default function COOMarketsInternational({
     <>
       {/* Step Header */}
       <header className="coo-progress-header">
-        <div className="coo-step-label">STEP {currentStep} OF 12</div>
+        <div className="coo-step-label">STEP {currentStep} OF 19</div>
         <div
           aria-label="Registration progress"
           aria-valuemax={12}
@@ -985,3 +985,4 @@ export default function COOMarketsInternational({
     </>
   );
 }
+
